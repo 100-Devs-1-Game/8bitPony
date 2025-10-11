@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://bk0h6axpmena0"]
+
+[ext_resource type="Script" path="res://Scripts/scr_level_select.gd" id="1_18ftj"]
+[ext_resource type="PackedScene" uid="uid://b4j3uvi3nugac" path="res://Scenes/Characters/obj_player.tscn" id="1_wti6g"]
+[ext_resource type="Texture2D" uid="uid://bs85tscd4eycs" path="res://icon.svg" id="3_yxcp0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1huox"]
+size = Vector2(1730, 241)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkgl5"]
+size = Vector2(131, 173)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jt5ci"]
+size = Vector2(129, 127)
+
+[node name="Level Select" type="Node2D"]
+script = ExtResource("1_18ftj")
+
+[node name="BG" type="ColorRect" parent="."]
+offset_right = 1278.0
+offset_bottom = 719.0
+color = Color(0.266667, 0.490196, 0.839216, 1)
+metadata/_edit_lock_ = true
+
+[node name="Ground_texture" type="ColorRect" parent="."]
+offset_top = 557.0
+offset_right = 1732.0
+offset_bottom = 793.0
+color = Color(0.0352941, 0.117647, 0.247059, 1)
+
+[node name="Ground_area2d" type="StaticBody2D" parent="Ground_texture"]
+position = Vector2(7, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground_texture/Ground_area2d"]
+position = Vector2(859, 114.5)
+shape = SubResource("RectangleShape2D_1huox")
+
+[node name="obj_Player" parent="." instance=ExtResource("1_wti6g")]
+position = Vector2(170, 492)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(639, 363)
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Forrest_door" type="ColorRect" parent="Doors"]
+offset_left = 495.0
+offset_top = 332.0
+offset_right = 664.0
+offset_bottom = 556.0
+color = Color(0.639216, 0.388235, 0, 1)
+
+[node name="F_Door_Area2D" type="Area2D" parent="Doors/Forrest_door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Forrest_door/F_Door_Area2D"]
+position = Vector2(84.5, 109.5)
+shape = SubResource("RectangleShape2D_rkgl5")
+
+[node name="Room select" type="Node2D" parent="."]
+position = Vector2(300, 272)
+
+[node name="Polygon2D" type="Polygon2D" parent="Room select"]
+position = Vector2(-356, -196)
+color = Color(0, 0.721569, 0, 1)
+polygon = PackedVector2Array(318, 186, 362, 228, 405, 186, 362.517, 186)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Room select"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.0
+offset_top = -103.0
+offset_right = 354.0
+offset_bottom = 357.0
+grow_horizontal = 2
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/normal_font_size = 100
+text = "Press Enter 
+to start"
+
+[node name="Block" type="StaticBody2D" parent="."]
+position = Vector2(761, 451)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+position = Vector2(64.5, 64.5)
+shape = SubResource("RectangleShape2D_jt5ci")
+
+[node name="TextureRect" type="TextureRect" parent="Block"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_yxcp0")
+
+[connection signal="body_entered" from="Doors/Forrest_door/F_Door_Area2D" to="." method="_on_f_door_area_2d_body_entered"]
+[connection signal="body_exited" from="Doors/Forrest_door/F_Door_Area2D" to="." method="_on_f_door_area_2d_body_exited"]

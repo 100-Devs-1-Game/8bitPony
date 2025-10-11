@@ -1,0 +1,237 @@
+[gd_scene load_steps=13 format=3 uid="uid://bk0h6axpmena0"]
+
+[ext_resource type="Script" path="res://Scripts/scr_level_select.gd" id="1_18ftj"]
+[ext_resource type="PackedScene" uid="uid://b4j3uvi3nugac" path="res://Scenes/Characters/obj_player.tscn" id="1_wti6g"]
+[ext_resource type="Texture2D" uid="uid://hfkgjydgckuv" path="res://Images/Assets/Forest_door_1.png" id="3_hbgqw"]
+[ext_resource type="Texture2D" uid="uid://bs85tscd4eycs" path="res://icon.svg" id="3_yxcp0"]
+[ext_resource type="Texture2D" uid="uid://bn68o0nd5g4ft" path="res://Images/Assets/Lock_1.png" id="4_r5btx"]
+[ext_resource type="Texture2D" uid="uid://c8w1tknbh0gy1" path="res://Images/Assets/collum 1.png" id="5_51vsw"]
+[ext_resource type="Texture2D" uid="uid://bjqkofy3xxr0w" path="res://Images/Assets/Elements of harmony_base_empty.png" id="7_12kyc"]
+[ext_resource type="Texture2D" uid="uid://py6aogeowgyd" path="res://Images/Assets/Elements of harmony_red_gem.png" id="8_f78q1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1huox"]
+size = Vector2(7281, 241)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0elw"]
+size = Vector2(128, 908)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkgl5"]
+size = Vector2(131, 173)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jt5ci"]
+size = Vector2(129, 127)
+
+[node name="Level Select" type="Node2D"]
+script = ExtResource("1_18ftj")
+
+[node name="BG" type="ColorRect" parent="."]
+offset_left = -219.0
+offset_right = 7068.0
+offset_bottom = 793.0
+color = Color(0.266667, 0.490196, 0.839216, 1)
+
+[node name="Ground_texture" type="ColorRect" parent="."]
+offset_left = -219.0
+offset_top = 557.0
+offset_right = 7068.0
+offset_bottom = 793.0
+color = Color(0.0352941, 0.117647, 0.247059, 1)
+
+[node name="Ground_area2d" type="StaticBody2D" parent="Ground_texture"]
+position = Vector2(7, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground_texture/Ground_area2d"]
+position = Vector2(3631.5, 114.5)
+shape = SubResource("RectangleShape2D_1huox")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground_texture/Ground_area2d"]
+position = Vector2(80, -224)
+shape = SubResource("RectangleShape2D_u0elw")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground_texture/Ground_area2d"]
+position = Vector2(7280, -230)
+shape = SubResource("RectangleShape2D_u0elw")
+
+[node name="obj_Player" parent="." groups=["player"] instance=ExtResource("1_wti6g")]
+position = Vector2(1723, 498)
+
+[node name="Camera2D" type="Camera2D" parent="obj_Player"]
+position = Vector2(12.4, -27.4)
+scale = Vector2(0.2, 0.2)
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Forrest_door" type="TextureRect" parent="Doors"]
+offset_left = 476.0
+offset_top = 358.0
+offset_right = 516.0
+offset_bottom = 398.0
+scale = Vector2(5, 5)
+texture = ExtResource("3_hbgqw")
+
+[node name="F_Door_Area2D" type="Area2D" parent="Doors/Forrest_door"]
+position = Vector2(3.4, 0.599998)
+scale = Vector2(0.2, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Forrest_door/F_Door_Area2D"]
+position = Vector2(84.5, 109.5)
+shape = SubResource("RectangleShape2D_rkgl5")
+
+[node name="Locked_Door" type="TextureRect" parent="Doors"]
+offset_left = 1125.0
+offset_top = 358.0
+offset_right = 1165.0
+offset_bottom = 398.0
+scale = Vector2(5, 5)
+texture = ExtResource("3_hbgqw")
+
+[node name="Locked_Door2" type="TextureRect" parent="Doors/Locked_Door"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_r5btx")
+
+[node name="Locked_Door2" type="TextureRect" parent="Doors"]
+offset_left = 1723.0
+offset_top = 358.0
+offset_right = 1763.0
+offset_bottom = 398.0
+scale = Vector2(5, 5)
+texture = ExtResource("3_hbgqw")
+
+[node name="Locked_Door2" type="TextureRect" parent="Doors/Locked_Door2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_r5btx")
+
+[node name="Locked_Door3" type="TextureRect" parent="Doors"]
+offset_left = 3064.0
+offset_top = 358.0
+offset_right = 3104.0
+offset_bottom = 398.0
+scale = Vector2(5, 5)
+texture = ExtResource("3_hbgqw")
+
+[node name="Locked_Door2" type="TextureRect" parent="Doors/Locked_Door3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_r5btx")
+
+[node name="Locked_Door4" type="TextureRect" parent="Doors"]
+offset_left = 3811.0
+offset_top = 361.0
+offset_right = 3851.0
+offset_bottom = 401.0
+scale = Vector2(5, 5)
+texture = ExtResource("3_hbgqw")
+
+[node name="Locked_Door2" type="TextureRect" parent="Doors/Locked_Door4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_r5btx")
+
+[node name="Locked_Door5" type="TextureRect" parent="Doors"]
+offset_left = 4395.0
+offset_top = 361.0
+offset_right = 4435.0
+offset_bottom = 401.0
+scale = Vector2(5, 5)
+texture = ExtResource("3_hbgqw")
+
+[node name="Locked_Door2" type="TextureRect" parent="Doors/Locked_Door5"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_r5btx")
+
+[node name="Room select" type="Node2D" parent="."]
+position = Vector2(300, 272)
+
+[node name="Polygon2D" type="Polygon2D" parent="Room select"]
+position = Vector2(-356, -196)
+color = Color(0, 0.721569, 0, 1)
+polygon = PackedVector2Array(318, 186, 362, 228, 405, 186, 362.517, 186)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Room select"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.0
+offset_top = -103.0
+offset_right = 354.0
+offset_bottom = 357.0
+grow_horizontal = 2
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/normal_font_size = 100
+text = "Press \"E\"
+to start"
+
+[node name="Block" type="StaticBody2D" parent="."]
+position = Vector2(-60, 433)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+position = Vector2(64.5, 64.5)
+shape = SubResource("RectangleShape2D_jt5ci")
+
+[node name="TextureRect" type="TextureRect" parent="Block"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_yxcp0")
+
+[node name="Collum" type="Node2D" parent="."]
+
+[node name="Collum_1" type="TextureRect" parent="Collum"]
+offset_left = 639.0
+offset_top = 226.0
+offset_right = 971.0
+offset_bottom = 558.0
+texture = ExtResource("5_51vsw")
+
+[node name="Collum_2" type="TextureRect" parent="Collum"]
+offset_left = 639.0
+offset_right = 971.0
+offset_bottom = 332.0
+texture = ExtResource("5_51vsw")
+flip_v = true
+
+[node name="Collum2" type="Node2D" parent="."]
+position = Vector2(-480, 0)
+
+[node name="Collum_1" type="TextureRect" parent="Collum2"]
+offset_left = 639.0
+offset_top = 226.0
+offset_right = 971.0
+offset_bottom = 558.0
+texture = ExtResource("5_51vsw")
+
+[node name="Collum_2" type="TextureRect" parent="Collum2"]
+offset_left = 639.0
+offset_right = 971.0
+offset_bottom = 332.0
+texture = ExtResource("5_51vsw")
+flip_v = true
+
+[node name="Element_Harmony" type="Node2D" parent="."]
+position = Vector2(2424, 304)
+
+[node name="Base" type="TextureRect" parent="Element_Harmony"]
+offset_left = -136.0
+offset_top = -209.0
+offset_right = -96.0
+offset_bottom = -169.0
+scale = Vector2(7, 7)
+texture = ExtResource("7_12kyc")
+
+[node name="red" type="TextureRect" parent="Element_Harmony"]
+offset_left = -138.0
+offset_top = -176.0
+offset_right = -102.0
+offset_bottom = -140.0
+scale = Vector2(2, 2)
+texture = ExtResource("8_f78q1")
+
+[connection signal="body_entered" from="Doors/Forrest_door/F_Door_Area2D" to="." method="_on_f_door_area_2d_body_entered"]
+[connection signal="body_exited" from="Doors/Forrest_door/F_Door_Area2D" to="." method="_on_f_door_area_2d_body_exited"]
