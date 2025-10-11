@@ -1,25 +1,23 @@
+class_name Wolf
 extends CharacterBody2D
 
-@onready var texture_rect = $TextureRect
-const SPEED = 300
+@onready var texture_rect: TextureRect = $TextureRect
+@onready var ray_cast_right: RayCast2D = $RayCast_Right
+@onready var ray_cast_left: RayCast2D = $RayCast_Left
 
-var direction = 1
+@export var speed: float = 300
 
-@onready var ray_cast_right = $RayCast_Right
-@onready var ray_cast_left = $RayCast_Left
+var direction: int = 1
 
 
-func _process(delta):
+func _process(_delta: float):
 	if ray_cast_right.is_colliding():
 		direction = -1
 		texture_rect.flip_h = false
 	if ray_cast_left.is_colliding():
 		direction = 1
 		texture_rect.flip_h = true
-	position.x += direction * SPEED * delta
-
-func _on_animation_player_animation_finished(anim_name):
-	pass
+	position.x += direction * speed * _delta
 
 
 func _on_enemy_hitbox_body_entered(body):

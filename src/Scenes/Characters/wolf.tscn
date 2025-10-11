@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4xpqd83w51cq"]
 
-[ext_resource type="Script" path="res://Scripts/scrj_wolf.gd" id="1_5jxfp"]
+[ext_resource type="Script" uid="uid://bu7y47aniynw0" path="res://Scripts/wolf.gd" id="1_5jxfp"]
 [ext_resource type="Texture2D" uid="uid://djlfl42gl5y8h" path="res://Images/Enemies/Wolf/T_Wolf_1.png" id="1_rwry1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4an2"]
@@ -10,7 +10,7 @@ size = Vector2(157, 101)
 radius = 65.0051
 height = 199.99
 
-[node name="obj_Enemy" type="CharacterBody2D"]
+[node name="Wolf" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_5jxfp")

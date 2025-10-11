@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dx8bxt70q06xt"]
 
-[ext_resource type="Script" path="res://Scripts/scr_Shard_pickup.gd" id="1_4siex"]
+[ext_resource type="Script" uid="uid://p38te207illv" path="res://Scripts/shard_pickup.gd" id="1_4siex"]
 [ext_resource type="Texture2D" uid="uid://bvbwqk3vyoju4" path="res://Images/Assets/Red_Shard_1.png" id="2_7u4ig"]
 [ext_resource type="AudioStream" uid="uid://df0ru5ykgvyox" path="res://Sound/SFX/Item_Appears.wav" id="3_qjjoa"]
 

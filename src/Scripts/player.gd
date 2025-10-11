@@ -1,26 +1,24 @@
+class_name Player
 extends CharacterBody2D
 
-const SPEED = 600.0
-const JUMP_VELOCITY = -550.0
-const Gravity_change = 200
-
-enum pony_state_machine {Idle, Running, Jumping, Falling, Attacking, Dying}
-var pony_state = pony_state_machine.Idle
-@onready var spr_player = $spr_player
-@onready var spr_u_idle = $spr_player/spr_unicorn_idle
-@onready var spr_u_fall = $spr_player/spr_unicorn_fall
-@onready var un_anim_spr = $spr_player/Un_anim_spr
-@onready var state_label = $State_label
+@onready var spr_player: Node2D = $player_sprite
+@onready var un_anim_spr: AnimatedSprite2D = $player_sprite/Un_anim_sprite
+@onready var state_label: Label = $State
 
 # Sounds
-@onready var hit_sound = $Hit_sound
-@onready var health_sound = $Health_sound
+@onready var hit_sound: AudioStreamPlayer = $Hit
+@onready var health_sound: AudioStreamPlayer = $Health
 
-var MagicBullet: PackedScene = load("res://Scenes/Objects/obj_magic_bullet.tscn")
+@export var magic_bullet: PackedScene
+@export var speed: float = 600.0
+@export var jump_velocity: float = -550.0
+@export var gravity_change: float = 200
 
+enum PonyStateMachine {Idle, Running, Jumping, Falling, Attacking, Dying}
+var pony_state: PonyStateMachine = PonyStateMachine.Idle
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = Gravity_change + ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity: float = gravity_change + ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	Global.face_right = true
@@ -31,29 +29,29 @@ func _physics_process(delta):
 	_sprite_handle()
 	_state_label_tect()
 	
-func _default_movement(delta): #player moment from the character2d script
+func _default_movement(_delta: float): #player moment from the character2d script
 		# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += gravity * _delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("Up") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = jump_velocity
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("Left", "Right")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
 
-func _input(event):
+func _input(_event: InputEvent):
 	#Firing magic bullets
 	if Input.is_action_just_pressed("Shoot"):
-		var bullet =  MagicBullet.instantiate()
+		var bullet =  magic_bullet.instantiate()
 		bullet.position.y = self.position.y -108
 		
 		if Global.face_right == true:
@@ -83,28 +81,28 @@ func _flash_red(): #player gets hit, flash red
 	
 	
 func _Pony_state_setter():
-	if pony_state == pony_state_machine.Dying:
+	if pony_state == PonyStateMachine.Dying:
 		return  # death overrides everything
 
 	# --- In the air ---
 	if not is_on_floor():
 		if velocity.y < 0:
-			pony_state = pony_state_machine.Jumping
+			pony_state = PonyStateMachine.Jumping
 		else:
-			pony_state = pony_state_machine.Falling
+			pony_state = PonyStateMachine.Falling
 		return  # stop here so we don't fall through
 
 	# --- On the ground ---
 	if Input.is_action_pressed("attack"):
-		pony_state = pony_state_machine.Attacking
+		pony_state = PonyStateMachine.Attacking
 	elif abs(velocity.x) > 0.1:
-		pony_state = pony_state_machine.Running
+		pony_state = PonyStateMachine.Running
 	else:
-		pony_state = pony_state_machine.Idle
+		pony_state = PonyStateMachine.Idle
 
 
 func _sprite_handle(): #handles sprite stuff
-	if pony_state == pony_state_machine.Falling:
+	if pony_state == PonyStateMachine.Falling:
 		if spr_player.scale.x == 1:
 			spr_player.rotation_degrees = -34
 		elif spr_player.scale.x == -1:
@@ -112,7 +110,7 @@ func _sprite_handle(): #handles sprite stuff
 	else:
 		spr_player.rotation_degrees = 0
 
-	if pony_state != pony_state_machine.Dying:
+	if pony_state != PonyStateMachine.Dying:
 		if Input.is_action_just_pressed("Right"):
 			Global.face_right = true
 			Global.face_left = false
@@ -122,29 +120,29 @@ func _sprite_handle(): #handles sprite stuff
 			Global.face_right = false
 			Global.face_left = true
 	match pony_state: 
-		pony_state_machine.Idle:
+		PonyStateMachine.Idle:
 			un_anim_spr.play("Idle")
-		pony_state_machine.Running:
+		PonyStateMachine.Running:
 			un_anim_spr.play("Running")
-		pony_state_machine.Falling:
+		PonyStateMachine.Falling:
 			un_anim_spr.play("Fall")
-		pony_state_machine.Attacking:
+		PonyStateMachine.Attacking:
 			un_anim_spr.play("Idle")
-		pony_state_machine.Dying:
+		PonyStateMachine.Dying:
 			un_anim_spr.play("Dying")
 
 func _state_label_tect():
 	#visual tracker of the state
 	match pony_state: 
-		pony_state_machine.Idle:
+		PonyStateMachine.Idle:
 			state_label.text = str("Idle")
-		pony_state_machine.Running:
+		PonyStateMachine.Running:
 			state_label.text = str("Running")
-		pony_state_machine.Jumping:
+		PonyStateMachine.Jumping:
 			state_label.text = str("Jumping")
-		pony_state_machine.Falling:
+		PonyStateMachine.Falling:
 			state_label.text = str("Fall")
-		pony_state_machine.Attacking:
+		PonyStateMachine.Attacking:
 			state_label.text = str("Attack")
-		pony_state_machine.Dying:
+		PonyStateMachine.Dying:
 			state_label.text = str("Die")

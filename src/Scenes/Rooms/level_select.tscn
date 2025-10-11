@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bk0h6axpmena0"]
 
-[ext_resource type="Script" path="res://Scripts/scr_level_select.gd" id="1_18ftj"]
-[ext_resource type="PackedScene" uid="uid://b4j3uvi3nugac" path="res://Scenes/Characters/obj_player.tscn" id="1_wti6g"]
+[ext_resource type="Script" uid="uid://c370jm1po8asl" path="res://Scripts/level_select.gd" id="1_18ftj"]
+[ext_resource type="PackedScene" uid="uid://b4j3uvi3nugac" path="res://Scenes/Characters/player.tscn" id="1_wti6g"]
 [ext_resource type="Texture2D" uid="uid://hfkgjydgckuv" path="res://Images/Assets/Forest_door_1.png" id="3_hbgqw"]
 [ext_resource type="Texture2D" uid="uid://bs85tscd4eycs" path="res://icon.svg" id="3_yxcp0"]
 [ext_resource type="Texture2D" uid="uid://bn68o0nd5g4ft" path="res://Images/Assets/Lock_1.png" id="4_r5btx"]
@@ -52,16 +52,16 @@ shape = SubResource("RectangleShape2D_u0elw")
 position = Vector2(7280, -230)
 shape = SubResource("RectangleShape2D_u0elw")
 
-[node name="obj_Player" parent="." groups=["player"] instance=ExtResource("1_wti6g")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_wti6g")]
 position = Vector2(1723, 498)
 
-[node name="Camera2D" type="Camera2D" parent="obj_Player"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(12.4, -27.4)
 scale = Vector2(0.2, 0.2)
 
 [node name="Doors" type="Node2D" parent="."]
 
-[node name="Forrest_door" type="TextureRect" parent="Doors"]
+[node name="ForestDoor" type="TextureRect" parent="Doors"]
 offset_left = 476.0
 offset_top = 358.0
 offset_right = 516.0
@@ -69,11 +69,11 @@ offset_bottom = 398.0
 scale = Vector2(5, 5)
 texture = ExtResource("3_hbgqw")
 
-[node name="F_Door_Area2D" type="Area2D" parent="Doors/Forrest_door"]
+[node name="F_Door_Area2D" type="Area2D" parent="Doors/ForestDoor"]
 position = Vector2(3.4, 0.599998)
 scale = Vector2(0.2, 0.2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/Forrest_door/F_Door_Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/ForestDoor/F_Door_Area2D"]
 position = Vector2(84.5, 109.5)
 shape = SubResource("RectangleShape2D_rkgl5")
 
@@ -147,15 +147,15 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("4_r5btx")
 
-[node name="Room select" type="Node2D" parent="."]
+[node name="RoomSelect" type="Node2D" parent="."]
 position = Vector2(300, 272)
 
-[node name="Polygon2D" type="Polygon2D" parent="Room select"]
+[node name="Polygon2D" type="Polygon2D" parent="RoomSelect"]
 position = Vector2(-356, -196)
 color = Color(0, 0.721569, 0, 1)
 polygon = PackedVector2Array(318, 186, 362, 228, 405, 186, 362.517, 186)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Room select"]
+[node name="RichTextLabel" type="RichTextLabel" parent="RoomSelect"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -233,5 +233,5 @@ offset_bottom = -140.0
 scale = Vector2(2, 2)
 texture = ExtResource("8_f78q1")
 
-[connection signal="body_entered" from="Doors/Forrest_door/F_Door_Area2D" to="." method="_on_f_door_area_2d_body_entered"]
-[connection signal="body_exited" from="Doors/Forrest_door/F_Door_Area2D" to="." method="_on_f_door_area_2d_body_exited"]
+[connection signal="body_entered" from="Doors/ForestDoor/F_Door_Area2D" to="." method="_on_f_door_area_2d_body_entered"]
+[connection signal="body_exited" from="Doors/ForestDoor/F_Door_Area2D" to="." method="_on_f_door_area_2d_body_exited"]

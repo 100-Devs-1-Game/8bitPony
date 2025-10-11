@@ -1,33 +1,33 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgd5ojsk1hil6"]
 
-[ext_resource type="Script" path="res://Scripts/scr_Gui.gd" id="1_awqa2"]
-[ext_resource type="Texture2D" uid="uid://bvbwqk3vyoju4" path="res://Images/Assets/Red_Shard_1.png" id="2_cv6fg"]
+[ext_resource type="Script" uid="uid://bkyp3qe16d4dh" path="res://Scripts/Gui.gd" id="1_f82ey"]
+[ext_resource type="Texture2D" uid="uid://bvbwqk3vyoju4" path="res://Images/Assets/Red_Shard_1.png" id="2_xyp21"]
 
-[node name="obj_Gui" type="CanvasLayer"]
+[node name="Gui" type="CanvasLayer"]
 process_mode = 3
-script = ExtResource("1_awqa2")
+script = ExtResource("1_f82ey")
 
-[node name="Gui1" type="Control" parent="."]
+[node name="Gui" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 236.0
 offset_bottom = 121.0
 
-[node name="PanelContainer" type="PanelContainer" parent="Gui1"]
+[node name="PanelContainer" type="PanelContainer" parent="Gui"]
 layout_mode = 1
 offset_right = 236.0
 offset_bottom = 121.0
 
-[node name="spr_Red_shard" type="TextureRect" parent="Gui1"]
+[node name="RedShard" type="TextureRect" parent="Gui"]
 layout_mode = 0
 offset_left = -26.0
 offset_top = 23.0
 offset_right = 91.0
 offset_bottom = 128.0
 size_flags_horizontal = 0
-texture = ExtResource("2_cv6fg")
+texture = ExtResource("2_xyp21")
 
-[node name="Level_Shards" type="Label" parent="Gui1"]
+[node name="LevelShards" type="Label" parent="Gui"]
 layout_mode = 0
 offset_left = 88.0
 offset_top = 43.0
@@ -37,7 +37,7 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "0/7"
 
-[node name="Score" type="Label" parent="Gui1"]
+[node name="Score" type="Label" parent="Gui"]
 layout_mode = 0
 offset_right = 113.0
 offset_bottom = 42.0
@@ -46,7 +46,7 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 30
 text = "Score: 0"
 
-[node name="Lives" type="Label" parent="Gui1"]
+[node name="Lives" type="Label" parent="Gui"]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 662.0

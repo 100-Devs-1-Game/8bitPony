@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d18ngjkik74bv"]
 
 [ext_resource type="Texture2D" uid="uid://dshuf8e6f72eh" path="res://Images/Assets/Heart_full.png" id="1_fxwvu"]
-[ext_resource type="Script" path="res://Scripts/scr_life_pickup.gd" id="1_kmwbq"]
+[ext_resource type="Script" uid="uid://b5hsijecg8lft" path="res://Scripts/life_pickup.gd" id="1_kmwbq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlkfg"]
 radius = 21.0238
