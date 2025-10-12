@@ -35,7 +35,7 @@ func _default_movement(_delta: float): #player moment from the character2d scrip
 		velocity.y += gravity * _delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("Up") and is_on_floor():
+	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = jump_velocity
 
 	# Get the input direction and handle the movement/deceleration.
@@ -93,7 +93,7 @@ func _Pony_state_setter():
 		return  # stop here so we don't fall through
 
 	# --- On the ground ---
-	if Input.is_action_pressed("attack"):
+	if Input.is_action_pressed("Attack"):
 		pony_state = PonyStateMachine.Attacking
 	elif abs(velocity.x) > 0.1:
 		pony_state = PonyStateMachine.Running

@@ -30,5 +30,5 @@ func _process(_delta: float):
 		gui.visible = true
 	
 func _input(_event: InputEvent): #reset scene
-	if Input.is_action_just_pressed("R"):
+	if Input.is_action_just_pressed("Respawn"):
 		get_tree().reload_current_scene()

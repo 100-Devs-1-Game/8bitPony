@@ -34,5 +34,5 @@ func _on_f_door_area_2d_body_exited(_body: Node2D):
 
 func _input(_event: InputEvent):
 	# only works if pressing E *and* inside the door
-	if Input.is_action_pressed("E") and pony_colliding_door and at_forest_door:
+	if Input.is_action_pressed("Interact") and pony_colliding_door and at_forest_door:
 		get_tree().change_scene_to_file("res://Scenes/Rooms/forest_level.tscn")
