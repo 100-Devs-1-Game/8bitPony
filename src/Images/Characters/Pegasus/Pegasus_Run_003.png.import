@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3jc1td1iy33y"
-path="res://.godot/imported/Un_dead 1.png-99a1c318bdd3137d579ba372c469de5d.ctex"
+uid="uid://bem217ssy7xoo"
+path="res://.godot/imported/Pegasus_Run_003.png-64b35f356a336a867be8a9de2d92d3ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Characters/Un_dead 1.png"
-dest_files=["res://.godot/imported/Un_dead 1.png-99a1c318bdd3137d579ba372c469de5d.ctex"]
+source_file="res://Images/Characters/Pegasus/Pegasus_Run_003.png"
+dest_files=["res://.godot/imported/Pegasus_Run_003.png-64b35f356a336a867be8a9de2d92d3ce.ctex"]
 
 [params]
 

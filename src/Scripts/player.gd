@@ -14,7 +14,7 @@ extends CharacterBody2D
 @export var jump_velocity: float = -550.0
 @export var gravity_change: float = 200
 
-enum PonyStateMachine {Idle, Running, Jumping, Falling, Attacking, Dying}
+enum PonyStateMachine {Idle, Run, Jump, Fall, Attack, Die}
 var pony_state: PonyStateMachine = PonyStateMachine.Idle
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -25,7 +25,7 @@ func _ready():
 
 func _physics_process(delta):
 	_default_movement(delta) #handles the movement
-	_Pony_state_setter()
+	_pony_state_setter()
 	_sprite_handle()
 	_state_label_tect()
 	
@@ -80,29 +80,29 @@ func _flash_red(): #player gets hit, flash red
 	un_anim_spr.modulate = Color(1, 1, 1) #Return to normal
 	
 	
-func _Pony_state_setter():
-	if pony_state == PonyStateMachine.Dying:
+func _pony_state_setter():
+	if pony_state == PonyStateMachine.Die:
 		return  # death overrides everything
 
 	# --- In the air ---
 	if not is_on_floor():
 		if velocity.y < 0:
-			pony_state = PonyStateMachine.Jumping
+			pony_state = PonyStateMachine.Jump
 		else:
-			pony_state = PonyStateMachine.Falling
+			pony_state = PonyStateMachine.Fall
 		return  # stop here so we don't fall through
 
 	# --- On the ground ---
 	if Input.is_action_pressed("Attack"):
-		pony_state = PonyStateMachine.Attacking
+		pony_state = PonyStateMachine.Attack
 	elif abs(velocity.x) > 0.1:
-		pony_state = PonyStateMachine.Running
+		pony_state = PonyStateMachine.Run
 	else:
 		pony_state = PonyStateMachine.Idle
 
 
 func _sprite_handle(): #handles sprite stuff
-	if pony_state == PonyStateMachine.Falling:
+	if pony_state == PonyStateMachine.Fall:
 		if spr_player.scale.x == 1:
 			spr_player.rotation_degrees = -34
 		elif spr_player.scale.x == -1:
@@ -110,7 +110,7 @@ func _sprite_handle(): #handles sprite stuff
 	else:
 		spr_player.rotation_degrees = 0
 
-	if pony_state != PonyStateMachine.Dying:
+	if pony_state != PonyStateMachine.Die:
 		if Input.is_action_just_pressed("Right"):
 			Global.face_right = true
 			Global.face_left = false
@@ -119,30 +119,30 @@ func _sprite_handle(): #handles sprite stuff
 			spr_player.scale.x = -1
 			Global.face_right = false
 			Global.face_left = true
-	match pony_state: 
+	match pony_state:
+		PonyStateMachine.Attack:
+			un_anim_spr.play("Attack")
 		PonyStateMachine.Idle:
 			un_anim_spr.play("Idle")
-		PonyStateMachine.Running:
-			un_anim_spr.play("Running")
-		PonyStateMachine.Falling:
+		PonyStateMachine.Run:
+			un_anim_spr.play("Run")
+		PonyStateMachine.Fall:
 			un_anim_spr.play("Fall")
-		PonyStateMachine.Attacking:
-			un_anim_spr.play("Idle")
-		PonyStateMachine.Dying:
-			un_anim_spr.play("Dying")
+		PonyStateMachine.Die:
+			un_anim_spr.play("Die")
 
 func _state_label_tect():
 	#visual tracker of the state
 	match pony_state: 
 		PonyStateMachine.Idle:
 			state_label.text = str("Idle")
-		PonyStateMachine.Running:
-			state_label.text = str("Running")
-		PonyStateMachine.Jumping:
-			state_label.text = str("Jumping")
-		PonyStateMachine.Falling:
+		PonyStateMachine.Run:
+			state_label.text = str("Run")
+		PonyStateMachine.Jump:
+			state_label.text = str("Jump")
+		PonyStateMachine.Fall:
 			state_label.text = str("Fall")
-		PonyStateMachine.Attacking:
+		PonyStateMachine.Attack:
 			state_label.text = str("Attack")
-		PonyStateMachine.Dying:
+		PonyStateMachine.Die:
 			state_label.text = str("Die")

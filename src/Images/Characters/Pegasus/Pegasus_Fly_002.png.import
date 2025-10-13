@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6s8q6pd8rwht"
-path="res://.godot/imported/Un_fall_1.png-8b15abb84b2c446fd9185c0a5d8fd956.ctex"
+uid="uid://bfmyut3ih2yml"
+path="res://.godot/imported/Pegasus_Fly_002.png-8d6615924538f1d2c0f92779f3254282.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Characters/Un_fall_1.png"
-dest_files=["res://.godot/imported/Un_fall_1.png-8b15abb84b2c446fd9185c0a5d8fd956.ctex"]
+source_file="res://Images/Characters/Pegasus/Pegasus_Fly_002.png"
+dest_files=["res://.godot/imported/Pegasus_Fly_002.png-8d6615924538f1d2c0f92779f3254282.ctex"]
 
 [params]
 

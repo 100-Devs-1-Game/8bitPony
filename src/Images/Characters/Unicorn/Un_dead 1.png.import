@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ydow5osuaefa"
-path="res://.godot/imported/Un_idle_1.png-463cce47e762e63ab0725d2d9d145ede.ctex"
+uid="uid://d3jc1td1iy33y"
+path="res://.godot/imported/Un_dead 1.png-320d08fa13f2ab646718e17b5485c659.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Characters/Un_idle_1.png"
-dest_files=["res://.godot/imported/Un_idle_1.png-463cce47e762e63ab0725d2d9d145ede.ctex"]
+source_file="res://Images/Characters/Unicorn/Un_dead 1.png"
+dest_files=["res://.godot/imported/Un_dead 1.png-320d08fa13f2ab646718e17b5485c659.ctex"]
 
 [params]
 

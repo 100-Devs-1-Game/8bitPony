@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1mia6pmdsol3"
-path="res://.godot/imported/Un_run_1.png-37e931b96be14b933def9f484c49f0f7.ctex"
+uid="uid://b24im7w27nro6"
+path="res://.godot/imported/Earthpony_Run_002.png-643568a6afdb1d9c723b67befda1804f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Characters/Un_run_1.png"
-dest_files=["res://.godot/imported/Un_run_1.png-37e931b96be14b933def9f484c49f0f7.ctex"]
+source_file="res://Images/Characters/Earth Pony/Earthpony_Run_002.png"
+dest_files=["res://.godot/imported/Earthpony_Run_002.png-643568a6afdb1d9c723b67befda1804f.ctex"]
 
 [params]
 
