@@ -1,5 +1,5 @@
 class_name Wolf
-extends CharacterBody2D
+extends Enemy
 
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var ray_cast_right: RayCast2D = $RayCast_Right

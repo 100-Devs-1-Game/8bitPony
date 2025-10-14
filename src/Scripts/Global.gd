@@ -14,10 +14,6 @@ var generous_gem: bool = false #if collected all the shards
 var kindness_gem: bool = false #if collected all the shards
 var magic_gem: bool = false #if collected all the shards
 
-#Direction facing track
-var face_right: bool = true
-var face_left: bool = false
-
 #Player lives
 var player_lives: int = 3
 
