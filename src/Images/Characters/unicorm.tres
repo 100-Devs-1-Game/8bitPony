@@ -1,0 +1,80 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://cekr32m6i7lj5"]
+
+[ext_resource type="Texture2D" uid="uid://bteulwnun7m8" path="res://Images/Characters/Unicorn/UnicornSpriteSheet.png" id="4_i3ib1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp8mx"]
+atlas = ExtResource("4_i3ib1")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsuib"]
+atlas = ExtResource("4_i3ib1")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdhgo"]
+atlas = ExtResource("4_i3ib1")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgwlu"]
+atlas = ExtResource("4_i3ib1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycda5"]
+atlas = ExtResource("4_i3ib1")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pdc0"]
+atlas = ExtResource("4_i3ib1")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57gx0"]
+atlas = ExtResource("4_i3ib1")
+region = Rect2(32, 16, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp8mx")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsuib")
+}],
+"loop": true,
+"name": &"Die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdhgo")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgwlu")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycda5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pdc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57gx0")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 8.0
+}]
