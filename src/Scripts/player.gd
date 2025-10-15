@@ -1,6 +1,9 @@
 class_name Player
 extends CharacterBody2D
 
+enum PonyType { Earth, Pegasus, Unicorn, Max }
+enum PonyStateMachine {Idle, Run, Jump, Fall, Action, Die}
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_label: Label = $State
 @onready var bullet_anchor: Node2D = $BulletAnchor
@@ -14,13 +17,16 @@ extends CharacterBody2D
 @export var jump_velocity: float = -550.0
 @export var gravity_change: float = 200
 @export var hurt_time: float = 0.2
+@export var pony_type: PonyType = PonyType.Unicorn
+@export var pony_sprite_by_type: Dictionary[PonyType, SpriteFrames]
 
-enum PonyStateMachine {Idle, Run, Jump, Fall, Attack, Die}
 var pony_state: PonyStateMachine = PonyStateMachine.Idle
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = gravity_change + ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready() -> void:
+	set_pony_type(pony_type)
 
 func _physics_process(delta):
 	_default_movement(delta) #handles the movement
@@ -48,7 +54,7 @@ func _default_movement(_delta: float): #player moment from the character2d scrip
 
 func _input(_event: InputEvent):
 	#Firing magic bullets
-	if Input.is_action_just_pressed("Shoot"):
+	if Input.is_action_just_pressed("Action"):
 		var bullet =  magic_bullet.instantiate()
 		if bullet is MagicBullet:
 			bullet.global_position = bullet_anchor.global_position
@@ -56,6 +62,9 @@ func _input(_event: InputEvent):
 				bullet.velocity = -bullet.velocity
 		get_parent().add_child(bullet)
 		print("shoot")
+	elif Input.is_action_just_pressed("ChangePony"):
+		pony_type = (pony_type + 1) % PonyType.Max as PonyType
+		set_pony_type(pony_type)
 
 func _take_damage():
 	Global.player_lives -= 1
@@ -86,8 +95,8 @@ func _pony_state_setter():
 		return  # stop here so we don't fall through
 	
 	# --- On the ground ---
-	if Input.is_action_pressed("Attack"):
-		pony_state = PonyStateMachine.Attack
+	if Input.is_action_pressed("Action"):
+		pony_state = PonyStateMachine.Action
 	elif abs(velocity.x) > 0.1:
 		pony_state = PonyStateMachine.Run
 	else:
@@ -102,8 +111,8 @@ func _sprite_handle(): #handles sprite stuff
 			sprite.flip_h = true
 			bullet_anchor.position.x = min(-bullet_anchor.position.x, bullet_anchor.position.x)
 	match pony_state:
-		PonyStateMachine.Attack:
-			sprite.play("Attack")
+		PonyStateMachine.Action:
+			sprite.play("Action")
 		PonyStateMachine.Idle:
 			sprite.play("Idle")
 		PonyStateMachine.Run:
@@ -124,7 +133,18 @@ func _state_label_tect():
 			state_label.text = str("Jump")
 		PonyStateMachine.Fall:
 			state_label.text = str("Fall")
-		PonyStateMachine.Attack:
-			state_label.text = str("Attack")
+		PonyStateMachine.Action:
+			state_label.text = str("Action")
 		PonyStateMachine.Die:
 			state_label.text = str("Die")
+
+func set_pony_type(in_pony_type: PonyType):
+	pony_type = in_pony_type
+	if pony_sprite_by_type.has(pony_type):
+		var found_sprite = pony_sprite_by_type[pony_type]
+		if found_sprite is SpriteFrames:
+			var flip_h: bool = sprite.flip_h
+			var animation: StringName = sprite.animation
+			sprite.sprite_frames = found_sprite
+			sprite.flip_h = flip_h
+			sprite.play(animation)

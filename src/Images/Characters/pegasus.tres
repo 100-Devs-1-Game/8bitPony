@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://comkomt2jtubb"]
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://comkomt2jtubb"]
 
 [ext_resource type="Texture2D" uid="uid://dojvxonio64us" path="res://Images/Characters/Pegasus/PegasusSpriteSheet.png" id="1_ug5as"]
 
@@ -13,6 +13,14 @@ region = Rect2(16, 32, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ub66a"]
 atlas = ExtResource("1_ug5as")
 region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ug5as"]
+atlas = ExtResource("1_ug5as")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clrsl"]
+atlas = ExtResource("1_ug5as")
+region = Rect2(0, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bbm1m"]
 atlas = ExtResource("1_ug5as")
@@ -43,7 +51,23 @@ animations = [{
 "texture": SubResource("AtlasTexture_ub66a")
 }],
 "loop": true,
-"name": &"Fly",
+"name": &"Action",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ug5as")
+}],
+"loop": true,
+"name": &"Die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clrsl")
+}],
+"loop": true,
+"name": &"Fall",
 "speed": 5.0
 }, {
 "frames": [{

@@ -1,10 +1,18 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://c5xejof3qc3ma"]
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://c5xejof3qc3ma"]
 
 [ext_resource type="Texture2D" uid="uid://dpsibsmeqsdn4" path="res://Images/Characters/Earth Pony/EarthPony_SpriteSheet.png" id="1_xmjss"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_830bd"]
 atlas = ExtResource("1_xmjss")
 region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2oc4"]
+atlas = ExtResource("1_xmjss")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbqti"]
+atlas = ExtResource("1_xmjss")
+region = Rect2(0, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kowbd"]
 atlas = ExtResource("1_xmjss")
@@ -29,7 +37,23 @@ animations = [{
 "texture": SubResource("AtlasTexture_830bd")
 }],
 "loop": true,
-"name": &"Attack",
+"name": &"Action",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2oc4")
+}],
+"loop": true,
+"name": &"Die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbqti")
+}],
+"loop": true,
+"name": &"Fall",
 "speed": 5.0
 }, {
 "frames": [{
