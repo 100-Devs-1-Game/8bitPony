@@ -15,10 +15,15 @@ run/main_scene="res://Scenes/Rooms/main_menu.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://b1p0b1wh413cy"
+
 [autoload]
 
 Global="*res://Scripts/Global.gd"
 ObjGui="*res://Scenes/Objects/gui.tscn"
+Music="*res://Scripts/Music.gd"
 
 [display]
 

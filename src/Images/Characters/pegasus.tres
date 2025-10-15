@@ -1,0 +1,70 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://comkomt2jtubb"]
+
+[ext_resource type="Texture2D" uid="uid://dojvxonio64us" path="res://Images/Characters/Pegasus/PegasusSpriteSheet.png" id="1_ug5as"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hervn"]
+atlas = ExtResource("1_ug5as")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojqnw"]
+atlas = ExtResource("1_ug5as")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub66a"]
+atlas = ExtResource("1_ug5as")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbm1m"]
+atlas = ExtResource("1_ug5as")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty8b8"]
+atlas = ExtResource("1_ug5as")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75bgb"]
+atlas = ExtResource("1_ug5as")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mb6f"]
+atlas = ExtResource("1_ug5as")
+region = Rect2(32, 16, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hervn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojqnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub66a")
+}],
+"loop": true,
+"name": &"Fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbm1m")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty8b8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75bgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mb6f")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 8.0
+}]

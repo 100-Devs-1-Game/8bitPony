@@ -47,14 +47,19 @@ land_sound = NodePath("../Land")
 
 [node name="Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_fepmq")
+bus = &"SFX"
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="Land" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_ddhxa")
+bus = &"SFX"
 
 [node name="Hit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_3k74t")
+bus = &"SFX"
 
 [node name="Health" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_v8iml")
+bus = &"SFX"

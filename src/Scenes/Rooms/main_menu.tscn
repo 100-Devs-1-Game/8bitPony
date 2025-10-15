@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://816fkgr1blu3"]
+[gd_scene load_steps=5 format=3 uid="uid://816fkgr1blu3"]
 
 [ext_resource type="Script" uid="uid://k3qgf0bik0xw" path="res://Scripts/main_menu.gd" id="1_ljxe7"]
 [ext_resource type="PackedScene" uid="uid://bk0h6axpmena0" path="res://Scenes/Rooms/level_select.tscn" id="2_41gp0"]
+[ext_resource type="AudioStream" uid="uid://btfsahlpary8x" path="res://Sound/Music/Raw/Cloud Crash.wav" id="3_4yjuk"]
+[ext_resource type="Script" uid="uid://by8a62muhhw35" path="res://Scripts/music_player.gd" id="3_dkmyi"]
 
 [node name="Main Menu" type="Node"]
 script = ExtResource("1_ljxe7")
@@ -42,5 +44,10 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 80
 text = "Start Game"
+
+[node name="MusicPlayer" type="Node" parent="."]
+script = ExtResource("3_dkmyi")
+music_stream = ExtResource("3_4yjuk")
+metadata/_custom_type_script = "uid://by8a62muhhw35"
 
 [connection signal="pressed" from="Start_Button" to="." method="_on_start_button_pressed"]

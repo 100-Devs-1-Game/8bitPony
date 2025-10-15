@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvwt8sw33nouq"]
+[gd_scene load_steps=13 format=3 uid="uid://cvwt8sw33nouq"]
 
 [ext_resource type="PackedScene" uid="uid://b4j3uvi3nugac" path="res://Scenes/Characters/player.tscn" id="1_3hanx"]
 [ext_resource type="Script" uid="uid://ch7tf33ux5aoe" path="res://Scripts/forest_level.gd" id="1_55gjg"]
 [ext_resource type="Texture2D" uid="uid://ct6bnb7ksod1w" path="res://Images/Backgrounds/BG_Tile1.jpg" id="2_ddlxt"]
+[ext_resource type="Script" uid="uid://by8a62muhhw35" path="res://Scripts/music_player.gd" id="2_x6a0w"]
+[ext_resource type="AudioStream" uid="uid://btfsahlpary8x" path="res://Sound/Music/Raw/Cloud Crash.wav" id="3_1vqt0"]
 [ext_resource type="Texture2D" uid="uid://btdt4hrgyyjyq" path="res://Images/Backgrounds/Forest 2.png" id="3_kpoyq"]
 [ext_resource type="PackedScene" uid="uid://c4xpqd83w51cq" path="res://Scenes/Characters/wolf.tscn" id="4_72cp1"]
 [ext_resource type="PackedScene" uid="uid://dx8bxt70q06xt" path="res://Scenes/Objects/shard_pickup.tscn" id="5_1swyy"]
@@ -79,6 +81,11 @@ sources/0 = SubResource("TileSetAtlasSource_a7fwi")
 
 [node name="Forest Level" type="Node2D"]
 script = ExtResource("1_55gjg")
+
+[node name="MusicPlayer" type="Node" parent="."]
+script = ExtResource("2_x6a0w")
+music_stream = ExtResource("3_1vqt0")
+metadata/_custom_type_script = "uid://by8a62muhhw35"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 3
