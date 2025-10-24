@@ -8,6 +8,7 @@ enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 @onready var state_label: Label = $State
 @onready var bullet_anchor: Node2D = $BulletAnchor
 @onready var attack_timer: Timer = $AttackTimer
+@onready var hurt_timer: Timer = $HurtTimer
 
 # Sounds
 @onready var hit_sound: AudioStreamPlayer = $Hit
@@ -18,7 +19,7 @@ enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 @export var jump_velocity: float = -550.0
 @export var gravity_change: float = 200
 @export var attack_time: float = 10.0
-@export var hurt_time: float = 0.2
+@export var hurt_color: Color = Color.RED
 @export var pony_type: PonyType = PonyType.Unicorn
 @export var pony_sprite_by_type: Dictionary[PonyType, SpriteFrames]
 
@@ -81,9 +82,8 @@ func _life_pickup(): #pick up extra life
 	health_sound.play()
 
 func _flash_red(): #player gets hit, flash red
-	sprite.modulate = Color(1, 0, 0) #Red
-	await get_tree().create_timer(hurt_time).timeout
-	sprite.modulate = Color(1, 1, 1) #Return to normal
+	sprite.modulate = hurt_color
+	hurt_timer.start()
 
 func _update_pony_state():
 	if has_state(PonyStateMachine.Die):
@@ -171,3 +171,7 @@ func highest_set_bit_index_fast(x: int) -> int:
 		mask >>= 1
 		idx += 1
 	return 7 - idx
+
+
+func _on_hurt_timer_timeout() -> void:
+	sprite.modulate = Color.WHITE

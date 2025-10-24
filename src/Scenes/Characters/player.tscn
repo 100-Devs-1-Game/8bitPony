@@ -74,3 +74,9 @@ bus = &"SFX"
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="HurtTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]
