@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://hfkgjydgckuv" path="res://Images/Assets/Forest_door_1.png" id="1_54mbb"]
 [ext_resource type="Texture2D" uid="uid://bn68o0nd5g4ft" path="res://Images/Assets/Lock_1.png" id="2_bw412"]
-[ext_resource type="Script" uid="uid://cal1x0sa0stef" path="res://Scenes/Objects/door.gd" id="2_l0b71"]
+[ext_resource type="Script" uid="uid://cal1x0sa0stef" path="res://Scenes/Objects/Door/door.gd" id="2_l0b71"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkgl5"]
 size = Vector2(66.5, 77.5)

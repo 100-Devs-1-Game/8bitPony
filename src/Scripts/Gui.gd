@@ -6,14 +6,7 @@ extends CanvasLayer
 @onready var lives: Label = $Gui/Lives 
 
 func _pause():
-	#pausing game, but can't unpause :(
-	if not get_tree().paused:
-		if Input.is_action_just_released("Pause"): 
-			get_tree().paused = true
-			return
-	else:
-		get_tree().paused = false
-		return
+	get_tree().paused = not get_tree().paused
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float):
@@ -29,6 +22,6 @@ func _process(_delta: float):
 	else:
 		gui.visible = true
 	
-func _input(_event: InputEvent): #reset scene
-	if Input.is_action_just_pressed("Respawn"):
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Respawn"):
 		get_tree().reload_current_scene()

@@ -9,11 +9,6 @@ func _ready():
 	texture_rect.visible = true
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_body_entered(body):
 	if collide == false:
 		if body.is_in_group("Player"):
@@ -23,6 +18,7 @@ func _on_body_entered(body):
 			Global.shard_counter += 1
 	
 		return
-	
+
+
 func _on_pick_up_finished():
 	queue_free()

@@ -4,6 +4,6 @@ extends Node2D
 @export var land_sound: AudioStreamPlayer
 
 
-func _input(_event: InputEvent):
-	if Input.is_action_just_pressed("Action"):
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("Action"):
 		shoot_sound.play()

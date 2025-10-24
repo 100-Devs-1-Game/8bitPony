@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c370jm1po8asl" path="res://Scripts/level_select.gd" id="1_18ftj"]
 [ext_resource type="PackedScene" uid="uid://b4j3uvi3nugac" path="res://Scenes/Characters/player.tscn" id="1_wti6g"]
-[ext_resource type="PackedScene" uid="uid://dkcxtqxuy8wpj" path="res://Scenes/Objects/door.tscn" id="3_88led"]
+[ext_resource type="PackedScene" uid="uid://dkcxtqxuy8wpj" path="res://Scenes/Objects/Door/door.tscn" id="3_88led"]
 [ext_resource type="Texture2D" uid="uid://bs85tscd4eycs" path="res://icon.svg" id="3_yxcp0"]
 [ext_resource type="PackedScene" uid="uid://cvwt8sw33nouq" path="res://Scenes/Rooms/forest_level.tscn" id="4_8ebfm"]
 [ext_resource type="Texture2D" uid="uid://c8w1tknbh0gy1" path="res://Images/Assets/collum 1.png" id="5_51vsw"]
@@ -25,6 +25,7 @@ script = ExtResource("1_18ftj")
 offset_left = -219.0
 offset_right = 7068.0
 offset_bottom = 793.0
+mouse_filter = 2
 color = Color(0.266667, 0.490196, 0.839216, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -34,6 +35,7 @@ offset_left = -219.0
 offset_top = 557.0
 offset_right = 7068.0
 offset_bottom = 793.0
+mouse_filter = 2
 color = Color(0.0352941, 0.117647, 0.247059, 1)
 
 [node name="Ground_area2d" type="StaticBody2D" parent="Ground_texture"]

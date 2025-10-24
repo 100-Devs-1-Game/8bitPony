@@ -2,11 +2,12 @@ class_name Player
 extends CharacterBody2D
 
 enum PonyType { Earth, Pegasus, Unicorn, Max }
-enum PonyStateMachine {Idle, Run, Jump, Fall, Action, Die}
+enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_label: Label = $State
 @onready var bullet_anchor: Node2D = $BulletAnchor
+@onready var attack_timer: Timer = $AttackTimer
 
 # Sounds
 @onready var hit_sound: AudioStreamPlayer = $Hit
@@ -16,11 +17,12 @@ enum PonyStateMachine {Idle, Run, Jump, Fall, Action, Die}
 @export var speed: float = 600.0
 @export var jump_velocity: float = -550.0
 @export var gravity_change: float = 200
+@export var attack_time: float = 10.0
 @export var hurt_time: float = 0.2
 @export var pony_type: PonyType = PonyType.Unicorn
 @export var pony_sprite_by_type: Dictionary[PonyType, SpriteFrames]
 
-var pony_state: PonyStateMachine = PonyStateMachine.Idle
+var pony_states: int = PonyStateMachine.Idle
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = gravity_change + ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -28,41 +30,42 @@ var gravity: float = gravity_change + ProjectSettings.get_setting("physics/2d/de
 func _ready() -> void:
 	set_pony_type(pony_type)
 
-func _physics_process(delta):
-	_default_movement(delta) #handles the movement
-	_pony_state_setter()
+func _process(_delta: float) -> void:
+	_update_pony_state()
 	_sprite_handle()
 	_state_label_tect()
 
+func _physics_process(delta):
+	_default_movement(delta) #handles the movement
+
 func _default_movement(_delta: float): #player moment from the character2d script
-		# Add the gravity.
+	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * _delta
 	
-	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y = jump_velocity
-	
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("Left", "Right")
 	if direction:
 		velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
+	
 	move_and_slide()
 
-func _input(_event: InputEvent):
+func _unhandled_input(event: InputEvent) -> void:
 	#Firing magic bullets
-	if Input.is_action_just_pressed("Action"):
+	if event.is_action_pressed("Action"):
 		var bullet =  magic_bullet.instantiate()
 		if bullet is MagicBullet:
 			bullet.global_position = bullet_anchor.global_position
 			if sprite.flip_h:
 				bullet.velocity = -bullet.velocity
 		get_parent().add_child(bullet)
+		add_state(PonyStateMachine.Action)
+		attack_timer.start()
 		print("shoot")
-	elif Input.is_action_just_pressed("ChangePony"):
+	elif event.is_action_pressed("Jump") and is_on_floor():
+		velocity.y = jump_velocity
+	elif event.is_action_pressed("ChangePony"):
 		pony_type = (pony_type + 1) % PonyType.Max as PonyType
 		set_pony_type(pony_type)
 
@@ -82,49 +85,50 @@ func _flash_red(): #player gets hit, flash red
 	await get_tree().create_timer(hurt_time).timeout
 	sprite.modulate = Color(1, 1, 1) #Return to normal
 
-func _pony_state_setter():
-	if pony_state == PonyStateMachine.Die:
+func _update_pony_state():
+	if has_state(PonyStateMachine.Die):
 		return  # death overrides everything
 	
 	# --- In the air ---
 	if not is_on_floor():
 		if velocity.y < 0:
-			pony_state = PonyStateMachine.Jump
+			add_state(PonyStateMachine.Jump)
+			remove_state(PonyStateMachine.Fall)
 		else:
-			pony_state = PonyStateMachine.Fall
-		return  # stop here so we don't fall through
-	
-	# --- On the ground ---
-	if Input.is_action_pressed("Action"):
-		pony_state = PonyStateMachine.Action
-	elif abs(velocity.x) > 0.1:
-		pony_state = PonyStateMachine.Run
+			add_state(PonyStateMachine.Fall)
+			remove_state(PonyStateMachine.Jump)
 	else:
-		pony_state = PonyStateMachine.Idle
+		remove_state(PonyStateMachine.Jump)
+		remove_state(PonyStateMachine.Fall)
+	
+	# --- Action ---
+	if attack_timer.is_stopped():
+		remove_state(PonyStateMachine.Action)
+	
+	if abs(velocity.x) > 0.1:
+		add_state(PonyStateMachine.Run)
+		remove_state(PonyStateMachine.Idle)
+	else:
+		add_state(PonyStateMachine.Idle)
+		remove_state(PonyStateMachine.Run)
 
 func _sprite_handle(): #handles sprite stuff
-	if pony_state != PonyStateMachine.Die:
-		if Input.is_action_just_pressed("Right"):
-			sprite.flip_h = false
-			bullet_anchor.position.x = max(-bullet_anchor.position.x, bullet_anchor.position.x)
-		elif Input.is_action_just_pressed("Left"):
+	if not has_state(PonyStateMachine.Die):
+		if velocity.x < 0:
 			sprite.flip_h = true
 			bullet_anchor.position.x = min(-bullet_anchor.position.x, bullet_anchor.position.x)
-	match pony_state:
-		PonyStateMachine.Action:
-			sprite.play("Action")
-		PonyStateMachine.Idle:
-			sprite.play("Idle")
-		PonyStateMachine.Run:
-			sprite.play("Run")
-		PonyStateMachine.Fall:
-			sprite.play("Fall")
-		PonyStateMachine.Die:
-			sprite.play("Die")
+		elif velocity.x > 0:
+			sprite.flip_h = false
+			bullet_anchor.position.x = max(-bullet_anchor.position.x, bullet_anchor.position.x)
+		
+		var anim_value: int = highest_set_bit_index_fast(pony_states)
+		var anim_str: String = str(PonyStateMachine.keys()[anim_value])
+		if sprite.sprite_frames.has_animation(anim_str):
+			sprite.play(anim_str)
 
 func _state_label_tect():
 	#visual tracker of the state
-	match pony_state: 
+	match pony_states:
 		PonyStateMachine.Idle:
 			state_label.text = str("Idle")
 		PonyStateMachine.Run:
@@ -141,10 +145,29 @@ func _state_label_tect():
 func set_pony_type(in_pony_type: PonyType):
 	pony_type = in_pony_type
 	if pony_sprite_by_type.has(pony_type):
-		var found_sprite = pony_sprite_by_type[pony_type]
+		var found_sprite: SpriteFrames = pony_sprite_by_type[pony_type]
 		if found_sprite is SpriteFrames:
 			var flip_h: bool = sprite.flip_h
 			var animation: StringName = sprite.animation
 			sprite.sprite_frames = found_sprite
 			sprite.flip_h = flip_h
 			sprite.play(animation)
+
+func add_state(state: PonyStateMachine):
+	pony_states |= (0b1 << state)
+
+func remove_state(state: PonyStateMachine):
+	pony_states &= ~(0b1 << state)
+
+func has_state(state: PonyStateMachine) -> bool:
+	return pony_states & (0b1 << state)
+
+func highest_set_bit_index_fast(x: int) -> int:
+	if x == 0:
+		return -1
+	var mask = 1 << 7
+	var idx = 0
+	while (x & mask) == 0:
+		mask >>= 1
+		idx += 1
+	return 7 - idx

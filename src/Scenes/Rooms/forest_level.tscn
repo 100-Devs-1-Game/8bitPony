@@ -102,6 +102,7 @@ rotation_smoothing_enabled = true
 offset_top = -3000.0
 offset_right = 32000.0
 offset_bottom = 700.0
+mouse_filter = 2
 texture = ExtResource("2_ddlxt")
 stretch_mode = 1
 
@@ -109,6 +110,7 @@ stretch_mode = 1
 offset_top = -3200.0
 offset_right = 32000.0
 offset_bottom = 800.0
+mouse_filter = 2
 color = Color(0.290196, 0.521569, 0.25098, 0.929412)
 
 [node name="ColorRect2" type="ColorRect" parent="Background"]
@@ -117,6 +119,7 @@ offset_left = -10.0
 offset_top = 557.0
 offset_right = 31990.0
 offset_bottom = 800.0
+mouse_filter = 2
 color = Color(0.388235, 0.247059, 0.0901961, 1)
 
 [node name="TileMap" type="TileMap" parent="Background"]

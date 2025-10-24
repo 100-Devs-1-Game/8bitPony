@@ -70,3 +70,7 @@ bus = &"SFX"
 [node name="Health" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_v8iml")
 bus = &"SFX"
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
