@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkcxtqxuy8wpj"]
+
+[ext_resource type="Texture2D" uid="uid://hfkgjydgckuv" path="res://Images/Assets/Forest_door_1.png" id="1_54mbb"]
+[ext_resource type="Texture2D" uid="uid://bn68o0nd5g4ft" path="res://Images/Assets/Lock_1.png" id="2_bw412"]
+[ext_resource type="Script" uid="uid://cal1x0sa0stef" path="res://Scenes/Objects/door.gd" id="2_l0b71"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkgl5"]
+size = Vector2(66.5, 77.5)
+
+[node name="Door" type="Sprite2D"]
+scale = Vector2(13, 13)
+texture = ExtResource("1_54mbb")
+script = ExtResource("2_l0b71")
+
+[node name="Lock" type="Sprite2D" parent="."]
+texture = ExtResource("2_bw412")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(3.4, 0.599998)
+scale = Vector2(0.2, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-17.25, -2.7499938)
+shape = SubResource("RectangleShape2D_rkgl5")
+
+[node name="ToolTip" type="Node2D" parent="."]
+visible = false
+
+[node name="Polygon2D" type="Polygon2D" parent="ToolTip"]
+position = Vector2(0, -13.461539)
+scale = Vector2(0.3, 0.3)
+color = Color(0, 0.6392157, 0, 1)
+polygon = PackedVector2Array(-15.999985, -8, 16, -8, 0, 7.999998)
+uv = PackedVector2Array(-15.999985, -8, 16, -8, 0, 7.999998)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ToolTip"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -9.923078
+offset_top = -27.923077
+offset_right = 90.07692
+offset_bottom = 22.076923
+grow_horizontal = 2
+scale = Vector2(0.2, 0.2)
+text = "Press \"E\"
+to start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
