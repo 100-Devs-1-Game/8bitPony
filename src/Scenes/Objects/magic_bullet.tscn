@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfqrxfi45idh8"]
+[gd_scene load_steps=9 format=3 uid="uid://bfqrxfi45idh8"]
 
 [ext_resource type="Texture2D" uid="uid://couhchf46wyld" path="res://Images/Assets/Magic_0.png" id="1_5stei"]
 [ext_resource type="Script" uid="uid://bxekcfh1hkkla" path="res://Scripts/magic_bullet.gd" id="1_nilis"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b1ljuead2m6em" path="res://Images/Assets/Magic_2.png" id="3_4k40j"]
 [ext_resource type="Texture2D" uid="uid://b827juoyab4um" path="res://Images/Assets/Magic_3.png" id="4_0c76m"]
 [ext_resource type="AudioStream" uid="uid://d0ynyrg41me62" path="res://Sound/SFX/Arrow.wav" id="6_3oqld"]
-[ext_resource type="AudioStream" uid="uid://cp2e2n37ko0kd" path="res://Sound/SFX/Magic2.wav" id="7_7x1lv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rx1ft"]
 radius = 2.23607
@@ -60,10 +59,6 @@ wait_time = 0.308
 
 [node name="Explode" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_3oqld")
-bus = &"SFX"
-
-[node name="Fire" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_7x1lv")
 bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

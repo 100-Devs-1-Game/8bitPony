@@ -10,6 +10,7 @@ enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 @onready var hurt_timer: Timer = $HurtTimer
 
 # Sounds
+@onready var shoot_sound: AudioStreamPlayer = $Shoot
 @onready var hit_sound: AudioStreamPlayer = $Hit
 @onready var health_sound: AudioStreamPlayer = $Health
 
@@ -69,6 +70,7 @@ func _unhandled_input(event: InputEvent) -> void:
 					if sprite.flip_h:
 						bullet.velocity = -bullet.velocity
 				get_parent().add_child(bullet)
+				shoot_sound.play()
 				attack_timer.start()
 				print("shoot")
 			PonyType.Earth:
