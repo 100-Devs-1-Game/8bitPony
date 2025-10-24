@@ -37,14 +37,6 @@ animation = &"Action"
 [node name="BulletAnchor" type="Node2D" parent="."]
 position = Vector2(9.230769, -0.46153846)
 
-[node name="State" type="Label" parent="."]
-offset_top = 8.066667
-offset_right = 249.0
-offset_bottom = 145.06667
-scale = Vector2(0.02, 0.02)
-theme_override_font_sizes/font_size = 100
-text = "State"
-
 [node name="player_sound_controller" type="Node2D" parent="." node_paths=PackedStringArray("shoot_sound", "land_sound")]
 position = Vector2(0, 1.90735e-07)
 scale = Vector2(0.2, 0.2)
