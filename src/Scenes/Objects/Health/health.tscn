@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d18ngjkik74bv"]
+[gd_scene load_steps=5 format=3 uid="uid://d18ngjkik74bv"]
 
 [ext_resource type="Script" uid="uid://b5hsijecg8lft" path="res://Scenes/Objects/Health/health.gd" id="1_mw21m"]
 [ext_resource type="Texture2D" uid="uid://dshuf8e6f72eh" path="res://Images/Assets/Heart_full.png" id="2_fgfhd"]
+[ext_resource type="AudioStream" uid="uid://cl3hliqomdp2w" path="res://Sound/SFX/Health.wav" id="3_fgfhd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlkfg"]
 radius = 8.0
@@ -17,4 +18,9 @@ texture = ExtResource("2_fgfhd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qlkfg")
 
+[node name="PickUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fgfhd")
+bus = &"SFX"
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="PickUp" to="." method="_on_health_finished"]

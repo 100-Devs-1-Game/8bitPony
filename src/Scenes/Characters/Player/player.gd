@@ -15,7 +15,6 @@ enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 # Sounds
 @onready var shoot_sound: AudioStreamPlayer = $Shoot
 @onready var hit_sound: AudioStreamPlayer = $Hit
-@onready var health_sound: AudioStreamPlayer = $Health
 
 @export var health: int = 3:
 	set(new_health):
@@ -124,7 +123,6 @@ func health_pickup(value: int = 1): #pick up extra life
 	if not has_state(PonyStateMachine.Die):
 		health += value
 		print("Player hit!")
-		health_sound.play()
 
 
 func _flash_red(): #player gets hit, flash red

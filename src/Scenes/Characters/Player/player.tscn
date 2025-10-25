@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4j3uvi3nugac"]
+[gd_scene load_steps=10 format=3 uid="uid://b4j3uvi3nugac"]
 
 [ext_resource type="Script" uid="uid://t84d8o7n7s4n" path="res://Scenes/Characters/Player/player.gd" id="1_01b8d"]
 [ext_resource type="PackedScene" uid="uid://bfqrxfi45idh8" path="res://Scenes/Objects/MagicBullet/magic_bullet.tscn" id="2_xccyk"]
@@ -8,7 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://cp2e2n37ko0kd" path="res://Sound/SFX/Magic2.wav" id="10_fepmq"]
 [ext_resource type="AudioStream" uid="uid://msmqw6t4fe8m" path="res://Sound/SFX/Jump_landing.wav" id="11_ddhxa"]
 [ext_resource type="AudioStream" uid="uid://453qncswme1t" path="res://Sound/SFX/Hero_Hurt.wav" id="12_3k74t"]
-[ext_resource type="AudioStream" uid="uid://cl3hliqomdp2w" path="res://Sound/SFX/Health.wav" id="13_v8iml"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kng6u"]
 radius = 5.0
@@ -53,10 +52,6 @@ bus = &"SFX"
 
 [node name="Hit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_3k74t")
-bus = &"SFX"
-
-[node name="Health" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_v8iml")
 bus = &"SFX"
 
 [node name="AttackTimer" type="Timer" parent="."]
