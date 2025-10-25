@@ -33,6 +33,7 @@ enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 @export var hurt_color: Color = Color.RED
 @export var pony_type: PonyType = PonyType.Unicorn
 @export var pony_sprite_by_type: Dictionary[PonyType, SpriteFrames]
+@export var smoke: PackedScene
 
 var pony_states: int = PonyStateMachine.Idle
 
@@ -102,6 +103,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.is_action_pressed("ChangePony"):
 			pony_type = (pony_type + 1) % PonyType.Max as PonyType
 			set_pony_type(pony_type)
+			if smoke:
+				var smoke_inst: Node2D = smoke.instantiate()
+				Global.root.current_scene.add_child(smoke_inst)
+				smoke_inst.global_position = global_position
 
 
 func take_damage(damage: int = 1):
