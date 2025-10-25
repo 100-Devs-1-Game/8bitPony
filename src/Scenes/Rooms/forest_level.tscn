@@ -143,13 +143,13 @@ position = Vector2(8402, -1404)
 position = Vector2(12048, -1161)
 
 [node name="Enemy" parent="." instance=ExtResource("4_72cp1")]
-position = Vector2(1790, 557)
+position = Vector2(1796, 560)
 
 [node name="Enemy2" parent="." instance=ExtResource("4_72cp1")]
-position = Vector2(2639, -7)
+position = Vector2(2639, 0)
 
 [node name="Enemy3" parent="." instance=ExtResource("4_72cp1")]
-position = Vector2(4087, -10)
+position = Vector2(4086, 0)
 
 [node name="Player_Startpos" type="Node2D" parent="."]
 position = Vector2(161, 440)

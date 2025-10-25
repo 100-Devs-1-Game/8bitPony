@@ -41,67 +41,72 @@ func _physics_process(delta):
 	_default_movement(delta) #handles the movement
 
 func _default_movement(delta: float): #player moment from the character2d script
-	# Add the gravity.
 	if flying:
 		velocity.y -= flying_strength * delta
 	elif not is_on_floor():	
 		velocity.y += gravity * delta
 	velocity.y = max(-max_vertical_velocity, min(max_vertical_velocity, velocity.y))
 	
-	var direction = Input.get_axis("Left", "Right")
-	if direction:
-		velocity.x = direction * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+	if not has_state(PonyStateMachine.Die):
+		var direction = Input.get_axis("Left", "Right")
+		if direction:
+			velocity.x = direction * speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
 	
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
-	#Firing magic bullets
-	if event.is_action_pressed("Action"):
-		add_state(PonyStateMachine.Action)
-		match pony_type:
-			PonyType.Pegasus:
-				flying = true
-			PonyType.Unicorn:
-				var bullet =  magic_bullet.instantiate()
-				if bullet is MagicBullet:
-					bullet.global_position = bullet_anchor.global_position
-					if sprite.flip_h:
-						bullet.velocity = -bullet.velocity
-				get_parent().add_child(bullet)
-				shoot_sound.play()
-				attack_timer.start()
-				print("shoot")
-			PonyType.Earth:
-				attack_timer.start()
-	elif event.is_action_released("Action"):
-		match pony_type:
-			PonyType.Pegasus:
-				flying = false
-				remove_state(PonyStateMachine.Action)
-	elif event.is_action_pressed("Jump") and is_on_floor():
-		velocity.y = jump_velocity
-	elif event.is_action_pressed("ChangePony"):
-		pony_type = (pony_type + 1) % PonyType.Max as PonyType
-		set_pony_type(pony_type)
+	if not has_state(PonyStateMachine.Die):
+		if event.is_action_pressed("Action"):
+			add_state(PonyStateMachine.Action)
+			match pony_type:
+				PonyType.Pegasus:
+					flying = true
+				PonyType.Unicorn:
+					var bullet =  magic_bullet.instantiate()
+					if bullet is MagicBullet:
+						bullet.global_position = bullet_anchor.global_position
+						if sprite.flip_h:
+							bullet.velocity = -bullet.velocity
+					get_parent().add_child(bullet)
+					shoot_sound.play()
+					attack_timer.start()
+					print("shoot")
+				PonyType.Earth:
+					attack_timer.start()
+		elif event.is_action_released("Action"):
+			match pony_type:
+				PonyType.Pegasus:
+					flying = false
+					remove_state(PonyStateMachine.Action)
+		elif event.is_action_pressed("Jump") and is_on_floor():
+			velocity.y = jump_velocity
+		elif event.is_action_pressed("ChangePony"):
+			pony_type = (pony_type + 1) % PonyType.Max as PonyType
+			set_pony_type(pony_type)
 
 func take_damage(damage: int = 1):
-	Global.player_lives -= damage
-	print("Player hit!")
-	hit_sound.play()
-	_flash_red()
+	if not has_state(PonyStateMachine.Die):
+		Global.player_lives -= damage
+		print("Player hit!")
+		hit_sound.play()
+		_flash_red()
+		if Global.player_lives <= 0:
+			add_state(PonyStateMachine.Die)
+			flying = false
 
 func life_pickup(value: int = 1): #pick up extra life
-	Global.player_lives += value
-	print("Player hit!")
-	health_sound.play()
+	if not has_state(PonyStateMachine.Die):
+		Global.player_lives += value
+		print("Player hit!")
+		health_sound.play()
 
 func _flash_red(): #player gets hit, flash red
 	sprite.modulate = hurt_color
 	hurt_timer.start()
 
-func _update_pony_state():
+func _update_pony_state() -> void:
 	if has_state(PonyStateMachine.Die):
 		return  # death overrides everything
 	
@@ -133,18 +138,17 @@ func _update_pony_state():
 		remove_state(PonyStateMachine.Run)
 
 func _sprite_handle(): #handles sprite stuff
-	if not has_state(PonyStateMachine.Die):
-		if velocity.x < 0:
-			sprite.flip_h = true
-			bullet_anchor.position.x = min(-bullet_anchor.position.x, bullet_anchor.position.x)
-		elif velocity.x > 0:
-			sprite.flip_h = false
-			bullet_anchor.position.x = max(-bullet_anchor.position.x, bullet_anchor.position.x)
+	if velocity.x < 0:
+		sprite.flip_h = true
+		bullet_anchor.position.x = min(-bullet_anchor.position.x, bullet_anchor.position.x)
+	elif velocity.x > 0:
+		sprite.flip_h = false
+		bullet_anchor.position.x = max(-bullet_anchor.position.x, bullet_anchor.position.x)
 		
-		var anim_value: int = highest_set_bit_index_fast(pony_states)
-		var anim_str: String = str(PonyStateMachine.keys()[anim_value])
-		if sprite.sprite_frames.has_animation(anim_str):
-			sprite.play(anim_str)
+	var anim_value: int = highest_set_bit_index_fast(pony_states)
+	var anim_str: String = str(PonyStateMachine.keys()[anim_value])
+	if sprite.sprite_frames.has_animation(anim_str):
+		sprite.play(anim_str)
 
 func set_pony_type(in_pony_type: PonyType):
 	flying = false
