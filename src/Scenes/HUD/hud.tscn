@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgd5ojsk1hil6"]
+
+[ext_resource type="Script" uid="uid://bkyp3qe16d4dh" path="res://Scenes/HUD/hud.gd" id="1_5aai8"]
+[ext_resource type="Texture2D" uid="uid://bvbwqk3vyoju4" path="res://Images/Assets/Red_Shard_1.png" id="2_a56j6"]
+[ext_resource type="PackedScene" uid="uid://bpi75eodycm3r" path="res://Scenes/HUD/Widgets/ValueLabel/value_label.tscn" id="3_a56j6"]
+[ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="4_k83ni"]
+
+[node name="HUD" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_5aai8")
+
+[node name="Gui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 236.0
+offset_bottom = 121.0
+
+[node name="Stats" type="Control" parent="Gui"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Gui/Stats"]
+layout_mode = 1
+offset_right = 236.0
+offset_bottom = 121.0
+
+[node name="Shards" type="Control" parent="Gui/Stats"]
+anchors_preset = 0
+offset_right = 236.0
+offset_bottom = 121.0
+
+[node name="RedShard" type="TextureRect" parent="Gui/Stats/Shards"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 23.0
+offset_right = 91.0
+offset_bottom = 128.0
+size_flags_horizontal = 0
+texture = ExtResource("2_a56j6")
+
+[node name="ShardValue" parent="Gui/Stats/Shards" instance=ExtResource("3_a56j6")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 88.0
+offset_top = 43.0
+offset_right = -90.0
+offset_bottom = -36.0
+grow_horizontal = 1
+grow_vertical = 1
+theme = ExtResource("4_k83ni")
+value = 0
+suffix = "/7"
+
+[node name="ScoreValue" parent="Gui/Stats" instance=ExtResource("3_a56j6")]
+layout_mode = 1
+offset_top = -1.0
+offset_right = 150.0
+offset_bottom = 1.0
+theme = ExtResource("4_k83ni")
+prefix = "Score: "
+value = 0
+
+[node name="HealthValue" parent="Gui" instance=ExtResource("3_a56j6")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 18.0
+offset_top = 662.0
+offset_right = -79.0
+offset_bottom = 583.0
+grow_horizontal = 1
+grow_vertical = 1
+theme = ExtResource("4_k83ni")
+prefix = "Health: "
+value = 0

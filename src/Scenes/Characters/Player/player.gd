@@ -4,16 +4,27 @@ extends CharacterBody2D
 enum PonyType { Earth, Pegasus, Unicorn, Max }
 enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 
+@onready var camera: Camera2D = $Camera2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var bullet_anchor: Node2D = $BulletAnchor
 @onready var attack_timer: Timer = $AttackTimer
 @onready var hurt_timer: Timer = $HurtTimer
+@onready var recovery_timer: Timer = $RecoveryTimer
+@onready var blink_timer: Timer = $BlinkTimer
 
 # Sounds
 @onready var shoot_sound: AudioStreamPlayer = $Shoot
 @onready var hit_sound: AudioStreamPlayer = $Hit
 @onready var health_sound: AudioStreamPlayer = $Health
 
+@export var health: int = 3:
+	set(new_health):
+		health = new_health
+		health_changed.emit(health)
+@export var score: int = 0:
+	set(new_score):
+		score = new_score
+		score_changed.emit(score)
 @export var magic_bullet: PackedScene
 @export var speed: float = 600.0
 @export var flying_strength: float = 2500.0
@@ -26,19 +37,26 @@ enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 
 var pony_states: int = PonyStateMachine.Idle
 
+signal health_changed(new_health: int)
+signal score_changed(new_score: int)
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = gravity_change + ProjectSettings.get_setting("physics/2d/default_gravity")
 var flying: bool = false
 
+
 func _ready() -> void:
 	set_pony_type(pony_type)
+
 
 func _process(_delta: float) -> void:
 	_update_pony_state()
 	_sprite_handle()
 
+
 func _physics_process(delta):
 	_default_movement(delta) #handles the movement
+
 
 func _default_movement(delta: float): #player moment from the character2d script
 	if flying:
@@ -55,6 +73,7 @@ func _default_movement(delta: float): #player moment from the character2d script
 			velocity.x = move_toward(velocity.x, 0, speed)
 	
 	move_and_slide()
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not has_state(PonyStateMachine.Die):
@@ -86,25 +105,32 @@ func _unhandled_input(event: InputEvent) -> void:
 			pony_type = (pony_type + 1) % PonyType.Max as PonyType
 			set_pony_type(pony_type)
 
+
 func take_damage(damage: int = 1):
-	if not has_state(PonyStateMachine.Die):
-		Global.player_lives -= damage
+	if not has_state(PonyStateMachine.Die) and recovery_timer.is_stopped():
+		health = max(0, health - damage)
 		print("Player hit!")
 		hit_sound.play()
 		_flash_red()
-		if Global.player_lives <= 0:
+		recovery_timer.start()
+		blink_timer.start()
+		visible = false
+		if health <= 0:
 			add_state(PonyStateMachine.Die)
 			flying = false
 
-func life_pickup(value: int = 1): #pick up extra life
+
+func health_pickup(value: int = 1): #pick up extra life
 	if not has_state(PonyStateMachine.Die):
-		Global.player_lives += value
+		health += value
 		print("Player hit!")
 		health_sound.play()
+
 
 func _flash_red(): #player gets hit, flash red
 	sprite.modulate = hurt_color
 	hurt_timer.start()
+
 
 func _update_pony_state() -> void:
 	if has_state(PonyStateMachine.Die):
@@ -137,6 +163,7 @@ func _update_pony_state() -> void:
 		add_state(PonyStateMachine.Idle)
 		remove_state(PonyStateMachine.Run)
 
+
 func _sprite_handle(): #handles sprite stuff
 	if velocity.x < 0:
 		sprite.flip_h = true
@@ -150,6 +177,7 @@ func _sprite_handle(): #handles sprite stuff
 	if sprite.sprite_frames.has_animation(anim_str):
 		sprite.play(anim_str)
 
+
 func set_pony_type(in_pony_type: PonyType):
 	flying = false
 	pony_type = in_pony_type
@@ -162,14 +190,18 @@ func set_pony_type(in_pony_type: PonyType):
 			sprite.flip_h = flip_h
 			sprite.play(animation)
 
+
 func add_state(state: PonyStateMachine):
 	pony_states |= (0b1 << state)
+
 
 func remove_state(state: PonyStateMachine):
 	pony_states &= ~(0b1 << state)
 
+
 func has_state(state: PonyStateMachine) -> bool:
 	return pony_states & (0b1 << state)
+
 
 func highest_set_bit_index_fast(x: int) -> int:
 	if x == 0:
@@ -184,3 +216,11 @@ func highest_set_bit_index_fast(x: int) -> int:
 
 func _on_hurt_timer_timeout() -> void:
 	sprite.modulate = Color.WHITE
+
+
+func _on_blink_timer_timeout() -> void:
+	if recovery_timer.is_stopped():
+		visible = true
+		blink_timer.stop()
+	else:
+		visible = not visible

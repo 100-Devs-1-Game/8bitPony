@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx8bxt70q06xt"]
+
+[ext_resource type="Script" uid="uid://p38te207illv" path="res://Scenes/Objects/ShardFragment/shard_fragment.gd" id="1_5m8y8"]
+[ext_resource type="Texture2D" uid="uid://bvbwqk3vyoju4" path="res://Images/Assets/Red_Shard_1.png" id="2_o3j7x"]
+[ext_resource type="AudioStream" uid="uid://df0ru5ykgvyox" path="res://Sound/SFX/Item_Appears.wav" id="3_8iv2s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8e65"]
+size = Vector2(6, 10)
+
+[node name="ShardFragment" type="Area2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_5m8y8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_o3j7x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x8e65")
+
+[node name="PickUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8iv2s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="PickUp" to="." method="_on_pick_up_finished"]

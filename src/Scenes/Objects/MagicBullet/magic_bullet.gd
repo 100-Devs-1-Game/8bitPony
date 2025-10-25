@@ -31,7 +31,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Enemy:
-		Global.score += 10
+		Global.root.player.score += 10
 		exploding = true
 		area.take_damage()
 		anim.play("Explode")

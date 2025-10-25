@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="8-bit_pony"
-run/main_scene="res://Scenes/Rooms/main_menu.tscn"
+run/main_scene="uid://cp2sk7k6s20l3"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,7 +22,6 @@ buses/default_bus_layout="uid://b1p0b1wh413cy"
 [autoload]
 
 Global="*res://Scripts/Global.gd"
-ObjGui="*res://Scenes/Objects/gui.tscn"
 Music="*res://Scripts/Music.gd"
 
 [display]

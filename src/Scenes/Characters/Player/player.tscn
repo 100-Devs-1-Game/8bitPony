@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b4j3uvi3nugac"]
 
 [ext_resource type="Script" uid="uid://t84d8o7n7s4n" path="res://Scenes/Characters/Player/player.gd" id="1_01b8d"]
-[ext_resource type="PackedScene" uid="uid://bfqrxfi45idh8" path="res://Scenes/Objects/magic_bullet.tscn" id="2_xccyk"]
+[ext_resource type="PackedScene" uid="uid://bfqrxfi45idh8" path="res://Scenes/Objects/MagicBullet/magic_bullet.tscn" id="2_xccyk"]
 [ext_resource type="SpriteFrames" uid="uid://c5xejof3qc3ma" path="res://Images/Characters/earth_pony.tres" id="3_fcmex"]
 [ext_resource type="SpriteFrames" uid="uid://cekr32m6i7lj5" path="res://Images/Characters/unicorm.tres" id="3_gdgf0"]
 [ext_resource type="SpriteFrames" uid="uid://comkomt2jtubb" path="res://Images/Characters/pegasus.tres" id="4_25bbb"]
@@ -9,7 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://msmqw6t4fe8m" path="res://Sound/SFX/Jump_landing.wav" id="11_ddhxa"]
 [ext_resource type="AudioStream" uid="uid://453qncswme1t" path="res://Sound/SFX/Hero_Hurt.wav" id="12_3k74t"]
 [ext_resource type="AudioStream" uid="uid://cl3hliqomdp2w" path="res://Sound/SFX/Health.wav" id="13_v8iml"]
-
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kng6u"]
 radius = 5.0
@@ -38,6 +37,7 @@ animation = &"Action"
 position = Vector2(9.230769, -2.4615386)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
 position_smoothing_enabled = true
 
 [node name="Shoot" type="AudioStreamPlayer" parent="."]
@@ -64,7 +64,15 @@ wait_time = 0.1
 one_shot = true
 
 [node name="HurtTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="RecoveryTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
+[node name="BlinkTimer" type="Timer" parent="."]
+wait_time = 0.1
+
 [connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]
+[connection signal="timeout" from="BlinkTimer" to="." method="_on_blink_timer_timeout"]

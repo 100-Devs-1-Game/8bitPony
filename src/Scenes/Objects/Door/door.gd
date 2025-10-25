@@ -32,4 +32,4 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Interact") and player_on_door and not is_locked:
-		get_tree().change_scene_to_packed(target_scene)
+		Global.root.load_scene(target_scene)

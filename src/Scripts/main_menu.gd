@@ -7,5 +7,4 @@ func _ready():
 	Global.room_tracker = Global.Room.MainMenu
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_packed(level_select_scene)
-	
+	Global.root.load_scene(level_select_scene)

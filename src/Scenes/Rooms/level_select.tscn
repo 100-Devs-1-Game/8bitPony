@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bk0h6axpmena0"]
+[gd_scene load_steps=13 format=3 uid="uid://bk0h6axpmena0"]
 
 [ext_resource type="Script" uid="uid://c370jm1po8asl" path="res://Scripts/level_select.gd" id="1_18ftj"]
-[ext_resource type="PackedScene" uid="uid://b4j3uvi3nugac" path="res://Scenes/Characters/Player/player.tscn" id="1_wti6g"]
+[ext_resource type="PackedScene" uid="uid://bgd5ojsk1hil6" path="res://Scenes/HUD/hud.tscn" id="2_1o6y5"]
+[ext_resource type="PackedScene" uid="uid://d18ngjkik74bv" path="res://Scenes/Objects/Health/health.tscn" id="3_8abrt"]
 [ext_resource type="PackedScene" uid="uid://dkcxtqxuy8wpj" path="res://Scenes/Objects/Door/door.tscn" id="3_88led"]
 [ext_resource type="Texture2D" uid="uid://bs85tscd4eycs" path="res://icon.svg" id="3_yxcp0"]
 [ext_resource type="PackedScene" uid="uid://cvwt8sw33nouq" path="res://Scenes/Rooms/forest_level.tscn" id="4_8ebfm"]
@@ -20,6 +21,11 @@ size = Vector2(129, 127)
 
 [node name="Level Select" type="Node2D"]
 script = ExtResource("1_18ftj")
+
+[node name="HUD" parent="." instance=ExtResource("2_1o6y5")]
+
+[node name="player_start" type="Node2D" parent="."]
+position = Vector2(1219, 459)
 
 [node name="BG" type="ColorRect" parent="."]
 offset_left = -219.0
@@ -53,8 +59,8 @@ shape = SubResource("RectangleShape2D_u0elw")
 position = Vector2(7280, -230)
 shape = SubResource("RectangleShape2D_u0elw")
 
-[node name="Player" parent="." instance=ExtResource("1_wti6g")]
-position = Vector2(1615.0001, 424)
+[node name="Health" parent="." instance=ExtResource("3_8abrt")]
+position = Vector2(963, 475)
 
 [node name="Doors" type="Node2D" parent="."]
 

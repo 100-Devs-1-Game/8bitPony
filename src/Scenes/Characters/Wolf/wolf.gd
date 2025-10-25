@@ -22,7 +22,6 @@ func _process(delta: float):
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		if body.hurt_timer.is_stopped():
-			body.take_damage()
+		body.take_damage()
 	elif body is MagicBullet:
 		print("magic collision")
