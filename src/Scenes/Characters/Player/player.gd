@@ -90,7 +90,6 @@ func _unhandled_input(event: InputEvent) -> void:
 					get_parent().add_child(bullet)
 					shoot_sound.play()
 					attack_timer.start()
-					print("shoot")
 				PonyType.Earth:
 					attack_timer.start()
 		elif event.is_action_released("Action"):
@@ -108,7 +107,6 @@ func _unhandled_input(event: InputEvent) -> void:
 func take_damage(damage: int = 1):
 	if not has_state(PonyStateMachine.Die) and recovery_timer.is_stopped():
 		health = max(0, health - damage)
-		print("Player hit!")
 		hit_sound.play()
 		_flash_red()
 		recovery_timer.start()
@@ -122,7 +120,6 @@ func take_damage(damage: int = 1):
 func health_pickup(value: int = 1): #pick up extra life
 	if not has_state(PonyStateMachine.Die):
 		health += value
-		print("Player hit!")
 
 
 func _flash_red(): #player gets hit, flash red
