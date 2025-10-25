@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d18ngjkik74bv"]
+
+[ext_resource type="Script" uid="uid://b5hsijecg8lft" path="res://Scenes/Objects/Health/health.gd" id="1_mw21m"]
+[ext_resource type="Texture2D" uid="uid://dshuf8e6f72eh" path="res://Images/Assets/Heart_full.png" id="2_fgfhd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qlkfg"]
+radius = 8.0
+
+[node name="Health" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_mw21m")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("2_fgfhd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qlkfg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

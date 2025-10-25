@@ -26,15 +26,18 @@ pony_sprite_by_type = Dictionary[int, SpriteFrames]({
 })
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_kng6u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
 sprite_frames = ExtResource("3_gdgf0")
 animation = &"Action"
 
 [node name="BulletAnchor" type="Node2D" parent="."]
-position = Vector2(9.230769, -0.46153846)
+position = Vector2(9.230769, -2.4615386)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
 
 [node name="Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_fepmq")
@@ -60,7 +63,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="HurtTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 2.0
 one_shot = true
 
 [connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]

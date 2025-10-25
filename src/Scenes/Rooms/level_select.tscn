@@ -53,11 +53,8 @@ shape = SubResource("RectangleShape2D_u0elw")
 position = Vector2(7280, -230)
 shape = SubResource("RectangleShape2D_u0elw")
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("1_wti6g")]
+[node name="Player" parent="." instance=ExtResource("1_wti6g")]
 position = Vector2(1615.0001, 424)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-scale = Vector2(0.2, 0.2)
 
 [node name="Doors" type="Node2D" parent="."]
 

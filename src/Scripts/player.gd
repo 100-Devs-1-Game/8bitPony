@@ -86,14 +86,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		pony_type = (pony_type + 1) % PonyType.Max as PonyType
 		set_pony_type(pony_type)
 
-func _take_damage():
-	Global.player_lives -= 1
+func take_damage(damage: int = 1):
+	Global.player_lives -= damage
 	print("Player hit!")
 	hit_sound.play()
 	_flash_red()
 
-func _life_pickup(): #pick up extra life
-	Global.player_lives += 1
+func life_pickup(value: int = 1): #pick up extra life
+	Global.player_lives += value
 	print("Player hit!")
 	health_sound.play()
 
