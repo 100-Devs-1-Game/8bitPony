@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var player: Player = $Player
 @onready var player_startpos = $Player_Startpos
 
 
