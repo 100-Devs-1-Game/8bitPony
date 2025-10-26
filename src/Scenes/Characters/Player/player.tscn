@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4j3uvi3nugac"]
+[gd_scene load_steps=12 format=3 uid="uid://b4j3uvi3nugac"]
 
 [ext_resource type="Script" uid="uid://t84d8o7n7s4n" path="res://Scenes/Characters/Player/player.gd" id="1_01b8d"]
 [ext_resource type="PackedScene" uid="uid://bfqrxfi45idh8" path="res://Scenes/Objects/MagicBullet/magic_bullet.tscn" id="2_xccyk"]
@@ -6,6 +6,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cekr32m6i7lj5" path="res://Images/Characters/unicorm.tres" id="3_gdgf0"]
 [ext_resource type="SpriteFrames" uid="uid://comkomt2jtubb" path="res://Images/Characters/pegasus.tres" id="4_25bbb"]
 [ext_resource type="PackedScene" uid="uid://bbu116apenly0" path="res://Scenes/Objects/Smoke/smoke.tscn" id="6_8gg06"]
+[ext_resource type="AudioStream" uid="uid://d0ynyrg41me62" path="res://Sound/SFX/Arrow.wav" id="10_cscr0"]
 [ext_resource type="AudioStream" uid="uid://cp2e2n37ko0kd" path="res://Sound/SFX/Magic2.wav" id="10_fepmq"]
 [ext_resource type="AudioStream" uid="uid://msmqw6t4fe8m" path="res://Sound/SFX/Jump_landing.wav" id="11_ddhxa"]
 [ext_resource type="AudioStream" uid="uid://453qncswme1t" path="res://Sound/SFX/Hero_Hurt.wav" id="12_3k74t"]
@@ -55,6 +56,9 @@ bus = &"SFX"
 [node name="Hit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_3k74t")
 bus = &"SFX"
+
+[node name="Swap" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_cscr0")
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.1

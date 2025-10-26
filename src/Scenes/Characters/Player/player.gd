@@ -15,6 +15,7 @@ enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 # Sounds
 @onready var shoot_sound: AudioStreamPlayer = $Shoot
 @onready var hit_sound: AudioStreamPlayer = $Hit
+@onready var swap_sound: AudioStreamPlayer = $Swap
 
 @export var health: int = 3:
 	set(new_health):
@@ -103,6 +104,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.is_action_pressed("ChangePony"):
 			pony_type = (pony_type + 1) % PonyType.Max as PonyType
 			set_pony_type(pony_type)
+			swap_sound.play()
 			if smoke:
 				var smoke_inst: Node2D = smoke.instantiate()
 				Global.root.current_scene.add_child(smoke_inst)

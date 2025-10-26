@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://nsh5sis45wl2" path="res://Scenes/Objects/Smoke/smoke_sprite_frames.tres" id="1_5oq3f"]
 
 [node name="Smoke" type="Node2D"]
-scale = Vector2(10, 10)
+scale = Vector2(12, 12)
 script = ExtResource("1_0nnrk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
