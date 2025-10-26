@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dkcxtqxuy8wpj" path="res://Scenes/Objects/Door/door.tscn" id="3_88led"]
 [ext_resource type="Texture2D" uid="uid://bs85tscd4eycs" path="res://icon.svg" id="3_yxcp0"]
 [ext_resource type="Texture2D" uid="uid://c8w1tknbh0gy1" path="res://Images/Assets/collum 1.png" id="5_51vsw"]
-[ext_resource type="PackedScene" uid="uid://dkrxtxeflfcpx" path="res://Scenes/Rooms/forest_level.tscn" id="5_88led"]
+[ext_resource type="PackedScene" uid="uid://cvwt8sw33nouq" path="res://Scenes/Rooms/forest_level_old.tscn" id="5_88led"]
 [ext_resource type="Texture2D" uid="uid://bjqkofy3xxr0w" path="res://Images/Assets/Elements of harmony_base_empty.png" id="7_12kyc"]
 [ext_resource type="Texture2D" uid="uid://py6aogeowgyd" path="res://Images/Assets/Elements of harmony_red_gem.png" id="8_f78q1"]
 
