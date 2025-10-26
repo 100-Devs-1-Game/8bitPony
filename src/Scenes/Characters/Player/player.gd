@@ -122,6 +122,7 @@ func take_damage(damage: int = 1):
 		if health <= 0:
 			add_state(PonyStateMachine.Die)
 			flying = false
+			velocity.x = 0
 
 
 func health_pickup(value: int = 1): #pick up extra life
