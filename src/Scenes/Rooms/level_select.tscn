@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://d18ngjkik74bv" path="res://Scenes/Objects/Health/health.tscn" id="3_8abrt"]
 [ext_resource type="PackedScene" uid="uid://dkcxtqxuy8wpj" path="res://Scenes/Objects/Door/door.tscn" id="3_88led"]
 [ext_resource type="Texture2D" uid="uid://bs85tscd4eycs" path="res://icon.svg" id="3_yxcp0"]
-[ext_resource type="PackedScene" uid="uid://cvwt8sw33nouq" path="res://Scenes/Rooms/forest_level.tscn" id="4_8ebfm"]
 [ext_resource type="Texture2D" uid="uid://c8w1tknbh0gy1" path="res://Images/Assets/collum 1.png" id="5_51vsw"]
+[ext_resource type="PackedScene" uid="uid://dkrxtxeflfcpx" path="res://Scenes/Rooms/forest_level.tscn" id="5_88led"]
 [ext_resource type="Texture2D" uid="uid://bjqkofy3xxr0w" path="res://Images/Assets/Elements of harmony_base_empty.png" id="7_12kyc"]
 [ext_resource type="Texture2D" uid="uid://py6aogeowgyd" path="res://Images/Assets/Elements of harmony_red_gem.png" id="8_f78q1"]
 
@@ -67,7 +67,7 @@ position = Vector2(963, 475)
 [node name="ForestDoor" parent="Doors" instance=ExtResource("3_88led")]
 position = Vector2(573, 453.00003)
 is_locked = false
-target_scene = ExtResource("4_8ebfm")
+target_scene = ExtResource("5_88led")
 
 [node name="LockedDoor1" parent="Doors" instance=ExtResource("3_88led")]
 position = Vector2(1823, 453)

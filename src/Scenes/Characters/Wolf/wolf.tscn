@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bu7y47aniynw0" path="res://Scenes/Characters/Wolf/wolf.gd" id="1_5jxfp"]
 [ext_resource type="Texture2D" uid="uid://djlfl42gl5y8h" path="res://Images/Enemies/Wolf/T_Wolf_1.png" id="1_rwry1"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wutio"]
 size = Vector2(102, 86.5)
 
@@ -20,11 +19,11 @@ scale = Vector2(9, 9)
 texture = ExtResource("1_rwry1")
 
 [node name="RayCast_Right" type="RayCast2D" parent="."]
-position = Vector2(-1, -55)
+position = Vector2(0, -8)
 target_position = Vector2(47, 0)
 
 [node name="RayCast_Left" type="RayCast2D" parent="."]
-position = Vector2(-1, -55)
+position = Vector2(0, -8)
 target_position = Vector2(-47, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
