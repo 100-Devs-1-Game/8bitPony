@@ -1,3 +1,4 @@
+class_name Smoke
 extends Node2D
 
 @export var speed: float = 200.0
@@ -24,7 +25,3 @@ func _physics_process(delta: float) -> void:
 
 func _on_lifespan_timeout() -> void:
 	queue_free()
-
-
-func _on_rotation_timeout() -> void:
-	rotate(deg_to_rad(90))

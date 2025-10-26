@@ -102,13 +102,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.is_action_pressed("Jump") and is_on_floor():
 			velocity.y = jump_velocity
 		elif event.is_action_pressed("ChangePony"):
-			pony_type = (pony_type + 1) % PonyType.Max as PonyType
-			set_pony_type(pony_type)
-			swap_sound.play()
-			if smoke:
-				var smoke_inst: Node2D = smoke.instantiate()
-				Global.root.current_scene.add_child(smoke_inst)
-				smoke_inst.global_position = global_position
+			_change_pony()
 
 
 func take_damage(damage: int = 1):
@@ -215,6 +209,23 @@ func highest_set_bit_index_fast(x: int) -> int:
 		mask >>= 1
 		idx += 1
 	return 7 - idx
+
+
+func _change_pony():
+	pony_type = (pony_type + 1) % PonyType.Max as PonyType
+	set_pony_type(pony_type)
+	swap_sound.play()
+	if smoke:
+		var smoke_inst: Smoke = smoke.instantiate()
+		var smoke_light_inst: Smoke = smoke.instantiate()
+		Global.root.current_scene.add_child(smoke_inst)
+		Global.root.current_scene.add_child(smoke_light_inst)
+		smoke_inst.global_position = global_position
+		smoke_light_inst.global_position = global_position
+		smoke_light_inst.rotate(deg_to_rad(45))
+		var animation: String = PonyType.keys()[pony_type]
+		smoke_inst.sprite.play(animation)
+		smoke_light_inst.sprite.play_backwards(animation + "Light")
 
 
 func _on_hurt_timer_timeout() -> void:
