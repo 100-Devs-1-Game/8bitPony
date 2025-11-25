@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7mnvl4ns7f5u"]
+
+[ext_resource type="Script" uid="uid://bdgt4m5dp56jg" path="res://Scenes/Characters/Flying_NAMEWIP/FlyingEnemy.gd" id="1_5gs2p"]
+[ext_resource type="Texture2D" uid="uid://bs85tscd4eycs" path="res://icon.svg" id="2_51k15"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51k15"]
+size = Vector2(144, 136)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_51k15"]
+radius = 512.0
+
+[node name="flyingEnemy" type="CharacterBody2D"]
+script = ExtResource("1_5gs2p")
+sprite = ExtResource("2_51k15")
+metadata/_custom_type_script = "uid://by6lmexuqa20c"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_51k15")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_51k15")
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("CircleShape2D_51k15")

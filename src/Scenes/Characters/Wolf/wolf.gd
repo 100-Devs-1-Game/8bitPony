@@ -17,7 +17,8 @@ func _process(delta: float):
 	if ray_cast_left.is_colliding():
 		direction = 1
 		sprite.flip_h = true
-	position.x += direction * speed * delta
+	velocity.x = direction * speed * delta
+	move_and_slide()
 
 
 func _on_body_entered(body: Node2D) -> void:

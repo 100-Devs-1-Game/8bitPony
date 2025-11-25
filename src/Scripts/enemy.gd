@@ -1,5 +1,5 @@
 class_name Enemy
-extends Area2D
+extends CharacterBody2D
 
 @export var life: float = 1
 
