@@ -61,7 +61,7 @@ autostart = true
 stream = ExtResource("6_3oqld")
 bus = &"SFX"
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="LifeSpan" to="." method="_on_lifespan_timeout"]

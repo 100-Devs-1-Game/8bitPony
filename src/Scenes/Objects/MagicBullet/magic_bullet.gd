@@ -29,11 +29,11 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		queue_free()
 
 
-func _on_area_entered(area: Area2D) -> void:
-	if area is Enemy:
+func _on_body_entered(body: Node2D) -> void:
+	if body is Enemy:
 		Global.root.player.score += 10
 		exploding = true
-		area.take_damage()
+		body.take_damage()
 		anim.play("Explode")
 		explode.play()
 		lifespan.stop()

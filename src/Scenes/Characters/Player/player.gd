@@ -186,6 +186,8 @@ func set_pony_type(in_pony_type: PonyType):
 			sprite.sprite_frames = found_sprite
 			sprite.flip_h = flip_h
 			sprite.play(animation)
+	if pony_type == PonyType.Pegasus:
+		set_collision_mask_value(2, true)
 
 
 func add_state(state: PonyStateMachine):
