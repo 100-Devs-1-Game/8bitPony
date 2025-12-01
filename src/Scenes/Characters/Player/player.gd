@@ -56,6 +56,9 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta):
 	_default_movement(delta) #handles the movement
+	if $CollisionShape2D.disabled:
+		await get_tree().physics_frame
+		$CollisionShape2D.disabled= false
 
 
 func _default_movement(delta: float): #player moment from the character2d script

@@ -14,6 +14,7 @@ func _ready() -> void:
 
 func load_scene(next_scene: PackedScene):
 	if next_scene:
+		player.get_node("CollisionShape2D").disabled= true
 		var loaded_scene: Node = next_scene.instantiate()
 		if loaded_scene:
 			if current_scene:
