@@ -1,23 +1,22 @@
-[gd_scene load_steps=13 format=3 uid="uid://bk0h6axpmena0"]
+[gd_scene load_steps=12 format=3 uid="uid://bk0h6axpmena0"]
 
 [ext_resource type="Script" uid="uid://c370jm1po8asl" path="res://Scripts/level_select.gd" id="1_18ftj"]
 [ext_resource type="PackedScene" uid="uid://bgd5ojsk1hil6" path="res://Scenes/HUD/hud.tscn" id="2_1o6y5"]
-[ext_resource type="PackedScene" uid="uid://d18ngjkik74bv" path="res://Scenes/Objects/Health/health.tscn" id="3_8abrt"]
 [ext_resource type="PackedScene" uid="uid://dkcxtqxuy8wpj" path="res://Scenes/Objects/Door/door.tscn" id="3_88led"]
-[ext_resource type="Texture2D" uid="uid://bs85tscd4eycs" path="res://icon.svg" id="3_yxcp0"]
 [ext_resource type="Texture2D" uid="uid://c8w1tknbh0gy1" path="res://Images/Assets/collum 1.png" id="5_51vsw"]
 [ext_resource type="PackedScene" uid="uid://dkrxtxeflfcpx" path="res://Scenes/Rooms/forest_level.tscn" id="5_88led"]
 [ext_resource type="Texture2D" uid="uid://bjqkofy3xxr0w" path="res://Images/Assets/Elements of harmony_base_empty.png" id="7_12kyc"]
 [ext_resource type="Texture2D" uid="uid://py6aogeowgyd" path="res://Images/Assets/Elements of harmony_red_gem.png" id="8_f78q1"]
+[ext_resource type="PackedScene" uid="uid://c3ayd0jwx8lf3" path="res://Scenes/Rooms/gamecamera.tscn" id="9_88led"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1huox"]
-size = Vector2(7281, 241)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1o6y5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_88led"]
+normal = Vector2(0, 1)
+distance = -203.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0elw"]
-size = Vector2(128, 908)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jt5ci"]
-size = Vector2(129, 127)
+size = Vector2(128, 179)
 
 [node name="Level Select" type="Node2D"]
 script = ExtResource("1_18ftj")
@@ -25,12 +24,17 @@ script = ExtResource("1_18ftj")
 [node name="HUD" parent="." instance=ExtResource("2_1o6y5")]
 
 [node name="player_start" type="Node2D" parent="."]
-position = Vector2(1219, 459)
+position = Vector2(506, 550)
 
-[node name="BG" type="ColorRect" parent="."]
-offset_left = -219.0
-offset_right = 7068.0
-offset_bottom = 793.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="BG" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 color = Color(0.266667, 0.490196, 0.839216, 1)
 
@@ -39,7 +43,7 @@ color = Color(0.266667, 0.490196, 0.839216, 1)
 [node name="Ground_texture" type="ColorRect" parent="."]
 offset_left = -219.0
 offset_top = 557.0
-offset_right = 7068.0
+offset_right = 1240.0
 offset_bottom = 793.0
 mouse_filter = 2
 color = Color(0.0352941, 0.117647, 0.247059, 1)
@@ -48,99 +52,77 @@ color = Color(0.0352941, 0.117647, 0.247059, 1)
 position = Vector2(7, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground_texture/Ground_area2d"]
-position = Vector2(3631.5, 114.5)
-shape = SubResource("RectangleShape2D_1huox")
+position = Vector2(717, -5)
+shape = SubResource("WorldBoundaryShape2D_1o6y5")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Ground_texture/Ground_area2d"]
+position = Vector2(717, 130)
+shape = SubResource("WorldBoundaryShape2D_88led")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground_texture/Ground_area2d"]
-position = Vector2(80, -224)
+position = Vector2(576, -77)
 shape = SubResource("RectangleShape2D_u0elw")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground_texture/Ground_area2d"]
-position = Vector2(7280, -230)
+position = Vector2(862, -77.5)
 shape = SubResource("RectangleShape2D_u0elw")
-
-[node name="Health" parent="." instance=ExtResource("3_8abrt")]
-position = Vector2(963, 475)
 
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="ForestDoor" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(573, 453.00003)
+position = Vector2(438, 549)
+scale = Vector2(1, 1)
 is_locked = false
 target_scene = ExtResource("5_88led")
 
 [node name="LockedDoor1" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(1823, 453)
+position = Vector2(477, 549)
+scale = Vector2(1, 1)
 
 [node name="LockedDoor2" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(3165, 453)
+position = Vector2(539, 549)
+scale = Vector2(1, 1)
 
 [node name="LockedDoor3" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(3908, 453)
+position = Vector2(574, 549)
+scale = Vector2(1, 1)
 
 [node name="LockedDoor4" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(4493, 453)
-
-[node name="Block" type="StaticBody2D" parent="."]
-position = Vector2(-60, 433)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
-position = Vector2(64.5, 64.5)
-shape = SubResource("RectangleShape2D_jt5ci")
-
-[node name="TextureRect" type="TextureRect" parent="Block"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("3_yxcp0")
+position = Vector2(506, 549)
+scale = Vector2(1, 1)
 
 [node name="Collum" type="Node2D" parent="."]
+position = Vector2(520, 541)
 
-[node name="Collum_1" type="TextureRect" parent="Collum"]
-offset_left = 639.0
-offset_top = 226.0
-offset_right = 971.0
-offset_bottom = 558.0
+[node name="Collum_1" type="Sprite2D" parent="Collum"]
 texture = ExtResource("5_51vsw")
+offset = Vector2(0, 8)
 
-[node name="Collum_2" type="TextureRect" parent="Collum"]
-offset_left = 639.0
-offset_right = 971.0
-offset_bottom = 332.0
+[node name="Collum_2" type="Sprite2D" parent="Collum"]
 texture = ExtResource("5_51vsw")
+offset = Vector2(0, -8)
 flip_v = true
 
 [node name="Collum2" type="Node2D" parent="."]
-position = Vector2(-480, 0)
+position = Vector2(489, 542)
 
-[node name="Collum_1" type="TextureRect" parent="Collum2"]
-offset_left = 639.0
-offset_top = 226.0
-offset_right = 971.0
-offset_bottom = 558.0
+[node name="Collum_1" type="Sprite2D" parent="Collum2"]
 texture = ExtResource("5_51vsw")
+offset = Vector2(0, 8)
 
-[node name="Collum_2" type="TextureRect" parent="Collum2"]
-offset_left = 639.0
-offset_right = 971.0
-offset_bottom = 332.0
+[node name="Collum_2" type="Sprite2D" parent="Collum2"]
 texture = ExtResource("5_51vsw")
+offset = Vector2(0, -8)
 flip_v = true
 
 [node name="Element_Harmony" type="Node2D" parent="."]
-position = Vector2(2424, 304)
+position = Vector2(505, 507)
 
-[node name="Base" type="TextureRect" parent="Element_Harmony"]
-offset_left = -136.0
-offset_top = -209.0
-offset_right = -96.0
-offset_bottom = -169.0
-scale = Vector2(7, 7)
+[node name="Base" type="Sprite2D" parent="Element_Harmony"]
 texture = ExtResource("7_12kyc")
 
-[node name="red" type="TextureRect" parent="Element_Harmony"]
-offset_left = -138.0
-offset_top = -176.0
-offset_right = -102.0
-offset_bottom = -140.0
-scale = Vector2(2, 2)
+[node name="red" type="Sprite2D" parent="Element_Harmony"]
 texture = ExtResource("8_f78q1")
+
+[node name="Camera2D" parent="." instance=ExtResource("9_88led")]
+position = Vector2(507, 531)

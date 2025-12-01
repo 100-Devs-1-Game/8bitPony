@@ -7,14 +7,21 @@
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ljxe7")
 level_select_scene = ExtResource("2_41gp0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
-offset_right = 1277.0
-offset_bottom = 723.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.309804, 0, 0.533333, 1)
 
 [node name="Title" type="Label" parent="ColorRect"]
@@ -24,30 +31,31 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -399.5
-offset_top = -221.5
-offset_right = 400.5
-offset_bottom = -40.5
+offset_left = -44.0
+offset_top = -39.0
+offset_right = 44.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 8
 text = "8-BIT PONY"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Start_Button" type="Button" parent="ColorRect"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -221.5
-offset_top = -273.0
-offset_right = 222.5
-offset_bottom = -155.0
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -15.5
+offset_right = 48.0
+offset_bottom = 15.5
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 80
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
 text = "Start Game"
 
 [node name="MusicPlayer" type="Node" parent="."]

@@ -12,10 +12,13 @@ script = ExtResource("1_7t13q")
 
 [node name="Prefix" type="Label" parent="."]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
 
 [node name="Value" type="Label" parent="."]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
 text = "<null>"
 
 [node name="Suffix" type="Label" parent="."]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8

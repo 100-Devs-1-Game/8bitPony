@@ -11,31 +11,35 @@ script = ExtResource("1_5aai8")
 
 [node name="Gui" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 236.0
-offset_bottom = 121.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Stats" type="Control" parent="Gui"]
+layout_mode = 1
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="PanelContainer" type="PanelContainer" parent="Gui/Stats"]
 layout_mode = 1
-offset_right = 236.0
-offset_bottom = 121.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Shards" type="Control" parent="Gui/Stats"]
+layout_mode = 1
 anchors_preset = 0
 offset_right = 236.0
 offset_bottom = 121.0
 
 [node name="RedShard" type="TextureRect" parent="Gui/Stats/Shards"]
 layout_mode = 0
-offset_left = -26.0
-offset_top = 23.0
-offset_right = 91.0
-offset_bottom = 128.0
+offset_top = 12.0
+offset_right = 16.0
+offset_bottom = 28.0
 size_flags_horizontal = 0
 texture = ExtResource("2_a56j6")
 
@@ -44,10 +48,10 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 88.0
-offset_top = 43.0
-offset_right = -90.0
-offset_bottom = -36.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 34.0
+offset_bottom = 24.0
 grow_horizontal = 1
 grow_vertical = 1
 theme = ExtResource("4_k83ni")
@@ -56,9 +60,8 @@ suffix = "/7"
 
 [node name="ScoreValue" parent="Gui/Stats" instance=ExtResource("3_a56j6")]
 layout_mode = 1
-offset_top = -1.0
 offset_right = 150.0
-offset_bottom = 1.0
+offset_bottom = 12.0
 theme = ExtResource("4_k83ni")
 prefix = "Score: "
 value = 0
@@ -68,10 +71,9 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 18.0
-offset_top = 662.0
-offset_right = -79.0
-offset_bottom = 583.0
+offset_top = 75.0
+offset_right = 44.0
+offset_bottom = 87.0
 grow_horizontal = 1
 grow_vertical = 1
 theme = ExtResource("4_k83ni")

@@ -4,9 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://816fkgr1blu3" path="res://Scenes/Rooms/main_menu.tscn" id="2_ag2nl"]
 [ext_resource type="PackedScene" uid="uid://b4j3uvi3nugac" path="res://Scenes/Characters/Player/player.tscn" id="3_qfgwh"]
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" groups=["gameroot"]]
 script = ExtResource("1_pgvnw")
 start_scene = ExtResource("2_ag2nl")
 
 [node name="Player" parent="." instance=ExtResource("3_qfgwh")]
 unique_name_in_owner = true
+platform_on_leave = 2

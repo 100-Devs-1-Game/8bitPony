@@ -27,8 +27,8 @@ func _on_scene_changed():
 	if player_start:
 		%Player.position = player_start.position
 		%Player.visible = true
-		%Player.camera.enabled = true
-		%Player.camera.reset_smoothing()
+		#%Player.camera.enabled = true
+		#%Player.camera.reset_smoothing()
 	else:
 		%Player.visible = false
-		%Player.camera.enabled = false
+		#%Player.camera.enabled = false

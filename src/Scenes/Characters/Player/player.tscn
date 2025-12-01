@@ -15,11 +15,13 @@
 radius = 5.0
 height = 10.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
-scale = Vector2(13, 13)
 script = ExtResource("1_01b8d")
 magic_bullet = ExtResource("2_xccyk")
+speed = 100.0
+flying_strength = 200.0
+jump_velocity = -200.0
 pony_sprite_by_type = Dictionary[int, SpriteFrames]({
 0: ExtResource("3_fcmex"),
 1: ExtResource("4_25bbb"),
@@ -37,10 +39,6 @@ animation = &"Action"
 
 [node name="BulletAnchor" type="Node2D" parent="."]
 position = Vector2(9.230769, -2.4615386)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-process_callback = 0
-position_smoothing_enabled = true
 
 [node name="Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_fepmq")

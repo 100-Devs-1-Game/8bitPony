@@ -4,7 +4,6 @@ extends CharacterBody2D
 enum PonyType { Earth, Pegasus, Unicorn, Max }
 enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 
-@onready var camera: Camera2D = $Camera2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var bullet_anchor: Node2D = $BulletAnchor
 @onready var attack_timer: Timer = $AttackTimer

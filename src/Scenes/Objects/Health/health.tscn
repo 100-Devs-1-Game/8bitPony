@@ -8,7 +8,6 @@
 radius = 8.0
 
 [node name="Health" type="Area2D"]
-scale = Vector2(2, 2)
 script = ExtResource("1_mw21m")
 
 [node name="Sprite" type="Sprite2D" parent="."]
