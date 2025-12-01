@@ -32,6 +32,3 @@ mono_crash.*.json
 
 # Rider specific ignores
 .idea/
-
-# MacOS specific ignores
-.DS_Store
