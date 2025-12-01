@@ -25,10 +25,16 @@ func load_scene(next_scene: PackedScene):
 func _on_scene_changed():
 	var player_start: Node2D = current_scene.find_child("player_start")
 	if player_start:
-		%Player.position = player_start.position
-		%Player.visible = true
+		player.position = player_start.position
+		player.visible = true
+		player.set_physics_process(true)
+		player.set_process(true)
+		player.set_process_unhandled_input(true)
 		#%Player.camera.enabled = true
 		#%Player.camera.reset_smoothing()
 	else:
-		%Player.visible = false
+		player.set_physics_process(false)
+		player.set_process(false)
+		player.set_process_unhandled_input(false)
+		player.visible = false
 		#%Player.camera.enabled = false

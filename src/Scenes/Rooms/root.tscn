@@ -10,4 +10,4 @@ start_scene = ExtResource("2_ag2nl")
 
 [node name="Player" parent="." instance=ExtResource("3_qfgwh")]
 unique_name_in_owner = true
-platform_on_leave = 2
+position = Vector2(80, 61)

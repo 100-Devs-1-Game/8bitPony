@@ -61,7 +61,7 @@ func _physics_process(delta):
 func _default_movement(delta: float): #player moment from the character2d script
 	if flying:
 		velocity.y -= flying_strength * delta
-	elif not is_on_floor():	
+	elif not is_on_floor():
 		velocity.y += gravity * delta
 	velocity.y = max(-max_vertical_velocity, min(max_vertical_velocity, velocity.y))
 	

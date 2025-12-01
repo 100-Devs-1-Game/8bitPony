@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bk0h6axpmena0"]
+[gd_scene load_steps=11 format=3 uid="uid://bk0h6axpmena0"]
 
 [ext_resource type="Script" uid="uid://c370jm1po8asl" path="res://Scripts/level_select.gd" id="1_18ftj"]
 [ext_resource type="PackedScene" uid="uid://bgd5ojsk1hil6" path="res://Scenes/HUD/hud.tscn" id="2_1o6y5"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dkrxtxeflfcpx" path="res://Scenes/Rooms/forest_level.tscn" id="5_88led"]
 [ext_resource type="Texture2D" uid="uid://bjqkofy3xxr0w" path="res://Images/Assets/Elements of harmony_base_empty.png" id="7_12kyc"]
 [ext_resource type="Texture2D" uid="uid://py6aogeowgyd" path="res://Images/Assets/Elements of harmony_red_gem.png" id="8_f78q1"]
-[ext_resource type="PackedScene" uid="uid://c3ayd0jwx8lf3" path="res://Scenes/Rooms/gamecamera.tscn" id="9_88led"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1o6y5"]
 
@@ -123,6 +122,3 @@ texture = ExtResource("7_12kyc")
 
 [node name="red" type="Sprite2D" parent="Element_Harmony"]
 texture = ExtResource("8_f78q1")
-
-[node name="Camera2D" parent="." instance=ExtResource("9_88led")]
-position = Vector2(507, 531)

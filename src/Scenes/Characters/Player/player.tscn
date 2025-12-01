@@ -73,5 +73,8 @@ one_shot = true
 [node name="BlinkTimer" type="Timer" parent="."]
 wait_time = 0.1
 
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -16)
+
 [connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]
 [connection signal="timeout" from="BlinkTimer" to="." method="_on_blink_timer_timeout"]
