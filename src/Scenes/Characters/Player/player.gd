@@ -10,6 +10,7 @@ enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 @onready var hurt_timer: Timer = $HurtTimer
 @onready var recovery_timer: Timer = $RecoveryTimer
 @onready var blink_timer: Timer = $BlinkTimer
+@onready var camera: Camera2D = $Camera2D
 
 # Sounds
 @onready var shoot_sound: AudioStreamPlayer = $Shoot
@@ -44,6 +45,11 @@ signal score_changed(new_score: int)
 var gravity: float = gravity_change + ProjectSettings.get_setting("physics/2d/default_gravity")
 var flying: bool = false
 
+var enabled: bool:
+	set(value):
+		$CollisionShape2D.disabled = !value
+	get():
+		return !$CollisionShape2D.disabled
 
 func _ready() -> void:
 	set_pony_type(pony_type)
@@ -53,9 +59,11 @@ func _process(_delta: float) -> void:
 	_update_pony_state()
 	_sprite_handle()
 
-
 func _physics_process(delta):
 	_default_movement(delta) #handles the movement
+	if $CollisionShape2D.disabled:
+		await get_tree().physics_frame
+		$CollisionShape2D.disabled = false
 
 
 func _default_movement(delta: float): #player moment from the character2d script
@@ -63,7 +71,7 @@ func _default_movement(delta: float): #player moment from the character2d script
 		velocity.y -= flying_strength * delta
 	elif not is_on_floor():
 		velocity.y += gravity * delta
-	velocity.y = max(-max_vertical_velocity, min(max_vertical_velocity, velocity.y))
+	velocity.y = clampf(velocity.y, -max_vertical_velocity, max_vertical_velocity)
 	
 	if not has_state(PonyStateMachine.Die):
 		var direction = Input.get_axis("Left", "Right")
@@ -71,7 +79,6 @@ func _default_movement(delta: float): #player moment from the character2d script
 			velocity.x = direction * speed
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
-	
 	move_and_slide()
 
 

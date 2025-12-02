@@ -11,3 +11,5 @@ start_scene = ExtResource("2_ag2nl")
 [node name="Player" parent="." instance=ExtResource("3_qfgwh")]
 unique_name_in_owner = true
 position = Vector2(80, 61)
+jump_velocity = -200.0
+gravity_change = 50.0

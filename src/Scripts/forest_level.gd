@@ -1,8 +1,5 @@
 extends Node2D
 
-@onready var player_startpos = $Player_Startpos
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.room_tracker = Global.Room.Forest

@@ -109,5 +109,6 @@ texture = ExtResource("1_rmp1u")
 [resource]
 physics_layer_0/collision_layer = 1
 physics_layer_1/collision_layer = 2
+terrain_set_0/mode = 0
 sources/1 = SubResource("TileSetAtlasSource_jfhyi")
 sources/0 = SubResource("TileSetAtlasSource_154bx")
