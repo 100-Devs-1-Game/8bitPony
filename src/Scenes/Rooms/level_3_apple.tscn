@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://4lw3bcqthym2"]
+
+[ext_resource type="PackedScene" uid="uid://dkrxtxeflfcpx" path="res://Scenes/Rooms/TEMPLATE.tscn" id="1_bnbwi"]
+[ext_resource type="PackedScene" uid="uid://dx8bxt70q06xt" path="res://Scenes/Objects/ShardFragment/shard_fragment.tscn" id="2_yut4v"]
+
+[node name="Level3-Apple Acres" instance=ExtResource("1_bnbwi")]
+level_shard_type = 2
+
+[node name="ColorRect" parent="." index="0"]
+color = Color(0.5207511, 0.23632073, 0.044303916, 1)
+
+[node name="ShardFragment" parent="Shards" index="0"]
+position = Vector2(-44, 200)
+
+[node name="ShardFragment2" parent="Shards" index="1" instance=ExtResource("2_yut4v")]
+position = Vector2(-7, 200)
+
+[node name="ShardFragment3" parent="Shards" index="2" instance=ExtResource("2_yut4v")]
+position = Vector2(5, 192)
+
+[node name="ShardFragment4" parent="Shards" index="3" instance=ExtResource("2_yut4v")]
+position = Vector2(-22, 200)
+
+[node name="ShardFragment5" parent="Shards" index="4" instance=ExtResource("2_yut4v")]
+position = Vector2(22, 201)
+
+[node name="ShardFragment6" parent="Shards" index="5" instance=ExtResource("2_yut4v")]
+position = Vector2(34, 200)

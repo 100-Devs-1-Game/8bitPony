@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://in11fhrwqigv"]
+
+[ext_resource type="PackedScene" uid="uid://dkrxtxeflfcpx" path="res://Scenes/Rooms/TEMPLATE.tscn" id="1_yrew2"]
+[ext_resource type="PackedScene" uid="uid://dx8bxt70q06xt" path="res://Scenes/Objects/ShardFragment/shard_fragment.tscn" id="2_hr3qd"]
+
+[node name="Level6-Library" instance=ExtResource("1_yrew2")]
+level_shard_type = 5
+
+[node name="ColorRect" parent="." index="0"]
+color = Color(0.04371643, 0.6802459, 0.74609375, 1)
+
+[node name="ShardFragment" parent="Shards" index="0"]
+position = Vector2(-44, 200)
+
+[node name="ShardFragment5" parent="Shards" index="1" instance=ExtResource("2_hr3qd")]
+position = Vector2(22, 201)
+
+[node name="ShardFragment7" parent="Shards" index="2" instance=ExtResource("2_hr3qd")]
+position = Vector2(-12, 200)
+
+[node name="ShardFragment6" parent="Shards" index="3" instance=ExtResource("2_hr3qd")]
+position = Vector2(43, 202)

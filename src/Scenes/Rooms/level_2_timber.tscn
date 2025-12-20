@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ufb6hjfu0sh6"]
+
+[ext_resource type="PackedScene" uid="uid://dkrxtxeflfcpx" path="res://Scenes/Rooms/TEMPLATE.tscn" id="1_21t2j"]
+[ext_resource type="PackedScene" uid="uid://dx8bxt70q06xt" path="res://Scenes/Objects/ShardFragment/shard_fragment.tscn" id="2_cun7n"]
+
+[node name="Level2-Timber" instance=ExtResource("1_21t2j")]
+level_shard_type = 1
+
+[node name="ColorRect" parent="." index="0"]
+color = Color(0.43490797, 0.28990504, 0.22221035, 1)
+
+[node name="ShardFragment" parent="Shards" index="0"]
+position = Vector2(-11, 198)
+
+[node name="ShardFragment2" parent="Shards" index="1" instance=ExtResource("2_cun7n")]
+position = Vector2(4, 197)
+
+[node name="ShardFragment3" parent="Shards" index="2" instance=ExtResource("2_cun7n")]
+position = Vector2(28, 197)

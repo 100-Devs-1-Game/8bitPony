@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf0x5aglsgasw"]
+
+[ext_resource type="PackedScene" uid="uid://dkrxtxeflfcpx" path="res://Scenes/Rooms/TEMPLATE.tscn" id="1_dh2e0"]
+[ext_resource type="PackedScene" uid="uid://dx8bxt70q06xt" path="res://Scenes/Objects/ShardFragment/shard_fragment.tscn" id="2_mkt6j"]
+
+[node name="Level5-Sugar Rush" instance=ExtResource("1_dh2e0")]
+level_shard_type = 4
+
+[node name="ColorRect" parent="." index="0"]
+color = Color(0.7774339, 0.82421875, 0.22537231, 1)
+
+[node name="ShardFragment" parent="Shards" index="0"]
+position = Vector2(-44, 200)
+
+[node name="ShardFragment5" parent="Shards" index="1" instance=ExtResource("2_mkt6j")]
+position = Vector2(22, 201)
+
+[node name="ShardFragment6" parent="Shards" index="2" instance=ExtResource("2_mkt6j")]
+position = Vector2(43, 202)
