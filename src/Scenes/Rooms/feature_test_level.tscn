@@ -13,6 +13,15 @@
 
 [node name="FeatureTestLevel" type="Node2D"]
 script = ExtResource("1_8sc13")
+level_shard_type = 6
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -145.0
+offset_top = -65.0
+offset_right = 409.0
+offset_bottom = 236.0
+mouse_filter = 2
+color = Color(0.6007024, 0.8709333, 0.2391175, 1)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 
@@ -84,14 +93,31 @@ tile_map_data = PackedByteArray("AAD//wAAAAAAAAEAAAAAAAAAAAABAAEAAAABAAAAAAACAAE
 position = Vector2(-57, 199)
 
 [node name="ShardFragment" parent="Pickups" instance=ExtResource("8_8bs4y")]
-position = Vector2(243, 201)
-shard_type = 3
+position = Vector2(242, 187)
+
+[node name="ShardFragment2" parent="Pickups" instance=ExtResource("8_8bs4y")]
+position = Vector2(258, 187)
+
+[node name="ShardFragment3" parent="Pickups" instance=ExtResource("8_8bs4y")]
+position = Vector2(272, 186)
+
+[node name="ShardFragment4" parent="Pickups" instance=ExtResource("8_8bs4y")]
+position = Vector2(285, 186)
+
+[node name="ShardFragment5" parent="Pickups" instance=ExtResource("8_8bs4y")]
+position = Vector2(295, 186)
+
+[node name="ShardFragment6" parent="Pickups" instance=ExtResource("8_8bs4y")]
+position = Vector2(304, 186)
+
+[node name="ShardFragment7" parent="Pickups" instance=ExtResource("8_8bs4y")]
+position = Vector2(312, 186)
 
 [node name="BreakableWall" parent="." instance=ExtResource("9_8bs4y")]
 position = Vector2(200, 200)
 
 [node name="Door" parent="." instance=ExtResource("10_dfj28")]
-position = Vector2(270, 200)
+position = Vector2(359, 200)
 is_locked = false
 target_scene = "uid://bk0h6axpmena0"
 
