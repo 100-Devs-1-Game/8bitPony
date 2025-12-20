@@ -67,18 +67,22 @@ func _physics_process(delta):
 
 
 func _default_movement(delta: float): #player moment from the character2d script
+	if has_state(PonyStateMachine.Die):
+		return
+	
 	if flying:
 		velocity.y -= flying_strength * delta
 	elif not is_on_floor():
 		velocity.y += gravity * delta
 	velocity.y = clampf(velocity.y, -max_vertical_velocity, max_vertical_velocity)
 	
-	if not has_state(PonyStateMachine.Die):
-		var direction = Input.get_axis("Left", "Right")
-		if direction:
-			velocity.x = direction * speed
-		else:
-			velocity.x = move_toward(velocity.x, 0, speed)
+
+	var direction = Input.get_axis("Left", "Right")
+	if direction:
+		velocity.x = direction * speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, speed)
+		
 	move_and_slide()
 
 
@@ -193,8 +197,12 @@ func set_pony_type(in_pony_type: PonyType):
 			sprite.flip_h = flip_h
 			sprite.play(animation)
 	if pony_type == PonyType.Pegasus:
-		set_collision_mask_value(2, true)
+		set_collision_mask_value(6, true)
+	else:
+		set_collision_mask_value(6, false)
 
+func get_pony_type_as_string():
+	return str(PonyType.keys()[pony_type])
 
 func add_state(state: PonyStateMachine):
 	pony_states |= (0b1 << state)
@@ -206,6 +214,9 @@ func remove_state(state: PonyStateMachine):
 
 func has_state(state: PonyStateMachine) -> bool:
 	return pony_states & (0b1 << state)
+
+func has_state_action()-> bool:
+	return has_state(PonyStateMachine.Action)
 
 
 func highest_set_bit_index_fast(x: int) -> int:
