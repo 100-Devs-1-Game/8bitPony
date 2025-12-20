@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://816fkgr1blu3"]
+[gd_scene load_steps=6 format=3 uid="uid://816fkgr1blu3"]
 
 [ext_resource type="Script" uid="uid://k3qgf0bik0xw" path="res://Scripts/main_menu.gd" id="1_ljxe7"]
-[ext_resource type="PackedScene" uid="uid://bk0h6axpmena0" path="res://Scenes/Rooms/level_select.tscn" id="2_41gp0"]
 [ext_resource type="AudioStream" uid="uid://btfsahlpary8x" path="res://Sound/Music/Raw/Cloud Crash.wav" id="3_4yjuk"]
+[ext_resource type="FontFile" uid="uid://c3r2ugmucgyjt" path="res://Scenes/Objects/Breakable Wall/font-8.tres" id="3_65ujr"]
 [ext_resource type="Script" uid="uid://by8a62muhhw35" path="res://Scripts/music_player.gd" id="3_dkmyi"]
+[ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="4_bum5j"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -13,7 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ljxe7")
-level_select_scene = ExtResource("2_41gp0")
+level_select_scene = "uid://bk0h6axpmena0"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -37,6 +38,7 @@ offset_right = 44.0
 offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_65ujr")
 theme_override_font_sizes/font_size = 8
 text = "8-BIT PONY"
 horizontal_alignment = 1
@@ -55,6 +57,7 @@ offset_right = 48.0
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_bum5j")
 theme_override_font_sizes/font_size = 8
 text = "Start Game"
 

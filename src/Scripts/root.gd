@@ -1,7 +1,7 @@
 class_name Root
 extends Node
 
-@export var start_scene: PackedScene
+@export_file ("*.tscn") var start_scene: String
 
 @onready var player: Player = $Player
 
@@ -11,9 +11,13 @@ func _ready() -> void:
 	Global.root = self
 	load_scene(start_scene)
 
-func load_scene(next_scene: PackedScene):
+
+
+func load_scene(next_scene: String):
+	print(next_scene)
+	var new_scene = load(next_scene)
 	if next_scene:
-		var loaded_scene: Node = next_scene.instantiate()
+		var loaded_scene: Node = new_scene.instantiate()
 		if loaded_scene:
 			player.enabled = false
 			if current_scene:

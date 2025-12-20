@@ -1,6 +1,6 @@
 extends Node
 
-@export var level_select_scene: PackedScene
+@export_file ("*.tscn") var level_select_scene: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
