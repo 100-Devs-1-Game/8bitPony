@@ -13,4 +13,4 @@ var progress = 0.0:
 func _physics_process(delta: float) -> void:
 
 	progress += delta * SpeedModifier / 3.0
-	platform.position = a.position.lerp(b.position, pingpong(progress, 1.0))
+	platform.global_position = a.global_position.lerp(b.global_position, pingpong(progress, 1.0))
