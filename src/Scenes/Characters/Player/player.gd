@@ -30,7 +30,7 @@ enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 @export var flying_strength: float = 2500.0
 @export var max_vertical_velocity: float = 500.0
 @export var jump_velocity: float = -550.0
-@export var gravity_change: float = 200
+@export var gravity: float = 200
 @export var hurt_color: Color = Color.RED
 @export var pony_type: PonyType = PonyType.Unicorn
 @export var pony_sprite_by_type: Dictionary[PonyType, SpriteFrames]
@@ -41,8 +41,7 @@ var pony_states: int = PonyStateMachine.Idle
 signal health_changed(new_health: int)
 signal score_changed(new_score: int)
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity: float = gravity_change + ProjectSettings.get_setting("physics/2d/default_gravity")
+
 var flying: bool = false
 
 var enabled: bool:
@@ -71,9 +70,9 @@ func _default_movement(delta: float): #player moment from the character2d script
 		return
 	
 	if flying:
-		velocity.y -= flying_strength * delta
+		velocity.y -= flying_strength
 	elif not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += gravity
 	velocity.y = clampf(velocity.y, -max_vertical_velocity, max_vertical_velocity)
 	
 
