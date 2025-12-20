@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnfxvgqfeavyb"]
+
+[ext_resource type="Script" uid="uid://cf4avc34pd3m3" path="res://Scenes/Objects/Breakable Wall/breakable_wall.gd" id="1_o03xt"]
+[ext_resource type="Texture2D" uid="uid://btdt4hrgyyjyq" path="res://Images/Level/Forest 2.png" id="1_wph8x"]
+[ext_resource type="AudioStream" uid="uid://clno70x1nfwr" path="res://Sound/SFX/Explosion.wav" id="3_1nh7k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o03xt"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nh7k"]
+size = Vector2(18, 16)
+
+[node name="BreakableWall" type="StaticBody2D"]
+script = ExtResource("1_o03xt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o03xt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wph8x")
+hframes = 8
+vframes = 5
+frame = 15
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+shape = SubResource("RectangleShape2D_1nh7k")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1nh7k")
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]
