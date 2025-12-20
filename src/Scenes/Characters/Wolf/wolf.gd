@@ -7,20 +7,24 @@ extends Enemy
 
 @export var speed: float = 300
 
-var direction: int = 1
+var direction: int = -1
 
 
 func _process(delta: float):
-	if ray_cast_right.is_colliding():
-		direction = -1
-		sprite.flip_h = false
-	if ray_cast_left.is_colliding():
-		direction = 1
-		sprite.flip_h = true
+	if ray_cast_right.is_colliding() or ray_cast_left.is_colliding():
+		flip_direction()
+		
 	velocity.x = direction * speed * delta
 	move_and_slide()
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
-		body.take_damage()
+	body.take_damage()
+
+
+func _on_detect_floor_body_exited(body: Node2D) -> void:
+	flip_direction()
+
+func flip_direction():
+	direction *= -1
+	sprite.flip_h = !sprite.flip_h
