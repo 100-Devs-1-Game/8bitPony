@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://dfsa1pi80a63t"]
 
-[sub_resource type="SystemFont" id="SystemFont_3t0c7"]
+[ext_resource type="FontFile" uid="uid://c3r2ugmucgyjt" path="res://assets/font-8.tres" id="1_q8u82"]
 
 [resource]
-default_font = SubResource("SystemFont_3t0c7")
-default_font_size = 30
+default_font = ExtResource("1_q8u82")
+default_font_size = 8

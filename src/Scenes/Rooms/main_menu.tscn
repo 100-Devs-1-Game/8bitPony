@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://k3qgf0bik0xw" path="res://Scripts/main_menu.gd" id="1_ljxe7"]
 [ext_resource type="AudioStream" uid="uid://btfsahlpary8x" path="res://Sound/Music/Raw/Cloud Crash.wav" id="3_4yjuk"]
-[ext_resource type="FontFile" uid="uid://c3r2ugmucgyjt" path="res://Scenes/Objects/Breakable Wall/font-8.tres" id="3_65ujr"]
+[ext_resource type="FontFile" uid="uid://c3r2ugmucgyjt" path="res://assets/font-8.tres" id="3_65ujr"]
 [ext_resource type="Script" uid="uid://by8a62muhhw35" path="res://Scripts/music_player.gd" id="3_dkmyi"]
 [ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="4_bum5j"]
 
