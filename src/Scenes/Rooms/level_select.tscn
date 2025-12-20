@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bk0h6axpmena0"]
+[gd_scene load_steps=11 format=3 uid="uid://bk0h6axpmena0"]
 
 [ext_resource type="Script" uid="uid://c370jm1po8asl" path="res://Scripts/level_select.gd" id="1_18ftj"]
 [ext_resource type="PackedScene" uid="uid://bgd5ojsk1hil6" path="res://Scenes/HUD/hud.tscn" id="2_1o6y5"]
 [ext_resource type="PackedScene" uid="uid://dkcxtqxuy8wpj" path="res://Scenes/Objects/Door/door.tscn" id="3_88led"]
+[ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="4_hfsg3"]
 [ext_resource type="Texture2D" uid="uid://c8w1tknbh0gy1" path="res://Images/Assets/collum 1.png" id="5_51vsw"]
 [ext_resource type="Texture2D" uid="uid://bjqkofy3xxr0w" path="res://Images/Assets/Elements of harmony_base_empty.png" id="7_12kyc"]
 [ext_resource type="Texture2D" uid="uid://py6aogeowgyd" path="res://Images/Assets/Elements of harmony_red_gem.png" id="8_f78q1"]
@@ -20,24 +21,49 @@ size = Vector2(128, 179)
 script = ExtResource("1_18ftj")
 
 [node name="HUD" parent="." instance=ExtResource("2_1o6y5")]
+visible = false
 
-[node name="player_start" type="Node2D" parent="."]
-position = Vector2(506, 550)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="BG" type="ColorRect" parent="CanvasLayer"]
+[node name="BG" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = 115.0
+offset_right = 1239.0
+offset_bottom = 687.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.266667, 0.490196, 0.839216, 1)
-metadata/_edit_use_anchors_ = true
+
+[node name="player_start" type="Node2D" parent="."]
+position = Vector2(305, 550)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Ground_texture2" type="ColorRect" parent="."]
+offset_left = -219.0
+offset_top = 229.0
+offset_right = 278.0
+offset_bottom = 793.0
+mouse_filter = 2
+color = Color(0.0352941, 0.117647, 0.247059, 1)
+
+[node name="Ground_texture3" type="ColorRect" parent="."]
+offset_left = 697.0
+offset_top = 184.0
+offset_right = 1191.0
+offset_bottom = 748.0
+mouse_filter = 2
+color = Color(0.0352941, 0.117647, 0.247059, 1)
+
+[node name="Ground_texture4" type="ColorRect" parent="."]
+offset_left = 9.0
+offset_top = 184.0
+offset_right = 1191.0
+offset_bottom = 486.0
+mouse_filter = 2
+color = Color(0.0352941, 0.117647, 0.247059, 1)
 
 [node name="Ground_texture" type="ColorRect" parent="."]
 offset_left = -219.0
@@ -66,49 +92,218 @@ shape = SubResource("RectangleShape2D_u0elw")
 position = Vector2(973, -77.5)
 shape = SubResource("RectangleShape2D_u0elw")
 
+[node name="TextLabels" type="Node2D" parent="."]
+
+[node name="Test" type="Label" parent="TextLabels"]
+offset_left = 246.0
+offset_top = 544.0
+offset_right = 278.0
+offset_bottom = 552.0
+theme = ExtResource("4_hfsg3")
+text = "Test"
+
+[node name="Intro" type="Label" parent="TextLabels"]
+offset_left = 305.0
+offset_top = 560.0
+offset_right = 337.0
+offset_bottom = 579.0
+theme = ExtResource("4_hfsg3")
+text = "Test
+2"
+
+[node name="ForestLabel" type="Label" parent="TextLabels"]
+offset_left = 342.0
+offset_top = 530.0
+offset_right = 390.0
+offset_bottom = 538.0
+theme = ExtResource("4_hfsg3")
+text = "Forest"
+
+[node name="TimberLabel" type="Label" parent="TextLabels"]
+offset_left = 391.0
+offset_top = 561.0
+offset_right = 439.0
+offset_bottom = 569.0
+theme = ExtResource("4_hfsg3")
+text = "Timber"
+
+[node name="AppleLabel" type="Label" parent="TextLabels"]
+offset_left = 439.0
+offset_top = 531.0
+offset_right = 479.0
+offset_bottom = 539.0
+theme = ExtResource("4_hfsg3")
+text = "Apple"
+
+[node name="CloudLabel" type="Label" parent="TextLabels"]
+offset_left = 483.0
+offset_top = 564.0
+offset_right = 523.0
+offset_bottom = 572.0
+theme = ExtResource("4_hfsg3")
+text = "Cloud"
+
+[node name="SugarLabel" type="Label" parent="TextLabels"]
+offset_left = 523.0
+offset_top = 531.0
+offset_right = 563.0
+offset_bottom = 539.0
+theme = ExtResource("4_hfsg3")
+text = "Sugar"
+
+[node name="LibraryLabel" type="Label" parent="TextLabels"]
+offset_left = 560.0
+offset_top = 560.0
+offset_right = 616.0
+offset_bottom = 568.0
+theme = ExtResource("4_hfsg3")
+text = "Library"
+
+[node name="EndLabel" type="Label" parent="TextLabels"]
+offset_left = 617.0
+offset_top = 531.0
+offset_right = 649.0
+offset_bottom = 539.0
+theme = ExtResource("4_hfsg3")
+text = "End?"
+
 [node name="Doors" type="Node2D" parent="."]
 
-[node name="ForestDoor" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(438, 549)
-target_scene = "uid://dkrxtxeflfcpx"
-
-[node name="LockedDoor1" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(344, 549)
-needed_shard = 0
-
-[node name="LockedDoor2" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(575, 549)
-needed_shard = 1
-
-[node name="LockedDoor3" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(645, 549)
-needed_shard = 2
-
-[node name="LockedDoor4" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(506, 549)
+[node name="TestLevel" parent="Doors" instance=ExtResource("3_88led")]
+position = Vector2(291, 549)
 is_locked = false
 target_scene = "uid://cu2kiv5h2qper"
 
-[node name="Collum" type="Node2D" parent="."]
-position = Vector2(520, 541)
+[node name="IntroDoor" parent="Doors" instance=ExtResource("3_88led")]
+position = Vector2(319, 549)
+is_locked = false
+target_scene = "uid://byxxr253kiei0"
 
-[node name="Collum_1" type="Sprite2D" parent="Collum"]
+[node name="ForestDoor" parent="Doors" instance=ExtResource("3_88led")]
+position = Vector2(369, 549)
+is_locked = false
+target_scene = "uid://cld5hp2hoekbc"
+
+[node name="LockedDoor1" parent="Doors" instance=ExtResource("3_88led")]
+position = Vector2(413, 549)
+target_scene = "uid://ufb6hjfu0sh6"
+needed_shard = 0
+
+[node name="LockedDoor2" parent="Doors" instance=ExtResource("3_88led")]
+position = Vector2(458, 549)
+target_scene = "uid://4lw3bcqthym2"
+needed_shard = 1
+
+[node name="LockedDoor3" parent="Doors" instance=ExtResource("3_88led")]
+position = Vector2(501, 549)
+target_scene = "uid://bxifeg3yxvcqt"
+needed_shard = 2
+
+[node name="LockedDoor4" parent="Doors" instance=ExtResource("3_88led")]
+position = Vector2(542, 549)
+is_locked = false
+target_scene = "uid://bf0x5aglsgasw"
+needed_shard = 3
+
+[node name="LockedDoor5" parent="Doors" instance=ExtResource("3_88led")]
+position = Vector2(587, 549)
+is_locked = false
+target_scene = "uid://in11fhrwqigv"
+needed_shard = 4
+
+[node name="LockedDoor6" parent="Doors" instance=ExtResource("3_88led")]
+position = Vector2(632, 549)
+is_locked = false
+target_scene = "uid://cu2kiv5h2qper"
+needed_shard = 7
+
+[node name="Columns" type="Node2D" parent="."]
+
+[node name="Collum3" type="Node2D" parent="Columns"]
+position = Vector2(392, 541)
+
+[node name="Collum_1" type="Sprite2D" parent="Columns/Collum3"]
 texture = ExtResource("5_51vsw")
 offset = Vector2(0, 8)
 
-[node name="Collum_2" type="Sprite2D" parent="Collum"]
+[node name="Collum_2" type="Sprite2D" parent="Columns/Collum3"]
 texture = ExtResource("5_51vsw")
 offset = Vector2(0, -8)
 flip_v = true
 
-[node name="Collum2" type="Node2D" parent="."]
-position = Vector2(489, 542)
+[node name="Collum4" type="Node2D" parent="Columns"]
+position = Vector2(435, 541)
 
-[node name="Collum_1" type="Sprite2D" parent="Collum2"]
+[node name="Collum_1" type="Sprite2D" parent="Columns/Collum4"]
 texture = ExtResource("5_51vsw")
 offset = Vector2(0, 8)
 
-[node name="Collum_2" type="Sprite2D" parent="Collum2"]
+[node name="Collum_2" type="Sprite2D" parent="Columns/Collum4"]
+texture = ExtResource("5_51vsw")
+offset = Vector2(0, -8)
+flip_v = true
+
+[node name="Collum2" type="Node2D" parent="Columns"]
+position = Vector2(481, 542)
+
+[node name="Collum_1" type="Sprite2D" parent="Columns/Collum2"]
+texture = ExtResource("5_51vsw")
+offset = Vector2(0, 8)
+
+[node name="Collum_2" type="Sprite2D" parent="Columns/Collum2"]
+texture = ExtResource("5_51vsw")
+offset = Vector2(0, -8)
+flip_v = true
+
+[node name="Collum_3" type="Sprite2D" parent="Columns/Collum2"]
+texture = ExtResource("5_51vsw")
+offset = Vector2(0, -8)
+flip_v = true
+
+[node name="Collum" type="Node2D" parent="Columns"]
+position = Vector2(520, 541)
+
+[node name="Collum_1" type="Sprite2D" parent="Columns/Collum"]
+texture = ExtResource("5_51vsw")
+offset = Vector2(0, 8)
+
+[node name="Collum_2" type="Sprite2D" parent="Columns/Collum"]
+texture = ExtResource("5_51vsw")
+offset = Vector2(0, -8)
+flip_v = true
+
+[node name="Collum5" type="Node2D" parent="Columns"]
+position = Vector2(563, 541)
+
+[node name="Collum_1" type="Sprite2D" parent="Columns/Collum5"]
+texture = ExtResource("5_51vsw")
+offset = Vector2(0, 8)
+
+[node name="Collum_2" type="Sprite2D" parent="Columns/Collum5"]
+texture = ExtResource("5_51vsw")
+offset = Vector2(0, -8)
+flip_v = true
+
+[node name="Collum6" type="Node2D" parent="Columns"]
+position = Vector2(610, 541)
+
+[node name="Collum_1" type="Sprite2D" parent="Columns/Collum6"]
+texture = ExtResource("5_51vsw")
+offset = Vector2(0, 8)
+
+[node name="Collum_2" type="Sprite2D" parent="Columns/Collum6"]
+texture = ExtResource("5_51vsw")
+offset = Vector2(0, -8)
+flip_v = true
+
+[node name="Collum7" type="Node2D" parent="Columns"]
+position = Vector2(654, 541)
+
+[node name="Collum_1" type="Sprite2D" parent="Columns/Collum7"]
+texture = ExtResource("5_51vsw")
+offset = Vector2(0, 8)
+
+[node name="Collum_2" type="Sprite2D" parent="Columns/Collum7"]
 texture = ExtResource("5_51vsw")
 offset = Vector2(0, -8)
 flip_v = true
