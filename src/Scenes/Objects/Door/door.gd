@@ -3,7 +3,7 @@ extends Sprite2D
 
 @export var is_locked: bool = true
 @export_file ("*.tscn") var target_scene:String
-@export var needed_shard:Global.Shards = Global.Shards.none
+@export var needed_shard:Global.Gems = Global.Gems.none
 
 @onready var lock_sprite: Sprite2D = $Lock
 @onready var tool_tip: Node2D = $ToolTip
@@ -31,5 +31,5 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("Interact") and player_on_door and not is_locked and Global.shard_collected[needed_shard]:
+	if event.is_action_pressed("Interact") and player_on_door and not is_locked and Global.gem_collected[needed_shard]:
 		Global.root.load_scene(target_scene)
