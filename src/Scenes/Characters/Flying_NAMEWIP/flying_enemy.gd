@@ -5,7 +5,7 @@ extends Enemy
 @onready var start_position: Node2D = $start_position
 
 @onready var target:Node2D = start_position
-var SPEED = 5
+var SPEED = 10
 
 
 func _ready() -> void:
