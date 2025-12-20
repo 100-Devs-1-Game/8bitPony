@@ -28,6 +28,7 @@ animations = [{
 radius = 4.0
 
 [node name="flyingEnemy" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_5gs2p")
 metadata/_custom_type_script = "uid://by6lmexuqa20c"
 
@@ -35,6 +36,8 @@ metadata/_custom_type_script = "uid://by6lmexuqa20c"
 shape = SubResource("CircleShape2D_jt0hm")
 
 [node name="detection_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
 shape = SubResource("CircleShape2D_51k15")
@@ -49,6 +52,8 @@ autoplay = "forest_fly"
 top_level = true
 
 [node name="hurt_Area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_Area"]
 shape = SubResource("CircleShape2D_8agco")

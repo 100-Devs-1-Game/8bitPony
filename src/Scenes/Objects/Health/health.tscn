@@ -8,6 +8,8 @@
 radius = 8.0
 
 [node name="Health" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_mw21m")
 
 [node name="Sprite" type="Sprite2D" parent="."]

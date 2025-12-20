@@ -17,10 +17,12 @@ height = 10.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_01b8d")
 magic_bullet = ExtResource("2_xccyk")
 speed = 60.0
-flying_strength = 200.0
+flying_strength = 100.0
 jump_velocity = -66.667
 pony_sprite_by_type = Dictionary[int, SpriteFrames]({
 0: ExtResource("3_fcmex"),

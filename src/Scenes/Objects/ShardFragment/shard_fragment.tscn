@@ -7,8 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8e65"]
 size = Vector2(6, 10)
 
-[node name="ShardFragment" type="Area2D"]
-scale = Vector2(5, 5)
+[node name="ShardFragment" type="Area2D" groups=["shards"]]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_5m8y8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
