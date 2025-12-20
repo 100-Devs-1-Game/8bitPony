@@ -6,7 +6,7 @@ extends Area2D
 @onready var lifespan: Timer = $LifeSpan
 @onready var explode: AudioStreamPlayer = $Explode
 
-var velocity: int = 25
+var velocity: int = 2
 var exploding: bool = false
 
 # Called when the node enters the scene tree for the first time.
