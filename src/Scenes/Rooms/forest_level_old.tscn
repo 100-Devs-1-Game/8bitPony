@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cvwt8sw33nouq"]
 
-[ext_resource type="Script" uid="uid://ch7tf33ux5aoe" path="res://Scripts/forest_level.gd" id="1_55gjg"]
+[ext_resource type="Script" uid="uid://ch7tf33ux5aoe" path="res://Scripts/level.gd" id="1_55gjg"]
 [ext_resource type="PackedScene" uid="uid://bgd5ojsk1hil6" path="res://Scenes/HUD/hud.tscn" id="2_1vqt0"]
 [ext_resource type="Texture2D" uid="uid://ct6bnb7ksod1w" path="res://Images/Level/BG_Tile1.jpg" id="2_ddlxt"]
 [ext_resource type="Script" uid="uid://by8a62muhhw35" path="res://Scripts/music_player.gd" id="2_x6a0w"]
