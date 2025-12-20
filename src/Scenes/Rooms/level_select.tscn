@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bk0h6axpmena0"]
+[gd_scene load_steps=10 format=3 uid="uid://bk0h6axpmena0"]
 
 [ext_resource type="Script" uid="uid://c370jm1po8asl" path="res://Scripts/level_select.gd" id="1_18ftj"]
 [ext_resource type="PackedScene" uid="uid://bgd5ojsk1hil6" path="res://Scenes/HUD/hud.tscn" id="2_1o6y5"]
 [ext_resource type="PackedScene" uid="uid://dkcxtqxuy8wpj" path="res://Scenes/Objects/Door/door.tscn" id="3_88led"]
 [ext_resource type="Texture2D" uid="uid://c8w1tknbh0gy1" path="res://Images/Assets/collum 1.png" id="5_51vsw"]
-[ext_resource type="PackedScene" uid="uid://dkrxtxeflfcpx" path="res://Scenes/Rooms/forest_level.tscn" id="5_88led"]
 [ext_resource type="Texture2D" uid="uid://bjqkofy3xxr0w" path="res://Images/Assets/Elements of harmony_base_empty.png" id="7_12kyc"]
 [ext_resource type="Texture2D" uid="uid://py6aogeowgyd" path="res://Images/Assets/Elements of harmony_red_gem.png" id="8_f78q1"]
 
@@ -71,25 +70,24 @@ shape = SubResource("RectangleShape2D_u0elw")
 
 [node name="ForestDoor" parent="Doors" instance=ExtResource("3_88led")]
 position = Vector2(438, 549)
-scale = Vector2(1, 1)
-is_locked = false
-target_scene = ExtResource("5_88led")
+target_scene = "uid://dkrxtxeflfcpx"
 
 [node name="LockedDoor1" parent="Doors" instance=ExtResource("3_88led")]
 position = Vector2(344, 549)
-scale = Vector2(1, 1)
+needed_shard = 0
 
 [node name="LockedDoor2" parent="Doors" instance=ExtResource("3_88led")]
 position = Vector2(575, 549)
-scale = Vector2(1, 1)
+needed_shard = 1
 
 [node name="LockedDoor3" parent="Doors" instance=ExtResource("3_88led")]
 position = Vector2(645, 549)
-scale = Vector2(1, 1)
+needed_shard = 2
 
 [node name="LockedDoor4" parent="Doors" instance=ExtResource("3_88led")]
 position = Vector2(506, 549)
-scale = Vector2(1, 1)
+is_locked = false
+target_scene = "uid://cu2kiv5h2qper"
 
 [node name="Collum" type="Node2D" parent="."]
 position = Vector2(520, 541)
