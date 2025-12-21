@@ -1,7 +1,9 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://dfsa1pi80a63t"]
 
-[ext_resource type="FontFile" uid="uid://c3r2ugmucgyjt" path="res://assets/font-8.tres" id="1_q8u82"]
+[ext_resource type="FontFile" uid="uid://bpapkivnwmc8h" path="res://assets/Picopixel.ttf" id="1_q8u82"]
 
 [resource]
 default_font = ExtResource("1_q8u82")
 default_font_size = 8
+Label/constants/line_spacing = -2
+Label/constants/outline_size = -1
