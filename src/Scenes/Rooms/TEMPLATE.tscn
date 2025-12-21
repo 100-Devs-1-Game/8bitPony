@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://dkrxtxeflfcpx"]
+[gd_scene load_steps=7 format=4 uid="uid://dkrxtxeflfcpx"]
 
 [ext_resource type="Script" uid="uid://ch7tf33ux5aoe" path="res://Scripts/level.gd" id="1_pj0li"]
 [ext_resource type="PackedScene" uid="uid://bgd5ojsk1hil6" path="res://Scenes/HUD/hud.tscn" id="2_s5s6y"]
 [ext_resource type="TileSet" uid="uid://5bmby5hd55rc" path="res://Images/Level/tile_map.tres" id="3_81alm"]
 [ext_resource type="PackedScene" uid="uid://dx8bxt70q06xt" path="res://Scenes/Objects/ShardFragment/shard_fragment.tscn" id="4_3u1eq"]
 [ext_resource type="PackedScene" uid="uid://dkcxtqxuy8wpj" path="res://Scenes/Objects/Door/door.tscn" id="5_aslmx"]
+[ext_resource type="PackedScene" uid="uid://b4j3uvi3nugac" path="res://Scenes/Characters/Player/player.tscn" id="6_6b61l"]
 
 [node name="TEMPLATE" type="Node2D"]
 script = ExtResource("1_pj0li")
@@ -15,14 +16,12 @@ offset_left = -156.0
 offset_top = -79.0
 offset_right = 411.0
 offset_bottom = 237.0
+mouse_filter = 2
 color = Color(0.3256391, 0.47792292, 0.12772188, 1)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 
 [node name="HUD" parent="." instance=ExtResource("2_s5s6y")]
-
-[node name="player_start" type="Node2D" parent="."]
-position = Vector2(-75, 200)
 
 [node name="TileMaps" type="Node2D" parent="."]
 
@@ -52,6 +51,9 @@ navigation_enabled = false
 position = Vector2(11, 198)
 
 [node name="Door" parent="." instance=ExtResource("5_aslmx")]
-position = Vector2(79, 200)
+position = Vector2(80, 208)
 is_locked = false
 target_scene = "uid://bk0h6axpmena0"
+
+[node name="Player" parent="." instance=ExtResource("6_6b61l")]
+position = Vector2(-56, 208)
