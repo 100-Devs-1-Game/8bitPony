@@ -1,14 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp2sk7k6s20l3"]
+[gd_scene load_steps=2 format=3 uid="uid://cp2sk7k6s20l3"]
 
 [ext_resource type="Script" uid="uid://whstgjg4m8p8" path="res://Scripts/root.gd" id="1_pgvnw"]
-[ext_resource type="PackedScene" uid="uid://b4j3uvi3nugac" path="res://Scenes/Characters/Player/player.tscn" id="3_qfgwh"]
 
 [node name="Root" type="Node" groups=["gameroot"]]
 script = ExtResource("1_pgvnw")
 start_scene = "uid://816fkgr1blu3"
-
-[node name="Player" parent="." instance=ExtResource("3_qfgwh")]
-unique_name_in_owner = true
-position = Vector2(80, 61)
-jump_velocity = -200.0
-gravity_change = 50.0
