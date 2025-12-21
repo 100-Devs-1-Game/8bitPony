@@ -10,6 +10,8 @@ func _on_body_entered(body):
 		pick_up.play()
 		Global.pickup_shard(shard_type, shard_id)
 
+func set_color():
+	$Sprite2D.frame = shard_type
 
 func _on_pick_up_finished():
 	queue_free()
