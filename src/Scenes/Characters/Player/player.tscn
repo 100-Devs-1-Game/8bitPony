@@ -21,11 +21,6 @@ collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_01b8d")
 magic_bullet = ExtResource("2_xccyk")
-speed = 60.0
-flying_strength = 8.0
-max_vertical_velocity = 200.0
-jump_velocity = -200.0
-gravity = 10.0
 pony_sprite_by_type = Dictionary[int, SpriteFrames]({
 0: ExtResource("3_fcmex"),
 1: ExtResource("4_25bbb"),
@@ -34,15 +29,16 @@ pony_sprite_by_type = Dictionary[int, SpriteFrames]({
 smoke = ExtResource("6_8gg06")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_kng6u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(0, -8)
 sprite_frames = ExtResource("3_gdgf0")
 animation = &"Action"
 
 [node name="BulletAnchor" type="Node2D" parent="."]
-position = Vector2(9.230769, -2.4615386)
+position = Vector2(9.230769, -7.4615383)
 
 [node name="Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_fepmq")

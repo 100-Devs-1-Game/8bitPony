@@ -21,16 +21,13 @@ enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 	set(new_health):
 		health = new_health
 		health_changed.emit(health)
-@export var score: int = 0:
-	set(new_score):
-		score = new_score
-		score_changed.emit(score)
+
 @export var magic_bullet: PackedScene
-@export var speed: float = 600.0
-@export var flying_strength: float = 2500.0
-@export var max_vertical_velocity: float = 500.0
-@export var jump_velocity: float = -550.0
-@export var gravity: float = 200
+@export var speed: float = 60
+@export var flying_strength: float = 8
+@export var max_vertical_velocity: float = 200
+@export var jump_velocity: float = -200
+@export var gravity: float = 10
 @export var hurt_color: Color = Color.RED
 @export var pony_type: PonyType = PonyType.Unicorn
 @export var pony_sprite_by_type: Dictionary[PonyType, SpriteFrames]
@@ -39,8 +36,6 @@ enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 var pony_states: int = PonyStateMachine.Idle
 
 signal health_changed(new_health: int)
-signal score_changed(new_score: int)
-
 
 var flying: bool = false
 
@@ -51,7 +46,8 @@ var enabled: bool:
 		return !$CollisionShape2D.disabled
 
 func _ready() -> void:
-	set_pony_type(pony_type)
+	set_pony_type(Global.current_form)
+	Global.player = self
 
 
 func _process(_delta: float) -> void:
@@ -65,14 +61,15 @@ func _physics_process(delta):
 		$CollisionShape2D.disabled = false
 
 
-func _default_movement(delta: float): #player moment from the character2d script
+func _default_movement(_delta: float): #player moment from the character2d script
 	if has_state(PonyStateMachine.Die):
 		return
 	
-	if flying:
-		velocity.y -= flying_strength
-	elif not is_on_floor():
-		velocity.y += gravity
+	if not is_on_floor():
+		if flying and velocity.y>0:
+			velocity.y += gravity/20
+		else:
+			velocity.y += gravity
 	velocity.y = clampf(velocity.y, -max_vertical_velocity, max_vertical_velocity)
 	
 
@@ -231,13 +228,14 @@ func highest_set_bit_index_fast(x: int) -> int:
 
 func _change_pony():
 	pony_type = (pony_type + 1) % PonyType.Max as PonyType
+	Global.current_form = pony_type
 	set_pony_type(pony_type)
 	swap_sound.play()
 	if smoke:
 		var smoke_inst: Smoke = smoke.instantiate()
 		var smoke_light_inst: Smoke = smoke.instantiate()
-		Global.root.current_scene.add_child(smoke_inst)
-		Global.root.current_scene.add_child(smoke_light_inst)
+		get_tree().current_scene.add_child(smoke_inst)
+		get_tree().current_scene.add_child(smoke_light_inst)
 		smoke_inst.global_position = global_position
 		smoke_light_inst.global_position = global_position
 		smoke_light_inst.rotate(deg_to_rad(45))
