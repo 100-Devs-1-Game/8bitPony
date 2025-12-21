@@ -6,15 +6,17 @@ extends CanvasLayer
 
 
 func _ready() -> void:
-	score.value = Global.player.score
+	score.value = Global.score
 	
-	health.value = Global.player.health
-	Global.player.score_changed.connect(_on_score_changed)
+	health.value = Global.health
+	Global.health_changed.connect(_on_health_changed)
+	
+	Global.score_changed.connect(_on_score_changed)
 	Global.shard_value_changed.connect(_on_shard_changed)
-	Global.player.health_changed.connect(_on_health_changed)
 	
-	#Get shart counter from parent Level
-	#level_shards.value = Global.shard_counter
+	
+
+		
 
 
 func _on_score_changed(new_score: int):
