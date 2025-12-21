@@ -1,21 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://bk0h6axpmena0"]
+[gd_scene load_steps=12 format=3 uid="uid://bk0h6axpmena0"]
 
 [ext_resource type="Script" uid="uid://c370jm1po8asl" path="res://Scripts/level_select.gd" id="1_18ftj"]
 [ext_resource type="PackedScene" uid="uid://bgd5ojsk1hil6" path="res://Scenes/HUD/hud.tscn" id="2_1o6y5"]
+[ext_resource type="Texture2D" uid="uid://dfarkkprsuyhv" path="res://Images/Assets/Level Select/Floor_1.png" id="3_8abrt"]
 [ext_resource type="PackedScene" uid="uid://dkcxtqxuy8wpj" path="res://Scenes/Objects/Door/door.tscn" id="3_88led"]
+[ext_resource type="Texture2D" uid="uid://bl4k6ei82ifqs" path="res://Images/Assets/Elements of harmony_full gems.png" id="4_88led"]
 [ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="4_hfsg3"]
 [ext_resource type="Texture2D" uid="uid://c8w1tknbh0gy1" path="res://Images/Assets/collum 1.png" id="5_51vsw"]
 [ext_resource type="Texture2D" uid="uid://bjqkofy3xxr0w" path="res://Images/Assets/Elements of harmony_base_empty.png" id="7_12kyc"]
-[ext_resource type="Texture2D" uid="uid://py6aogeowgyd" path="res://Images/Assets/Elements of harmony_red_gem.png" id="8_f78q1"]
+[ext_resource type="PackedScene" uid="uid://b4j3uvi3nugac" path="res://Scenes/Characters/Player/player.tscn" id="8_1o6y5"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1o6y5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88led"]
+size = Vector2(6, 109)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_88led"]
-normal = Vector2(0, 1)
-distance = -203.5
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0elw"]
-size = Vector2(128, 179)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8abrt"]
+size = Vector2(403.5, 10)
 
 [node name="Level Select" type="Node2D"]
 script = ExtResource("1_18ftj")
@@ -23,204 +22,324 @@ script = ExtResource("1_18ftj")
 [node name="HUD" parent="." instance=ExtResource("2_1o6y5")]
 visible = false
 
-[node name="BG" type="ColorRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Element_Harmony" type="Node2D" parent="CanvasLayer"]
+position = Vector2(149, 11)
+
+[node name="Base" type="Sprite2D" parent="CanvasLayer/Element_Harmony"]
+texture = ExtResource("7_12kyc")
+
+[node name="green" type="Sprite2D" parent="CanvasLayer/Element_Harmony"]
+position = Vector2(5, 5)
+texture = ExtResource("4_88led")
+region_enabled = true
+region_rect = Rect2(11, 11, 4, 4)
+
+[node name="red" type="Sprite2D" parent="CanvasLayer/Element_Harmony"]
+position = Vector2(0, -6)
+texture = ExtResource("4_88led")
+region_enabled = true
+region_rect = Rect2(6, 0, 4, 4)
+
+[node name="blue" type="Sprite2D" parent="CanvasLayer/Element_Harmony"]
+position = Vector2(-5, 5)
+texture = ExtResource("4_88led")
+region_enabled = true
+region_rect = Rect2(1, 11, 4, 4)
+
+[node name="yellow" type="Sprite2D" parent="CanvasLayer/Element_Harmony"]
+position = Vector2(6, -4)
+texture = ExtResource("4_88led")
+region_enabled = true
+region_rect = Rect2(12, 2, 4, 4)
+
+[node name="pink" type="Sprite2D" parent="CanvasLayer/Element_Harmony"]
+position = Vector2(-6, -4)
+texture = ExtResource("4_88led")
+region_enabled = true
+region_rect = Rect2(0, 2, 4, 4)
+
+[node name="purple" type="Sprite2D" parent="CanvasLayer/Element_Harmony"]
+texture = ExtResource("4_88led")
+region_enabled = true
+region_rect = Rect2(6, 6, 4, 4)
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Ground_texture2" type="ColorRect" parent="Background"]
+z_index = -20
+offset_left = -54.0
+offset_top = -166.0
+offset_right = 566.0
+offset_bottom = 249.0
+mouse_filter = 2
+color = Color(0.0352941, 0.117647, 0.247059, 1)
+
+[node name="BG" type="ColorRect" parent="Background"]
+z_index = -10
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -192.0
-offset_top = 115.0
-offset_right = 1239.0
-offset_bottom = 687.0
+offset_left = -4.0
+offset_top = 18.0
+offset_right = 388.0
+offset_bottom = 99.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.266667, 0.490196, 0.839216, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_left = -8.0
+offset_top = 59.0
+offset_right = 424.0
+offset_bottom = 75.0
+texture = ExtResource("3_8abrt")
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(-7, 44.5)
+shape = SubResource("RectangleShape2D_88led")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(391, 44.5)
+shape = SubResource("RectangleShape2D_88led")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(192.25, 77)
+shape = SubResource("RectangleShape2D_8abrt")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(196, 18)
+shape = SubResource("RectangleShape2D_8abrt")
 
 [node name="player_start" type="Node2D" parent="."]
-position = Vector2(305, 550)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="Ground_texture2" type="ColorRect" parent="."]
-offset_left = -219.0
-offset_top = 229.0
-offset_right = 278.0
-offset_bottom = 793.0
-mouse_filter = 2
-color = Color(0.0352941, 0.117647, 0.247059, 1)
-
-[node name="Ground_texture3" type="ColorRect" parent="."]
-offset_left = 697.0
-offset_top = 184.0
-offset_right = 1191.0
-offset_bottom = 748.0
-mouse_filter = 2
-color = Color(0.0352941, 0.117647, 0.247059, 1)
-
-[node name="Ground_texture4" type="ColorRect" parent="."]
-offset_left = 9.0
-offset_top = 184.0
-offset_right = 1191.0
-offset_bottom = 486.0
-mouse_filter = 2
-color = Color(0.0352941, 0.117647, 0.247059, 1)
-
-[node name="Ground_texture" type="ColorRect" parent="."]
-offset_left = -219.0
-offset_top = 557.0
-offset_right = 1240.0
-offset_bottom = 793.0
-mouse_filter = 2
-color = Color(0.0352941, 0.117647, 0.247059, 1)
-
-[node name="Ground_area2d" type="StaticBody2D" parent="Ground_texture"]
-position = Vector2(7, 5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground_texture/Ground_area2d"]
-position = Vector2(717, -5)
-shape = SubResource("WorldBoundaryShape2D_1o6y5")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Ground_texture/Ground_area2d"]
-position = Vector2(717, 130)
-shape = SubResource("WorldBoundaryShape2D_88led")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground_texture/Ground_area2d"]
-position = Vector2(426, -77)
-shape = SubResource("RectangleShape2D_u0elw")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground_texture/Ground_area2d"]
-position = Vector2(973, -77.5)
-shape = SubResource("RectangleShape2D_u0elw")
+position = Vector2(28, 62)
 
 [node name="TextLabels" type="Node2D" parent="."]
+visible = false
+position = Vector2(-277, -488)
 
 [node name="Test" type="Label" parent="TextLabels"]
-offset_left = 246.0
-offset_top = 544.0
-offset_right = 278.0
-offset_bottom = 552.0
+offset_left = 278.0
+offset_top = 563.0
+offset_right = 294.0
+offset_bottom = 572.0
 theme = ExtResource("4_hfsg3")
 text = "Test"
 
 [node name="Intro" type="Label" parent="TextLabels"]
-offset_left = 305.0
-offset_top = 560.0
-offset_right = 337.0
-offset_bottom = 579.0
+offset_left = 304.0
+offset_top = 563.0
+offset_right = 332.0
+offset_bottom = 572.0
 theme = ExtResource("4_hfsg3")
-text = "Test
-2"
+text = "Tutorial"
 
 [node name="ForestLabel" type="Label" parent="TextLabels"]
-offset_left = 342.0
-offset_top = 530.0
-offset_right = 390.0
-offset_bottom = 538.0
+offset_left = 358.0
+offset_top = 563.0
+offset_right = 382.0
+offset_bottom = 572.0
 theme = ExtResource("4_hfsg3")
 text = "Forest"
 
-[node name="TimberLabel" type="Label" parent="TextLabels"]
-offset_left = 391.0
-offset_top = 561.0
-offset_right = 439.0
-offset_bottom = 569.0
-theme = ExtResource("4_hfsg3")
-text = "Timber"
-
 [node name="AppleLabel" type="Label" parent="TextLabels"]
-offset_left = 439.0
-offset_top = 531.0
-offset_right = 479.0
-offset_bottom = 539.0
+offset_left = 402.0
+offset_top = 563.0
+offset_right = 422.0
+offset_bottom = 579.0
 theme = ExtResource("4_hfsg3")
-text = "Apple"
+text = "Apple
+Acres"
 
-[node name="CloudLabel" type="Label" parent="TextLabels"]
-offset_left = 483.0
-offset_top = 564.0
-offset_right = 523.0
-offset_bottom = 572.0
+[node name="CaveLabel" type="Label" parent="TextLabels"]
+offset_left = 443.0
+offset_top = 563.0
+offset_right = 472.0
+offset_bottom = 579.0
 theme = ExtResource("4_hfsg3")
-text = "Cloud"
-
-[node name="SugarLabel" type="Label" parent="TextLabels"]
-offset_left = 523.0
-offset_top = 531.0
-offset_right = 563.0
-offset_bottom = 539.0
-theme = ExtResource("4_hfsg3")
-text = "Sugar"
+text = "Diamond
+Cave"
 
 [node name="LibraryLabel" type="Label" parent="TextLabels"]
-offset_left = 560.0
-offset_top = 560.0
-offset_right = 616.0
-offset_bottom = 568.0
+offset_left = 488.0
+offset_top = 563.0
+offset_right = 513.0
+offset_bottom = 572.0
 theme = ExtResource("4_hfsg3")
 text = "Library"
 
+[node name="SugarLabel" type="Label" parent="TextLabels"]
+offset_left = 537.0
+offset_top = 561.0
+offset_right = 557.0
+offset_bottom = 577.0
+theme = ExtResource("4_hfsg3")
+text = "Sugar
+Rush"
+
+[node name="CloudLabel" type="Label" parent="TextLabels"]
+offset_left = 580.0
+offset_top = 562.0
+offset_right = 600.0
+offset_bottom = 578.0
+theme = ExtResource("4_hfsg3")
+text = "Cloud
+Crash"
+
 [node name="EndLabel" type="Label" parent="TextLabels"]
-offset_left = 617.0
-offset_top = 531.0
-offset_right = 649.0
-offset_bottom = 539.0
+offset_left = 625.0
+offset_top = 563.0
+offset_right = 642.0
+offset_bottom = 572.0
 theme = ExtResource("4_hfsg3")
 text = "End?"
 
-[node name="Doors" type="Node2D" parent="."]
+[node name="TestDoors" type="Node2D" parent="."]
+position = Vector2(14, 61)
 
-[node name="TestLevel" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(291, 549)
+[node name="TestLevel" parent="TestDoors" instance=ExtResource("3_88led")]
+position = Vector2(-6, 11)
 is_locked = false
 target_scene = "uid://cu2kiv5h2qper"
 
-[node name="IntroDoor" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(319, 549)
+[node name="Lock" parent="TestDoors/TestLevel/Sprite2D" index="0"]
+visible = false
+
+[node name="NameLabel" parent="TestDoors/TestLevel" index="3"]
+text = "Test"
+
+[node name="IntroDoor" parent="TestDoors" instance=ExtResource("3_88led")]
+position = Vector2(25, 11)
 is_locked = false
 target_scene = "uid://byxxr253kiei0"
 
-[node name="ForestDoor" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(369, 549)
+[node name="Doors" type="Node2D" parent="."]
+position = Vector2(-277, -488)
+
+[node name="forest" parent="Doors" instance=ExtResource("3_88led")]
+position = Vector2(368, 560)
 is_locked = false
 target_scene = "uid://cld5hp2hoekbc"
+gem_to_collect = 0
+metadata/_edit_group_ = true
 
-[node name="LockedDoor1" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(413, 549)
+[node name="Lock" parent="Doors/forest/Sprite2D" index="0"]
+visible = false
+
+[node name="NameLabel" parent="Doors/forest" index="3"]
+text = "Forest"
+
+[node name="apple" parent="Doors" instance=ExtResource("3_88led")]
+position = Vector2(412, 560)
 target_scene = "uid://ufb6hjfu0sh6"
-needed_shard = 0
+gem_to_collect = 1
+metadata/_edit_group_ = true
 
-[node name="LockedDoor2" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(458, 549)
+[node name="Sprite2D" parent="Doors/apple" index="1"]
+frame = 1
+
+[node name="NameLabel" parent="Doors/apple" index="3"]
+text = "Apple
+Farm"
+
+[node name="Shard" parent="Doors/apple" index="4"]
+frame = 1
+
+[node name="Gem" parent="Doors/apple" index="6"]
+frame = 1
+
+[node name="cave" parent="Doors" instance=ExtResource("3_88led")]
+position = Vector2(457, 560)
 target_scene = "uid://4lw3bcqthym2"
-needed_shard = 1
+gem_to_collect = 2
+metadata/_edit_group_ = true
 
-[node name="LockedDoor3" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(501, 549)
+[node name="Sprite2D" parent="Doors/cave" index="1"]
+frame = 2
+
+[node name="NameLabel" parent="Doors/cave" index="3"]
+text = "Diamond
+Cave"
+
+[node name="Shard" parent="Doors/cave" index="4"]
+frame = 2
+
+[node name="Gem" parent="Doors/cave" index="6"]
+frame = 2
+
+[node name="library" parent="Doors" instance=ExtResource("3_88led")]
+position = Vector2(500, 560)
 target_scene = "uid://bxifeg3yxvcqt"
-needed_shard = 2
+gem_to_collect = 3
+metadata/_edit_group_ = true
 
-[node name="LockedDoor4" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(542, 549)
-is_locked = false
+[node name="Sprite2D" parent="Doors/library" index="1"]
+frame = 3
+
+[node name="NameLabel" parent="Doors/library" index="3"]
+text = "Library"
+
+[node name="Shard" parent="Doors/library" index="4"]
+frame = 3
+
+[node name="Gem" parent="Doors/library" index="6"]
+frame = 3
+
+[node name="sugar" parent="Doors" instance=ExtResource("3_88led")]
+position = Vector2(541, 560)
 target_scene = "uid://bf0x5aglsgasw"
-needed_shard = 3
+gem_to_collect = 4
+metadata/_edit_group_ = true
 
-[node name="LockedDoor5" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(587, 549)
-is_locked = false
+[node name="Sprite2D" parent="Doors/sugar" index="1"]
+frame = 4
+
+[node name="NameLabel" parent="Doors/sugar" index="3"]
+text = "Sugar
+Rush"
+
+[node name="Shard" parent="Doors/sugar" index="4"]
+frame = 4
+
+[node name="Gem" parent="Doors/sugar" index="6"]
+frame = 4
+
+[node name="cloud" parent="Doors" instance=ExtResource("3_88led")]
+position = Vector2(586, 560)
 target_scene = "uid://in11fhrwqigv"
-needed_shard = 4
+gem_to_collect = 5
+metadata/_edit_group_ = true
 
-[node name="LockedDoor6" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(632, 549)
-is_locked = false
+[node name="Sprite2D" parent="Doors/cloud" index="1"]
+frame = 5
+
+[node name="NameLabel" parent="Doors/cloud" index="3"]
+text = "Cloud"
+
+[node name="Shard" parent="Doors/cloud" index="4"]
+frame = 5
+
+[node name="Gem" parent="Doors/cloud" index="6"]
+frame = 5
+
+[node name="end" parent="Doors" instance=ExtResource("3_88led")]
+position = Vector2(631, 560)
 target_scene = "uid://cu2kiv5h2qper"
-needed_shard = 7
+metadata/_edit_group_ = true
+
+[node name="NameLabel" parent="Doors/end" index="3"]
+text = "Boss?"
 
 [node name="Columns" type="Node2D" parent="."]
+position = Vector2(-277, -488)
 
 [node name="Collum3" type="Node2D" parent="Columns"]
-position = Vector2(392, 541)
+position = Vector2(392, 544)
 
 [node name="Collum_1" type="Sprite2D" parent="Columns/Collum3"]
 texture = ExtResource("5_51vsw")
@@ -232,7 +351,7 @@ offset = Vector2(0, -8)
 flip_v = true
 
 [node name="Collum4" type="Node2D" parent="Columns"]
-position = Vector2(435, 541)
+position = Vector2(435, 544)
 
 [node name="Collum_1" type="Sprite2D" parent="Columns/Collum4"]
 texture = ExtResource("5_51vsw")
@@ -244,24 +363,21 @@ offset = Vector2(0, -8)
 flip_v = true
 
 [node name="Collum2" type="Node2D" parent="Columns"]
-position = Vector2(481, 542)
+position = Vector2(481, 545)
 
 [node name="Collum_1" type="Sprite2D" parent="Columns/Collum2"]
+position = Vector2(-1, -1)
 texture = ExtResource("5_51vsw")
 offset = Vector2(0, 8)
 
-[node name="Collum_2" type="Sprite2D" parent="Columns/Collum2"]
-texture = ExtResource("5_51vsw")
-offset = Vector2(0, -8)
-flip_v = true
-
 [node name="Collum_3" type="Sprite2D" parent="Columns/Collum2"]
+position = Vector2(-1, -1)
 texture = ExtResource("5_51vsw")
 offset = Vector2(0, -8)
 flip_v = true
 
 [node name="Collum" type="Node2D" parent="Columns"]
-position = Vector2(520, 541)
+position = Vector2(520, 544)
 
 [node name="Collum_1" type="Sprite2D" parent="Columns/Collum"]
 texture = ExtResource("5_51vsw")
@@ -273,7 +389,7 @@ offset = Vector2(0, -8)
 flip_v = true
 
 [node name="Collum5" type="Node2D" parent="Columns"]
-position = Vector2(563, 541)
+position = Vector2(563, 544)
 
 [node name="Collum_1" type="Sprite2D" parent="Columns/Collum5"]
 texture = ExtResource("5_51vsw")
@@ -285,7 +401,7 @@ offset = Vector2(0, -8)
 flip_v = true
 
 [node name="Collum6" type="Node2D" parent="Columns"]
-position = Vector2(610, 541)
+position = Vector2(610, 544)
 
 [node name="Collum_1" type="Sprite2D" parent="Columns/Collum6"]
 texture = ExtResource("5_51vsw")
@@ -297,7 +413,7 @@ offset = Vector2(0, -8)
 flip_v = true
 
 [node name="Collum7" type="Node2D" parent="Columns"]
-position = Vector2(654, 541)
+position = Vector2(654, 544)
 
 [node name="Collum_1" type="Sprite2D" parent="Columns/Collum7"]
 texture = ExtResource("5_51vsw")
@@ -308,11 +424,14 @@ texture = ExtResource("5_51vsw")
 offset = Vector2(0, -8)
 flip_v = true
 
-[node name="Element_Harmony" type="Node2D" parent="."]
-position = Vector2(505, 507)
+[node name="Player" parent="." instance=ExtResource("8_1o6y5")]
+position = Vector2(67, 72)
 
-[node name="Base" type="Sprite2D" parent="Element_Harmony"]
-texture = ExtResource("7_12kyc")
-
-[node name="red" type="Sprite2D" parent="Element_Harmony"]
-texture = ExtResource("8_f78q1")
+[editable path="TestDoors/TestLevel"]
+[editable path="Doors/forest"]
+[editable path="Doors/apple"]
+[editable path="Doors/cave"]
+[editable path="Doors/library"]
+[editable path="Doors/sugar"]
+[editable path="Doors/cloud"]
+[editable path="Doors/end"]
