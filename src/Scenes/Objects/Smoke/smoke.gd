@@ -1,8 +1,8 @@
 class_name Smoke
 extends Node2D
 
-@export var speed: float = 200.0
-@export var end_scale: float = 5.0
+@export var speed: float = 20.0
+@export var end_scale: float = 2.0
 @export var end_alpha: float = 0
 
 @onready var lifespan: Timer = $Lifespan
