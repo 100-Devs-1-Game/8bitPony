@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cu2kiv5h2qper"]
+[gd_scene load_steps=12 format=4 uid="uid://cu2kiv5h2qper"]
 
 [ext_resource type="Script" uid="uid://ch7tf33ux5aoe" path="res://Scripts/level.gd" id="1_8sc13"]
 [ext_resource type="PackedScene" uid="uid://bgd5ojsk1hil6" path="res://Scenes/HUD/hud.tscn" id="2_pardi"]
@@ -10,13 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://dx8bxt70q06xt" path="res://Scenes/Objects/ShardFragment/shard_fragment.tscn" id="8_8bs4y"]
 [ext_resource type="PackedScene" uid="uid://bnfxvgqfeavyb" path="res://Scenes/Objects/Breakable Wall/breakable_wall.tscn" id="9_8bs4y"]
 [ext_resource type="PackedScene" uid="uid://dkcxtqxuy8wpj" path="res://Scenes/Objects/Door/door.tscn" id="10_dfj28"]
+[ext_resource type="PackedScene" uid="uid://b4j3uvi3nugac" path="res://Scenes/Characters/Player/player.tscn" id="11_0b05s"]
 
 [node name="FeatureTestLevel" type="Node2D"]
 script = ExtResource("1_8sc13")
 level_shard_type = 6
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -145.0
+offset_left = -240.0
 offset_top = -65.0
 offset_right = 409.0
 offset_bottom = 236.0
@@ -26,9 +27,6 @@ color = Color(0.6007024, 0.8709333, 0.2391175, 1)
 [node name="Parallax2D" type="Parallax2D" parent="."]
 
 [node name="HUD" parent="." instance=ExtResource("2_pardi")]
-
-[node name="player_start" type="Node2D" parent="."]
-position = Vector2(227, 201)
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -56,36 +54,36 @@ navigation_enabled = false
 position = Vector2(-123, 208)
 
 [node name="Wolf2" parent="enemies" instance=ExtResource("4_ytns7")]
-position = Vector2(-143, 160)
+position = Vector2(-144, 160)
 
 [node name="flyingEnemy" parent="enemies" instance=ExtResource("5_tayb3")]
 position = Vector2(68, 201)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("5_t7sl4")]
-position = Vector2(41, 192)
+position = Vector2(8, 192)
 scale = Vector2(0.5, 0.5)
 
 [node name="A" parent="MovingPlatform" index="0"]
-position = Vector2(-28, 0)
+position = Vector2(-16, 192)
 
 [node name="B" parent="MovingPlatform" index="1"]
-position = Vector2(38, 0)
+position = Vector2(40, 192)
 
 [node name="MovingPlatform" parent="MovingPlatform" index="2"]
-tile_map_data = PackedByteArray("AAD//wAAAAAAAAEAAAAAAAAAAAABAAEAAAABAAAAAAACAAEAAAA=")
+tile_map_data = PackedByteArray("AAD6//3/AAAAAAAAAAD6//7/AAAAAAEAAAD6////AAAAAAIAAAD7//3/AAABAAAAAAD7//7/AAABAAEAAAD7////AAABAAIAAAD8//3/AAABAAAAAAD8//7/AAABAAEAAAD8////AAABAAIAAAD9//3/AAABAAAAAAD9//7/AAABAAEAAAD9////AAABAAIAAAD+//3/AAABAAAAAAD+//7/AAABAAEAAAD+////AAABAAIAAAD///3/AAABAAAAAAD///7/AAABAAEAAAD/////AAABAAIAAAAAAP3/AAABAAAAAAAAAP7/AAABAAEAAAAAAP//AAABAAIAAAABAP3/AAABAAAAAAABAP7/AAABAAEAAAABAP//AAABAAIAAAACAP3/AAABAAAAAAACAP7/AAABAAEAAAACAP//AAABAAIAAAADAP3/AAABAAAAAAADAP7/AAABAAEAAAADAP//AAABAAIAAAAEAP3/AAABAAAAAAAEAP7/AAABAAEAAAAEAP//AAABAAIAAAAFAP3/AAACAAAAAAAFAP7/AAACAAEAAAAFAP//AAACAAIAAAA=")
 
 [node name="MovingPlatform2" parent="." instance=ExtResource("5_t7sl4")]
-position = Vector2(106, 199)
+position = Vector2(136, 208)
 scale = Vector2(0.5, 0.5)
 
 [node name="A" parent="MovingPlatform2" index="0"]
-position = Vector2(0, -32)
+position = Vector2(136, 160)
 
 [node name="B" parent="MovingPlatform2" index="1"]
-position = Vector2(0, 17)
+position = Vector2(136, 208)
 
 [node name="MovingPlatform" parent="MovingPlatform2" index="2"]
-tile_map_data = PackedByteArray("AAD//wAAAAAAAAEAAAAAAAAAAAABAAEAAAABAAAAAAACAAEAAAA=")
+tile_map_data = PackedByteArray("AAD6//3/AAAAAAAAAAD6//7/AAAAAAEAAAD6////AAAAAAIAAAD7//3/AAABAAAAAAD7//7/AAABAAEAAAD7////AAABAAIAAAD8//3/AAABAAAAAAD8//7/AAABAAEAAAD8////AAABAAIAAAD9//3/AAABAAAAAAD9//7/AAABAAEAAAD9////AAABAAIAAAD+//3/AAABAAAAAAD+//7/AAABAAEAAAD+////AAABAAIAAAD///3/AAABAAAAAAD///7/AAABAAEAAAD/////AAABAAIAAAAAAP3/AAABAAAAAAAAAP7/AAABAAEAAAAAAP//AAABAAIAAAABAP3/AAABAAAAAAABAP7/AAABAAEAAAABAP//AAABAAIAAAACAP3/AAABAAAAAAACAP7/AAABAAEAAAACAP//AAABAAIAAAADAP3/AAABAAAAAAADAP7/AAABAAEAAAADAP//AAABAAIAAAAEAP3/AAABAAAAAAAEAP7/AAABAAEAAAAEAP//AAABAAIAAAAFAP3/AAACAAAAAAAFAP7/AAACAAEAAAAFAP//AAACAAIAAAA=")
 
 [node name="Pickups" type="Node2D" parent="."]
 
@@ -120,6 +118,9 @@ position = Vector2(200, 200)
 position = Vector2(359, 200)
 is_locked = false
 target_scene = "uid://bk0h6axpmena0"
+
+[node name="Player" parent="." instance=ExtResource("11_0b05s")]
+position = Vector2(-88, 192)
 
 [editable path="enemies/flyingEnemy"]
 [editable path="MovingPlatform"]
