@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=4 uid="uid://dkcxtqxuy8wpj"]
+[gd_scene load_steps=17 format=4 uid="uid://dkcxtqxuy8wpj"]
 
-[ext_resource type="Texture2D" uid="uid://hfkgjydgckuv" path="res://Images/Assets/Forest_door_1.png" id="1_54mbb"]
+[ext_resource type="Texture2D" uid="uid://b2jag1k3bos6o" path="res://Images/Assets/Doors_sheet.webp" id="2_4e2o1"]
 [ext_resource type="Texture2D" uid="uid://bn68o0nd5g4ft" path="res://Images/Assets/Lock_1.png" id="2_bw412"]
 [ext_resource type="Script" uid="uid://cal1x0sa0stef" path="res://Scenes/Objects/Door/door.gd" id="2_l0b71"]
 [ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="4_4e2o1"]
+[ext_resource type="Texture2D" uid="uid://cqtscoaqxugq8" path="res://Images/Assets/Misc/Shards/shard_sheet.png" id="5_dvgly"]
+[ext_resource type="Texture2D" uid="uid://dkwcm6qh6pljn" path="res://Images/Assets/Misc/Shards/gems_big_sheet.png" id="6_umirr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkgl5"]
 size = Vector2(14.000002, 15)
@@ -86,6 +88,7 @@ font_name = "Press Start 2P"
 style_name = "Regular"
 subpixel_positioning = 0
 msdf_pixel_range = 8
+msdf_size = 128
 cache/0/16/0/ascent = 16.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 1.59375
@@ -893,24 +896,26 @@ cache/0/4/0/glyphs/123/size = Vector2(6, 4)
 cache/0/4/0/glyphs/123/uv_rect = Rect2(64, 1, 6, 4)
 cache/0/4/0/glyphs/123/texture_idx = 0
 
-[node name="Door" type="Sprite2D"]
-texture = ExtResource("1_54mbb")
-script = ExtResource("2_l0b71")
-
-[node name="Lock" type="Sprite2D" parent="."]
-texture = ExtResource("2_bw412")
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(3.4, 0.599998)
+[node name="Door" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
+script = ExtResource("2_l0b71")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-3.400001, -0.099998)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_rkgl5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_4e2o1")
+hframes = 6
+
+[node name="Lock" type="Sprite2D" parent="Sprite2D"]
+texture = ExtResource("2_bw412")
 
 [node name="ToolTip" type="Node2D" parent="."]
 visible = false
+position = Vector2(0, -18)
 
 [node name="Polygon2D" type="Polygon2D" parent="ToolTip"]
 position = Vector2(0, -13.461539)
@@ -937,5 +942,37 @@ to enter"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="NameLabel" type="Label" parent="."]
+offset_left = -13.0
+offset_top = -30.0
+offset_right = 13.0
+offset_bottom = -14.0
+theme = ExtResource("4_4e2o1")
+text = "test
+Level"
+horizontal_alignment = 1
+
+[node name="Shard" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-5, 8)
+texture = ExtResource("5_dvgly")
+hframes = 6
+
+[node name="ShardLabel" type="Label" parent="."]
+visible = false
+offset_top = 3.0
+offset_right = 12.0
+offset_bottom = 12.0
+theme = ExtResource("4_4e2o1")
+text = "0/7"
+horizontal_alignment = 1
+
+[node name="Gem" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 9)
+texture = ExtResource("6_umirr")
+hframes = 3
+vframes = 2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
