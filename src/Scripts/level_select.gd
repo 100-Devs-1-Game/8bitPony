@@ -1,28 +1,45 @@
 extends Node2D
 
 
-func _ready():
-	Global.room_tracker = Global.Room.LevelSelect
+func _ready():	
+	#Move player to the mose recently cleared door
+	if Global.gem_collected[Global.Gems.none]:
+		$Player.global_position = $TestDoors/IntroDoor.global_position
 	
 	for door in $Doors.get_children():
-		if Global.gem_collected[door.needed_shard]:
+		#Initialize shard cound visible and oor locked/unlocked
+		if Global.collected_shards[door.gem_to_collect].size()>0:
+			$Player.global_position = door.global_position
 			door.set_locked(false)
+			if Global.gem_collected[door.gem_to_collect]:
+				door.hide_shard_count()
+				door.show_gem()
+			else:
+				door.show_shard_count(Global.collected_shards[door.gem_to_collect].count(true), Global.collected_shards[door.gem_to_collect].size())
+				
 		else:
-			door.set_locked(true)
-		
-		if Global.gem_collected[Global.Gems.none]:
-			$player_start.global_position = $Doors/IntroDoor.global_position
-		if Global.gem_collected[Global.Gems.laughter]:
-			$player_start.global_position = $Doors/ForestDoor.global_position
-		if Global.gem_collected[Global.Gems.loyalty]:
-			$player_start.global_position = $Doors/LockedDoor1.global_position
-		if Global.gem_collected[Global.Gems.honesty]:
-			$player_start.global_position = $Doors/LockedDoor2.global_position
-		if Global.gem_collected[Global.Gems.generous]:
-			$player_start.global_position = $Doors/LockedDoor3.global_position
-		if Global.gem_collected[Global.Gems.kindness]:
-			$player_start.global_position = $Doors/LockedDoor4.global_position
-		if Global.gem_collected[Global.Gems.magic]:
-			$player_start.global_position = $Doors/LockedDoor5.global_position
-		if Global.gem_collected[Global.Gems.all]:
-			$player_start.global_position = $Doors/LockedDoor5.global_position
+			#If the previous doors gem has been collected, but no shards
+			if door.gem_to_collect==Global.Gems.laughter or Global.gem_collected[door.gem_to_collect-1]:
+				door.set_locked(false)
+			else:
+				door.set_locked(true)
+
+	
+	#Set hud gems visible
+	if Global.gem_collected[Global.Gems.laughter]: $CanvasLayer/Element_Harmony/green.show()
+	else: $CanvasLayer/Element_Harmony/green.hide()
+	
+	if Global.gem_collected[Global.Gems.loyalty]: $CanvasLayer/Element_Harmony/red.show()
+	else: $CanvasLayer/Element_Harmony/red.hide()
+	
+	if Global.gem_collected[Global.Gems.honesty]: $CanvasLayer/Element_Harmony/blue.show()
+	else: $CanvasLayer/Element_Harmony/blue.hide()
+	
+	if Global.gem_collected[Global.Gems.generous]: $CanvasLayer/Element_Harmony/yellow.show()
+	else: $CanvasLayer/Element_Harmony/yellow.hide()
+	
+	if Global.gem_collected[Global.Gems.kindness]: $CanvasLayer/Element_Harmony/pink.show()
+	else: $CanvasLayer/Element_Harmony/pink.hide()
+	
+	if Global.gem_collected[Global.Gems.magic]: $CanvasLayer/Element_Harmony/purple.show()
+	else: $CanvasLayer/Element_Harmony/purple.hide()
