@@ -13,5 +13,6 @@ top_level = true
 top_level = true
 
 [node name="MovingPlatform" type="TileMapLayer" parent="."]
+scale = Vector2(0.25, 0.25)
 tile_set = ExtResource("1_j1m4c")
 use_kinematic_bodies = true
