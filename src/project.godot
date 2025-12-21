@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="8-bit_pony"
-run/main_scene="uid://cp2sk7k6s20l3"
+run/main_scene="uid://816fkgr1blu3"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
