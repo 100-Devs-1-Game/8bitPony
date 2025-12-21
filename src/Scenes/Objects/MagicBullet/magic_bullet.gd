@@ -31,9 +31,10 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Enemy:
-		Global.root.player.score += 10
-		exploding = true
 		body.take_damage()
-		anim.play("Explode")
-		explode.play()
-		lifespan.stop()
+		Global.score += 10
+		
+	exploding = true
+	anim.play("Explode")
+	explode.play()
+	lifespan.stop()
