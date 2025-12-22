@@ -9,7 +9,7 @@ script = ExtResource("1_0nnrk")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
 sprite_frames = ExtResource("1_5oq3f")
-animation = &"EarthLight"
+animation = &"PegasusLight"
 
 [node name="Lifespan" type="Timer" parent="."]
 process_callback = 0
