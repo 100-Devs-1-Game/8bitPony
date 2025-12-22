@@ -20,17 +20,13 @@ var health:float = 3:
 		health = value
 		health_changed.emit()
 
-
-var shard_counter: int = 0:
-	set(value):
-		shard_counter = value
-		shard_value_changed.emit(shard_counter)
-
-
 # Element Gem trackers
 		   #Green,   Red,     Blue,    Yellow,   Pink,     Purple
-enum Gems {laughter, loyalty, honesty, generous, kindness, magic, none, all}
-var gem_collected = [false, false, false, false, false, false, true, false]
+enum Gems {laughter, loyalty, honesty, generous, kindness, magic, none, all, test1, test2}
+var gem_collected = [false, false, false, false, false, false, true, false, false, false]
+
+var pony_saved = [false, false, false, false, false, false, false, false, false, false]
+var current_level_shard = Gems.laughter
 
 #individual level shards
 var collected_shards = [[],
@@ -39,9 +35,9 @@ var collected_shards = [[],
 			[],
 			[],
 			[],
-			[],[]]
+			[],[],[],[]]
 
-signal shard_value_changed(new_value: int)
+signal shard_value_changed()
 signal score_changed(score:int)
 signal health_changed(health:float)
 
@@ -51,8 +47,9 @@ func _ready():
 
 
 func pickup_shard(shard_type, shard_id):
-	shard_counter+=1
 	collected_shards[shard_type][shard_id] = true
+	
+	shard_value_changed.emit()
 	
 	#If you collected all shards, set collected gem= true
 	if false not in collected_shards[shard_type]:
@@ -66,6 +63,8 @@ func pickup_shard(shard_type, shard_id):
 		
 		if all_gems:
 			gem_collected[Gems.all] = true
+	
+	
 	
 	
 	
