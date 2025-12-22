@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b53ev8idqwxbo"]
+
+[ext_resource type="Texture2D" uid="uid://cicjmb11oc3fj" path="res://Images/Assets/Misc/Shards/gems_sheet.png" id="1_f3o1w"]
+
+[node name="shard_center" type="Node2D"]
+
+[node name="shard" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = ExtResource("1_f3o1w")
+hframes = 3
+vframes = 2

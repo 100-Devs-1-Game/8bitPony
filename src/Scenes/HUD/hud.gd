@@ -14,17 +14,16 @@ func _ready() -> void:
 	Global.score_changed.connect(_on_score_changed)
 	Global.shard_value_changed.connect(_on_shard_changed)
 	
-	
 
-		
 
 
 func _on_score_changed(new_score: int):
 	score.value = new_score
 
 
-func _on_shard_changed(new_value: int):
-	level_shards.value = new_value
+func _on_shard_changed():
+	#level_shards.value = new_value
+	pass
 
 func _on_health_changed(new_health: int):
 	health.value = new_health
