@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bgd5ojsk1hil6" path="res://Scenes/HUD/hud.tscn" id="2_s5s6y"]
 [ext_resource type="TileSet" uid="uid://5bmby5hd55rc" path="res://Images/Level/tile_map.tres" id="3_81alm"]
 [ext_resource type="PackedScene" uid="uid://dx8bxt70q06xt" path="res://Scenes/Objects/ShardFragment/shard_fragment.tscn" id="4_3u1eq"]
-[ext_resource type="PackedScene" uid="uid://dkcxtqxuy8wpj" path="res://Scenes/Objects/Door/door.tscn" id="5_aslmx"]
 [ext_resource type="PackedScene" uid="uid://b4j3uvi3nugac" path="res://Scenes/Characters/Player/player.tscn" id="6_6b61l"]
+[ext_resource type="PackedScene" uid="uid://nc0c1xv83h5y" path="res://Scenes/Objects/Jail/jail.tscn" id="6_echk4"]
 
 [node name="TEMPLATE" type="Node2D"]
 script = ExtResource("1_pj0li")
@@ -50,10 +50,8 @@ navigation_enabled = false
 [node name="ShardFragment" parent="Shards" instance=ExtResource("4_3u1eq")]
 position = Vector2(11, 198)
 
-[node name="Door" parent="." instance=ExtResource("5_aslmx")]
-position = Vector2(80, 208)
-is_locked = false
-target_scene = "uid://bk0h6axpmena0"
-
 [node name="Player" parent="." instance=ExtResource("6_6b61l")]
 position = Vector2(-56, 208)
+
+[node name="Jail" parent="." instance=ExtResource("6_echk4")]
+position = Vector2(120, 208)
