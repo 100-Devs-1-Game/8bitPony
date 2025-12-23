@@ -43,6 +43,10 @@ func _ready():
 
 func health_changed(health, pony_type):
 	hud.update_health(health, pony_type)
+	if health[pony_type]<=0:
+		await get_tree().create_timer(2).timeout
+		get_tree().change_scene_to_file("res://Scenes/Rooms/level_select.tscn")
+	
 
 func _on_obj_killbox_body_entered(body):
 	if body.is_in_group("Player"):
