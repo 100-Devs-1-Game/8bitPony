@@ -13,7 +13,7 @@ var scene: Node
 var score:int = 0:
 	set(value):
 		score = value
-		score_changed.emit()
+		score_changed.emit(score)
 		
 var health:float = 3:
 	set(value):
