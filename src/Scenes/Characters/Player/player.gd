@@ -17,11 +17,6 @@ enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 @onready var hit_sound: AudioStreamPlayer = $Hit
 @onready var swap_sound: AudioStreamPlayer = $Swap
 
-@export var health: int = 3:
-	set(new_health):
-		health = new_health
-		health_changed.emit(health)
-
 @export var magic_bullet: PackedScene
 @export var speed: float = 60
 @export var flying_strength: float = 8
@@ -33,9 +28,10 @@ enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 @export var pony_sprite_by_type: Dictionary[PonyType, SpriteFrames]
 @export var smoke: PackedScene
 
+var health = [3, 3, 3]
 var pony_states: int = PonyStateMachine.Idle
 
-signal health_changed(new_health: int)
+signal health_changed
 
 var flying: bool = false
 
@@ -49,6 +45,8 @@ func _ready() -> void:
 	set_pony_type(Global.current_form)
 	Global.player = self
 
+func safe_ready():
+	health_changed.emit(health, pony_type)
 
 func _process(_delta: float) -> void:
 	_update_pony_state()
@@ -111,23 +109,26 @@ func _unhandled_input(event: InputEvent) -> void:
 			_change_pony()
 
 
-func take_damage(damage: int = 1):
+func take_damage(damage: float = 0.5):
 	if not has_state(PonyStateMachine.Die) and recovery_timer.is_stopped():
-		health = max(0, health - damage)
+		health[pony_type] = max(0, health[pony_type] - damage)
+		
 		hit_sound.play()
 		_flash_red()
 		recovery_timer.start()
 		blink_timer.start()
 		visible = false
-		if health <= 0:
+		if health[pony_type] <= 0:
 			add_state(PonyStateMachine.Die)
 			flying = false
 			velocity.x = 0
+		health_changed.emit(health, pony_type)
+			
 
 
 func health_pickup(value: int = 1): #pick up extra life
 	if not has_state(PonyStateMachine.Die):
-		health += value
+		health[pony_type]+= value
 
 
 func _flash_red(): #player gets hit, flash red
@@ -184,6 +185,7 @@ func _sprite_handle(): #handles sprite stuff
 func set_pony_type(in_pony_type: PonyType):
 	flying = false
 	pony_type = in_pony_type
+	
 	if pony_sprite_by_type.has(pony_type):
 		var found_sprite: SpriteFrames = pony_sprite_by_type[pony_type]
 		if found_sprite is SpriteFrames:
@@ -229,7 +231,10 @@ func highest_set_bit_index_fast(x: int) -> int:
 func _change_pony():
 	pony_type = (pony_type + 1) % PonyType.Max as PonyType
 	Global.current_form = pony_type
+	health_changed.emit(health, pony_type)
+	
 	set_pony_type(pony_type)
+
 	swap_sound.play()
 	if smoke:
 		var smoke_inst: Smoke = smoke.instantiate()

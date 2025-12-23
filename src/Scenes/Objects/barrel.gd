@@ -14,6 +14,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		var smoke = SMOKE.instantiate()
 		smoke.global_position = $Sprite2D.global_position
 		var smoke_sprite:AnimatedSprite2D = smoke.get_node("AnimatedSprite2D")
+		smoke_sprite.scale *= 1.5
 		smoke_sprite.animation = "PegasusLight"
 		smoke_sprite.modulate = Color(0.32, 0.0, 0.0, 1.0)
 		
@@ -22,7 +23,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		$AudioStreamPlayer.play()
 		$AnimationPlayer.play("broken")
 		
-		for body in get_overlapping_bodies():
+		for body in $DamageArea.get_overlapping_bodies():
 			body.take_damage()
 		
 		

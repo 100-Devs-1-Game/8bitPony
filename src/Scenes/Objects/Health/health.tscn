@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d18ngjkik74bv"]
 
 [ext_resource type="Script" uid="uid://b5hsijecg8lft" path="res://Scenes/Objects/Health/health.gd" id="1_mw21m"]
-[ext_resource type="Texture2D" uid="uid://dshuf8e6f72eh" path="res://Images/Assets/Heart_full.png" id="2_fgfhd"]
+[ext_resource type="Texture2D" uid="uid://bchs76488cwjv" path="res://Images/Assets/Misc/Hearts/Heart_full.png" id="2_fgfhd"]
 [ext_resource type="AudioStream" uid="uid://cl3hliqomdp2w" path="res://Sound/SFX/Health.wav" id="3_fgfhd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlkfg"]

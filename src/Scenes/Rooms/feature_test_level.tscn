@@ -56,39 +56,48 @@ navigation_enabled = false
 position = Vector2(-304, 176)
 
 [node name="Label" type="Label" parent="Labels"]
-offset_right = 17.0
-offset_bottom = 9.0
+offset_top = 4.0
+offset_right = 32.0
+offset_bottom = 13.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("6_7lfn4")
 text = "wolf"
 
 [node name="Label2" type="Label" parent="Labels"]
 offset_left = 104.0
-offset_right = 133.0
-offset_bottom = 16.0
+offset_top = 4.0
+offset_right = 168.0
+offset_bottom = 21.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("6_7lfn4")
 text = "parasite
 "
 
 [node name="Label3" type="Label" parent="Labels"]
 offset_left = 200.0
-offset_right = 229.0
-offset_bottom = 16.0
+offset_top = 4.0
+offset_right = 256.0
+offset_bottom = 21.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("6_7lfn4")
 text = "Explode
 Barrel"
 
 [node name="Label4" type="Label" parent="Labels"]
 offset_left = 288.0
-offset_right = 317.0
-offset_bottom = 16.0
+offset_top = 4.0
+offset_right = 368.0
+offset_bottom = 20.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("6_7lfn4")
 text = "Apple Tree"
 
 [node name="Label5" type="Label" parent="Labels"]
 offset_left = 488.0
-offset_top = 32.0
-offset_right = 526.0
-offset_bottom = 48.0
+offset_top = 36.0
+offset_right = 560.0
+offset_bottom = 53.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("6_7lfn4")
 text = "breakable
 wall"
@@ -154,7 +163,7 @@ is_locked = false
 target_scene = "uid://bk0h6axpmena0"
 
 [node name="Player" parent="." instance=ExtResource("11_0b05s")]
-position = Vector2(312, 200)
+position = Vector2(-72, 176)
 
 [node name="Jail" parent="." instance=ExtResource("14_2fpyh")]
 position = Vector2(352, 208)

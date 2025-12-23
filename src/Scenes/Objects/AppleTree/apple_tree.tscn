@@ -8,11 +8,13 @@
 script = ExtResource("1_ifdji")
 
 [node name="Top" type="Sprite2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -32)
+scale = Vector2(2, 2)
 texture = ExtResource("2_ifdji")
 
-[node name="Trun" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
+[node name="Trunk" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(2, 2)
 texture = ExtResource("1_8muao")
 
 [node name="Timer" type="Timer" parent="."]

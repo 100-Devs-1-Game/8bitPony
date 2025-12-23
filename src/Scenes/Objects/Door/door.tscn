@@ -914,7 +914,6 @@ hframes = 6
 texture = ExtResource("2_bw412")
 
 [node name="ToolTip" type="Node2D" parent="."]
-visible = false
 position = Vector2(0, -18)
 
 [node name="Polygon2D" type="Polygon2D" parent="ToolTip"]
@@ -929,11 +928,12 @@ z_index = 4
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -45.0
-offset_top = -52.0
-offset_right = 55.0
-offset_bottom = -2.0
+offset_left = -25.0
+offset_top = -33.0
+offset_right = 75.0
+offset_bottom = 17.0
 grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("4_4e2o1")
 theme_override_fonts/normal_font = SubResource("FontFile_vfpc4")
 theme_override_font_sizes/normal_font_size = 8
@@ -943,10 +943,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="NameLabel" type="Label" parent="."]
-offset_left = -13.0
-offset_top = -30.0
-offset_right = 13.0
-offset_bottom = -14.0
+offset_left = -10.0
+offset_top = -25.0
+offset_right = 30.0
+offset_bottom = -9.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("4_4e2o1")
 text = "test
 Level"
@@ -954,15 +955,18 @@ horizontal_alignment = 1
 
 [node name="Shard" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-5, 8)
+position = Vector2(-6, 8)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_dvgly")
 hframes = 6
 
 [node name="ShardLabel" type="Label" parent="."]
 visible = false
-offset_top = 3.0
-offset_right = 12.0
-offset_bottom = 12.0
+offset_left = -3.0
+offset_top = 6.0
+offset_right = 21.0
+offset_bottom = 15.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("4_4e2o1")
 text = "0/7"
 horizontal_alignment = 1

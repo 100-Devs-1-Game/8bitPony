@@ -6,6 +6,6 @@ const APPLE = preload("uid://d0q1h4c4mgcb6")
 
 func _on_timer_timeout() -> void:
 	var a = APPLE.instantiate()
-	a.position = $Top.position + Vector2(randi_range(-5, 5), randi_range(-5, 5))
+	a.position = $Top.position + Vector2(randi_range(-10, 10), randi_range(-10, 10))
 	
 	add_child(a)

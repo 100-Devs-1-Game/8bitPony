@@ -3,6 +3,7 @@ extends Node2D
 @export var level_shard_type:Global.Gems
 
 @onready var jail: Area2D = $Jail
+@onready var hud: CanvasLayer = $HUD
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,18 +28,21 @@ func _ready():
 	#Update shard count in HUD
 	Global.current_level_shard = level_shard_type
 	#Global.shard_counter = collected
-	$HUD.get_node("Shards").set_up_shards()
-	$HUD.level_shards.value = collected
-	$HUD.level_shards.suffix = str("/", i)
+	hud.get_node("Shards").set_up_shards()
+	hud.level_shards.value = collected
+	hud.level_shards.suffix = str("/", i)
 	
 	if Global.pony_saved[level_shard_type]:
 		jail.set_open()
 	else:
 		jail.current_gem = level_shard_type
 	
-	
+	$Player.health_changed.connect(health_changed)
+	$Player.safe_ready()
 
 
+func health_changed(health, pony_type):
+	hud.update_health(health, pony_type)
 
 func _on_obj_killbox_body_entered(body):
 	if body.is_in_group("Player"):

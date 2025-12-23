@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://byxxr253kiei0"]
+[gd_scene load_steps=11 format=4 uid="uid://byxxr253kiei0"]
 
 [ext_resource type="Script" uid="uid://ch7tf33ux5aoe" path="res://Scripts/level.gd" id="1_wvux1"]
 [ext_resource type="PackedScene" uid="uid://bgd5ojsk1hil6" path="res://Scenes/HUD/hud.tscn" id="2_ucybc"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c4xpqd83w51cq" path="res://Scenes/Characters/Wolf/wolf.tscn" id="4_3rj2f"]
 [ext_resource type="PackedScene" uid="uid://cxpye76oxtrl3" path="res://Scenes/Objects/level parts/moving_platform.tscn" id="6_hpd2m"]
 [ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="6_saj6u"]
-[ext_resource type="FontFile" uid="uid://bpapkivnwmc8h" path="res://assets/Picopixel.ttf" id="8_u0pta"]
 [ext_resource type="PackedScene" uid="uid://dx8bxt70q06xt" path="res://Scenes/Objects/ShardFragment/shard_fragment.tscn" id="8_vt42n"]
 [ext_resource type="PackedScene" uid="uid://bnfxvgqfeavyb" path="res://Scenes/Objects/Breakable Wall/breakable_wall.tscn" id="9_4d8k7"]
 [ext_resource type="PackedScene" uid="uid://b4j3uvi3nugac" path="res://Scenes/Characters/Player/player.tscn" id="10_fj21p"]
@@ -82,8 +81,8 @@ offset_left = -104.0
 offset_top = 160.0
 offset_right = -51.0
 offset_bottom = 181.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("6_saj6u")
-theme_override_fonts/font = ExtResource("8_u0pta")
 text = "Right Click
 to change form"
 
@@ -92,37 +91,38 @@ offset_left = 8.0
 offset_top = 160.0
 offset_right = 65.0
 offset_bottom = 181.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("6_saj6u")
 text = "Earth(green)
 can break walls"
 
 [node name="Blue" type="Label" parent="."]
-offset_left = 304.0
-offset_top = 160.0
-offset_right = 369.0
-offset_bottom = 181.0
+offset_left = 296.0
+offset_top = 168.0
+offset_right = 440.0
+offset_bottom = 189.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("6_saj6u")
-theme_override_fonts/font = ExtResource("8_u0pta")
 text = "Pegasus(blue)
 can ride platforms"
 
 [node name="purple" type="Label" parent="."]
 offset_left = 392.0
-offset_top = 64.0
-offset_right = 450.0
-offset_bottom = 85.0
+offset_top = 72.0
+offset_right = 528.0
+offset_bottom = 93.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("6_saj6u")
-theme_override_fonts/font = ExtResource("8_u0pta")
 text = "Unicorn(purple)
 can shoot to kill"
 
 [node name="Shards" type="Label" parent="."]
 offset_left = 544.0
-offset_top = 160.0
-offset_right = 610.0
-offset_bottom = 181.0
+offset_top = 176.0
+offset_right = 688.0
+offset_bottom = 197.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("6_saj6u")
-theme_override_fonts/font = ExtResource("8_u0pta")
 text = "Collect shards to
 open future levels"
 

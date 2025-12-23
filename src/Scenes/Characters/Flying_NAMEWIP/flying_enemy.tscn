@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cybuouqkbf4c0" path="res://Images/Assets/Enemies/parasites_sheet.webp" id="2_51k15"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jt0hm"]
-radius = 4.0
+radius = 2.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_51k15"]
 radius = 34.0
@@ -112,7 +112,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8agco"]
-radius = 5.0
+radius = 3.0
 
 [node name="flyingEnemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -132,6 +132,7 @@ shape = SubResource("CircleShape2D_51k15")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_q5iyv")
 animation = &"blue_fly"
 autoplay = "blue_fly"
