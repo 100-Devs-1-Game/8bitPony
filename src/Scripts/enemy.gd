@@ -6,4 +6,5 @@ extends CharacterBody2D
 func take_damage(damage: float = 1):
 	life = max(0, life - damage)
 	if life <= 0:
+		Global.score += 10
 		queue_free()
