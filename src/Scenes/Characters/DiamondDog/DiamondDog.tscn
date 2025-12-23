@@ -1,0 +1,109 @@
+[gd_scene load_steps=11 format=3 uid="uid://rbryiolfbe15"]
+
+[ext_resource type="Script" uid="uid://caih3euppii34" path="res://Scenes/Characters/DiamondDog/diamond_dog.gd" id="1_2i27v"]
+[ext_resource type="Texture2D" uid="uid://cloo035388etv" path="res://Images/Assets/Enemies/Diamond_dog_Idle.png" id="2_2i27v"]
+[ext_resource type="Texture2D" uid="uid://dhswusqr5pyhd" path="res://Images/Assets/Enemies/Diamond_dog_Walk_1.png" id="3_n0qra"]
+[ext_resource type="Texture2D" uid="uid://608t5m0t8v0d" path="res://Images/Assets/Enemies/Diamond_dog_Walk_2.png" id="4_qt5mx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jt0hm"]
+radius = 2.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q5iyv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2i27v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_n0qra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qt5mx")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n0qra"]
+radius = 4.462593
+height = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qt5mx"]
+radius = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ltn2g"]
+radius = 2.236068
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2i27v"]
+size = Vector2(40, 14)
+
+[node name="DiamondDog" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_2i27v")
+metadata/_custom_type_script = "uid://by6lmexuqa20c"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_jt0hm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_q5iyv")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="hurt_Area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_Area"]
+position = Vector2(-0.46259308, -6.9644156)
+shape = SubResource("CapsuleShape2D_n0qra")
+
+[node name="detect_floor" type="Area2D" parent="."]
+position = Vector2(-6, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect_floor"]
+shape = SubResource("CircleShape2D_qt5mx")
+
+[node name="detect_floor2" type="Area2D" parent="."]
+position = Vector2(14, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect_floor2"]
+position = Vector2(-8, 0)
+shape = SubResource("CircleShape2D_qt5mx")
+
+[node name="detect_wall" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect_wall"]
+position = Vector2(-6, -6)
+shape = SubResource("CircleShape2D_ltn2g")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="detect_wall"]
+position = Vector2(5, -6)
+shape = SubResource("CircleShape2D_ltn2g")
+
+[node name="detectPlayer" type="Area2D" parent="."]
+position = Vector2(0, -7)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectPlayer"]
+position = Vector2(-20, -1)
+shape = SubResource("RectangleShape2D_2i27v")
+
+[node name="bulletSpawn" type="Node2D" parent="detectPlayer"]
+position = Vector2(-10, 0)
+
+[connection signal="body_entered" from="hurt_Area" to="." method="_on_hurt_area_body_entered"]
+[connection signal="body_exited" from="detect_floor" to="." method="_on_detect_floor_body_exited"]
+[connection signal="body_exited" from="detect_floor2" to="." method="_on_detect_floor_body_exited"]
+[connection signal="body_entered" from="detect_wall" to="." method="_on_detect_wall_body_entered"]
+[connection signal="body_entered" from="detectPlayer" to="." method="_on_detect_player_body_entered"]
+[connection signal="body_exited" from="detectPlayer" to="." method="_on_detect_player_body_exited"]
