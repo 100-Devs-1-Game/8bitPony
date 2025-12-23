@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hfkgjydgckuv"
-path="res://.godot/imported/Forest_door_1.png-4db677ed44731853654dc6531ab647b8.ctex"
+uid="uid://b2jag1k3bos6o"
+path="res://.godot/imported/Doors_sheet.webp-55119aa21e717da4c99a2507b3d494d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Assets/Forest_door_1.png"
-dest_files=["res://.godot/imported/Forest_door_1.png-4db677ed44731853654dc6531ab647b8.ctex"]
+source_file="res://Images/Assets/Level Select/Doors_sheet.webp"
+dest_files=["res://.godot/imported/Doors_sheet.webp-55119aa21e717da4c99a2507b3d494d0.ctex"]
 
 [params]
 

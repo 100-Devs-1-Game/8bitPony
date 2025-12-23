@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgd5ojsk1hil6"]
+[gd_scene load_steps=6 format=3 uid="uid://bgd5ojsk1hil6"]
 
 [ext_resource type="Script" uid="uid://bkyp3qe16d4dh" path="res://Scenes/HUD/hud.gd" id="1_5aai8"]
-[ext_resource type="Texture2D" uid="uid://bvbwqk3vyoju4" path="res://Images/Assets/Red_Shard_1.png" id="2_a56j6"]
 [ext_resource type="PackedScene" uid="uid://bpi75eodycm3r" path="res://Scenes/HUD/Widgets/ValueLabel/value_label.tscn" id="3_a56j6"]
 [ext_resource type="Script" uid="uid://c1wtrjjuttci6" path="res://Scenes/HUD/hud_shard.gd" id="4_6pkbx"]
 [ext_resource type="Texture2D" uid="uid://dkwcm6qh6pljn" path="res://Images/Assets/Misc/Shards/gems_big_sheet.png" id="4_8wqxc"]
@@ -42,16 +41,6 @@ offset_top = -11.0
 offset_right = 169.0
 offset_bottom = 25.0
 mouse_filter = 2
-
-[node name="RedShard" type="TextureRect" parent="Gui/Stats/Shards"]
-visible = false
-layout_mode = 0
-offset_top = 12.0
-offset_right = 16.0
-offset_bottom = 28.0
-size_flags_horizontal = 0
-mouse_filter = 2
-texture = ExtResource("2_a56j6")
 
 [node name="ShardValue" parent="Gui/Stats/Shards" instance=ExtResource("3_a56j6")]
 visible = false

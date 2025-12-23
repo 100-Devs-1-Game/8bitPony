@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbp031xebbj2t"
-path="res://.godot/imported/Smoke 5.png-05b9510bf462f937da7f356fd09c80be.ctex"
+uid="uid://0yn44er3uiks"
+path="res://.godot/imported/Hats_sheet.png-23ecae2d457c1c19f1971c0b928e0ac3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Assets/Smoke/Smoke 5.png"
-dest_files=["res://.godot/imported/Smoke 5.png-05b9510bf462f937da7f356fd09c80be.ctex"]
+source_file="res://Images/Assets/Hats/Hats_sheet.png"
+dest_files=["res://.godot/imported/Hats_sheet.png-23ecae2d457c1c19f1971c0b928e0ac3.ctex"]
 
 [params]
 

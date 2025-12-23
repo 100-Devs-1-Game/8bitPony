@@ -15,7 +15,7 @@ func _ready():
 	lifespan.start()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float):
+func _physics_process(_delta: float):
 	if not exploding:
 		position.x += velocity
 
@@ -30,9 +30,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Enemy:
+	if body is Player or body is Enemy:
 		body.take_damage()
-		Global.score += 10
 		
 	exploding = true
 	anim.play("Explode")

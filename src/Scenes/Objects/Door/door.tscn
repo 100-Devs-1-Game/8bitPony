@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=4 uid="uid://dkcxtqxuy8wpj"]
 
-[ext_resource type="Texture2D" uid="uid://b2jag1k3bos6o" path="res://Images/Assets/Doors_sheet.webp" id="2_4e2o1"]
-[ext_resource type="Texture2D" uid="uid://bn68o0nd5g4ft" path="res://Images/Assets/Lock_1.png" id="2_bw412"]
+[ext_resource type="Texture2D" uid="uid://b2jag1k3bos6o" path="res://Images/Assets/Level Select/Doors_sheet.webp" id="2_4e2o1"]
+[ext_resource type="Texture2D" uid="uid://c8hlyf3tgxj4e" path="res://Images/Assets/Level Select/Lock_1.png" id="2_bw412"]
 [ext_resource type="Script" uid="uid://cal1x0sa0stef" path="res://Scenes/Objects/Door/door.gd" id="2_l0b71"]
 [ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="4_4e2o1"]
 [ext_resource type="Texture2D" uid="uid://cqtscoaqxugq8" path="res://Images/Assets/Misc/Shards/shard_sheet.png" id="5_dvgly"]
@@ -914,6 +914,7 @@ hframes = 6
 texture = ExtResource("2_bw412")
 
 [node name="ToolTip" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, -18)
 
 [node name="Polygon2D" type="Polygon2D" parent="ToolTip"]

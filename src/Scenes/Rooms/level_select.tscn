@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://c370jm1po8asl" path="res://Scripts/level_select.gd" id="1_18ftj"]
 [ext_resource type="PackedScene" uid="uid://bgd5ojsk1hil6" path="res://Scenes/HUD/hud.tscn" id="2_1o6y5"]
 [ext_resource type="Texture2D" uid="uid://dfarkkprsuyhv" path="res://Images/Assets/Level Select/Floor_1.png" id="3_8abrt"]
+[ext_resource type="Texture2D" uid="uid://d2li42go47woj" path="res://Images/Assets/Level Select/Elements of harmony_base_empty.png" id="3_8ebfm"]
 [ext_resource type="PackedScene" uid="uid://dkcxtqxuy8wpj" path="res://Scenes/Objects/Door/door.tscn" id="3_88led"]
-[ext_resource type="Texture2D" uid="uid://bl4k6ei82ifqs" path="res://Images/Assets/Elements of harmony_full gems.png" id="4_88led"]
+[ext_resource type="Texture2D" uid="uid://3krh0b0qhbad" path="res://Images/Assets/Level Select/Elements of harmony_full gems.png" id="4_88led"]
 [ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="4_hfsg3"]
-[ext_resource type="Texture2D" uid="uid://c8w1tknbh0gy1" path="res://Images/Assets/collum 1.png" id="5_51vsw"]
-[ext_resource type="Texture2D" uid="uid://bjqkofy3xxr0w" path="res://Images/Assets/Elements of harmony_base_empty.png" id="7_12kyc"]
 [ext_resource type="PackedScene" uid="uid://b4j3uvi3nugac" path="res://Scenes/Characters/Player/player.tscn" id="8_1o6y5"]
+[ext_resource type="Texture2D" uid="uid://cmt4sdrd0fo64" path="res://Images/Assets/Level Select/collum 1.png" id="8_88led"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88led"]
 size = Vector2(6, 109)
@@ -28,7 +28,7 @@ visible = false
 position = Vector2(149, 11)
 
 [node name="Base" type="Sprite2D" parent="CanvasLayer/Element_Harmony"]
-texture = ExtResource("7_12kyc")
+texture = ExtResource("3_8ebfm")
 
 [node name="green" type="Sprite2D" parent="CanvasLayer/Element_Harmony"]
 position = Vector2(5, 5)
@@ -342,11 +342,11 @@ position = Vector2(-277, -488)
 position = Vector2(392, 544)
 
 [node name="Collum_1" type="Sprite2D" parent="Columns/Collum3"]
-texture = ExtResource("5_51vsw")
+texture = ExtResource("8_88led")
 offset = Vector2(0, 8)
 
 [node name="Collum_2" type="Sprite2D" parent="Columns/Collum3"]
-texture = ExtResource("5_51vsw")
+texture = ExtResource("8_88led")
 offset = Vector2(0, -8)
 flip_v = true
 
@@ -354,11 +354,11 @@ flip_v = true
 position = Vector2(435, 544)
 
 [node name="Collum_1" type="Sprite2D" parent="Columns/Collum4"]
-texture = ExtResource("5_51vsw")
+texture = ExtResource("8_88led")
 offset = Vector2(0, 8)
 
 [node name="Collum_2" type="Sprite2D" parent="Columns/Collum4"]
-texture = ExtResource("5_51vsw")
+texture = ExtResource("8_88led")
 offset = Vector2(0, -8)
 flip_v = true
 
@@ -367,12 +367,12 @@ position = Vector2(481, 545)
 
 [node name="Collum_1" type="Sprite2D" parent="Columns/Collum2"]
 position = Vector2(-1, -1)
-texture = ExtResource("5_51vsw")
+texture = ExtResource("8_88led")
 offset = Vector2(0, 8)
 
 [node name="Collum_3" type="Sprite2D" parent="Columns/Collum2"]
 position = Vector2(-1, -1)
-texture = ExtResource("5_51vsw")
+texture = ExtResource("8_88led")
 offset = Vector2(0, -8)
 flip_v = true
 
@@ -380,11 +380,11 @@ flip_v = true
 position = Vector2(520, 544)
 
 [node name="Collum_1" type="Sprite2D" parent="Columns/Collum"]
-texture = ExtResource("5_51vsw")
+texture = ExtResource("8_88led")
 offset = Vector2(0, 8)
 
 [node name="Collum_2" type="Sprite2D" parent="Columns/Collum"]
-texture = ExtResource("5_51vsw")
+texture = ExtResource("8_88led")
 offset = Vector2(0, -8)
 flip_v = true
 
@@ -392,11 +392,11 @@ flip_v = true
 position = Vector2(563, 544)
 
 [node name="Collum_1" type="Sprite2D" parent="Columns/Collum5"]
-texture = ExtResource("5_51vsw")
+texture = ExtResource("8_88led")
 offset = Vector2(0, 8)
 
 [node name="Collum_2" type="Sprite2D" parent="Columns/Collum5"]
-texture = ExtResource("5_51vsw")
+texture = ExtResource("8_88led")
 offset = Vector2(0, -8)
 flip_v = true
 
@@ -404,11 +404,11 @@ flip_v = true
 position = Vector2(610, 544)
 
 [node name="Collum_1" type="Sprite2D" parent="Columns/Collum6"]
-texture = ExtResource("5_51vsw")
+texture = ExtResource("8_88led")
 offset = Vector2(0, 8)
 
 [node name="Collum_2" type="Sprite2D" parent="Columns/Collum6"]
-texture = ExtResource("5_51vsw")
+texture = ExtResource("8_88led")
 offset = Vector2(0, -8)
 flip_v = true
 
@@ -416,11 +416,11 @@ flip_v = true
 position = Vector2(654, 544)
 
 [node name="Collum_1" type="Sprite2D" parent="Columns/Collum7"]
-texture = ExtResource("5_51vsw")
+texture = ExtResource("8_88led")
 offset = Vector2(0, 8)
 
 [node name="Collum_2" type="Sprite2D" parent="Columns/Collum7"]
-texture = ExtResource("5_51vsw")
+texture = ExtResource("8_88led")
 offset = Vector2(0, -8)
 flip_v = true
 

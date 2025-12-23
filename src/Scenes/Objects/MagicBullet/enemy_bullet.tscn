@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfqrxfi45idh8"]
+[gd_scene load_steps=9 format=3 uid="uid://m3guooh6xn5o"]
 
-[ext_resource type="Texture2D" uid="uid://couhchf46wyld" path="res://Images/Assets/Sprites Magic Anim/Magic_0.png" id="1_5stei"]
-[ext_resource type="Script" uid="uid://bxekcfh1hkkla" path="res://Scenes/Objects/MagicBullet/magic_bullet.gd" id="1_nilis"]
-[ext_resource type="Texture2D" uid="uid://d2ba3tr6erqju" path="res://Images/Assets/Sprites Magic Anim/Magic_1.png" id="2_73140"]
-[ext_resource type="Texture2D" uid="uid://b1ljuead2m6em" path="res://Images/Assets/Sprites Magic Anim/Magic_2.png" id="3_4k40j"]
-[ext_resource type="Texture2D" uid="uid://b827juoyab4um" path="res://Images/Assets/Sprites Magic Anim/Magic_3.png" id="4_0c76m"]
-[ext_resource type="AudioStream" uid="uid://d0ynyrg41me62" path="res://Sound/SFX/Arrow.wav" id="6_3oqld"]
+[ext_resource type="Script" uid="uid://bxekcfh1hkkla" path="res://Scenes/Objects/MagicBullet/magic_bullet.gd" id="1_0xjrf"]
+[ext_resource type="Texture2D" uid="uid://couhchf46wyld" path="res://Images/Assets/Sprites Magic Anim/Magic_0.png" id="2_d61a5"]
+[ext_resource type="Texture2D" uid="uid://d2ba3tr6erqju" path="res://Images/Assets/Sprites Magic Anim/Magic_1.png" id="3_xd6rg"]
+[ext_resource type="Texture2D" uid="uid://b1ljuead2m6em" path="res://Images/Assets/Sprites Magic Anim/Magic_2.png" id="4_o2k32"]
+[ext_resource type="Texture2D" uid="uid://b827juoyab4um" path="res://Images/Assets/Sprites Magic Anim/Magic_3.png" id="5_fa1ma"]
+[ext_resource type="AudioStream" uid="uid://d0ynyrg41me62" path="res://Sound/SFX/Arrow.wav" id="6_i6hiv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rx1ft"]
 radius = 2.23607
@@ -14,16 +14,16 @@ radius = 2.23607
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_5stei")
+"texture": ExtResource("2_d61a5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_73140")
+"texture": ExtResource("3_xd6rg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_4k40j")
+"texture": ExtResource("4_o2k32")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_0c76m")
+"texture": ExtResource("5_fa1ma")
 }],
 "loop": false,
 "name": &"Explode",
@@ -31,17 +31,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_73140")
+"texture": ExtResource("3_xd6rg")
 }],
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
 }]
 
-[node name="MagicBullet" type="Area2D"]
+[node name="EnemyBullet" type="Area2D"]
 collision_layer = 0
-collision_mask = 5
-script = ExtResource("1_nilis")
+collision_mask = 3
+script = ExtResource("1_0xjrf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rx1ft")
@@ -59,7 +59,7 @@ one_shot = true
 autostart = true
 
 [node name="Explode" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_3oqld")
+stream = ExtResource("6_i6hiv")
 bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
