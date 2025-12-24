@@ -29,13 +29,7 @@ var pony_saved = [false, false, false, false, false, false, false, false, false,
 var current_level_shard = Gems.laughter
 
 #individual level shards
-var collected_shards = [[],
-			[],
-			[],
-			[],
-			[],
-			[],
-			[],[],[],[]]
+var collected_shards = [[],[],[],[],[],[],[],[],[],[]]
 
 signal shard_value_changed()
 signal score_changed(score:int)
@@ -60,13 +54,7 @@ func pickup_shard(shard_type, shard_id):
 			if gem_collected[i]==false:
 				all_gems=false
 				break
-		
+
 		if all_gems:
 			gem_collected[Gems.all] = true
-	
-	
-	
-	
-	
-	
 	

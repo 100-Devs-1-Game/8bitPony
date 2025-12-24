@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://jbebhf2bo6ek"]
+
+[ext_resource type="Texture2D" uid="uid://do40y4hlbji8y" path="res://Images/Level/Cave Assets/Staligmites.webp" id="1_clyqh"]
+[ext_resource type="Script" uid="uid://dew7p1rbkbr35" path="res://Scenes/Objects/Cave/staglagmite.gd" id="1_j7ejn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7ejn"]
+size = Vector2(3, 4.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jfatx"]
+size = Vector2(9.5, 6)
+
+[node name="Staglagmite" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_j7ejn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_j7ejn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_clyqh")
+hframes = 2
+frame = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_jfatx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

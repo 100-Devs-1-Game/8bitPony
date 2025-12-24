@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbkcqlff2hu2y"]
+
+[ext_resource type="Script" uid="uid://x5jctrcso6f6" path="res://Scenes/Characters/Rolling/rolling_enemy_spawner.gd" id="1_m4r8p"]
+
+[node name="RollingEnemySpawner" type="Node2D"]
+script = ExtResource("1_m4r8p")

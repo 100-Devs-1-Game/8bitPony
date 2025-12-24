@@ -5,20 +5,14 @@
 
 [node name="Level1-Forest" instance=ExtResource("1_slvit")]
 
-[node name="ShardFragment2" parent="Shards" index="1" instance=ExtResource("2_jhdu1")]
-position = Vector2(26, 196)
+[node name="FrontLayer" parent="TileMaps" index="2"]
+tile_map_data = PackedByteArray()
 
-[node name="ShardFragment5" parent="Shards" index="2" instance=ExtResource("2_jhdu1")]
-position = Vector2(-1, 198)
+[node name="ShardFragment" parent="Pickups" index="0" instance=ExtResource("2_jhdu1")]
+position = Vector2(-14, 199)
 
-[node name="ShardFragment6" parent="Shards" index="3" instance=ExtResource("2_jhdu1")]
-position = Vector2(-16, 198)
+[node name="ShardFragment2" parent="Pickups" index="1" instance=ExtResource("2_jhdu1")]
+position = Vector2(10, 199)
 
-[node name="ShardFragment7" parent="Shards" index="4" instance=ExtResource("2_jhdu1")]
-position = Vector2(-33, 198)
-
-[node name="ShardFragment3" parent="Shards" index="5" instance=ExtResource("2_jhdu1")]
-position = Vector2(40, 196)
-
-[node name="ShardFragment4" parent="Shards" index="6" instance=ExtResource("2_jhdu1")]
-position = Vector2(53, 199)
+[node name="ShardFragment3" parent="Pickups" index="2" instance=ExtResource("2_jhdu1")]
+position = Vector2(39, 199)

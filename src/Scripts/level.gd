@@ -8,6 +8,21 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
+	if get_tree().get_node_count_in_group('shards')>0:
+		setup_shards()
+	else:
+		hud.get_node("Shards").hide()
+	
+	jail.set_pony(level_shard_type)
+	if Global.pony_saved[level_shard_type]:
+		jail.set_open()
+	
+	
+	$Player.health_changed.connect(health_changed)
+	$Player.safe_ready()
+
+
+func setup_shards():
 	#Create shard array for level if it doesn't exist in Globals
 	if Global.collected_shards[level_shard_type].size()==0 and (not Global.gem_collected[level_shard_type] or level_shard_type==Global.Gems.none):
 		for temp in get_tree().get_node_count_in_group('shards'):
@@ -31,15 +46,6 @@ func _ready():
 	hud.get_node("Shards").set_up_shards()
 	hud.level_shards.value = collected
 	hud.level_shards.suffix = str("/", i)
-	
-	if Global.pony_saved[level_shard_type]:
-		jail.set_open()
-	else:
-		jail.current_gem = level_shard_type
-	
-	$Player.health_changed.connect(health_changed)
-	$Player.safe_ready()
-
 
 func health_changed(health, pony_type):
 	hud.update_health(health, pony_type)

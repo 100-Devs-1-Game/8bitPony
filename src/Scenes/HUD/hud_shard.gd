@@ -9,7 +9,6 @@ const HUD_SHARD = preload("uid://b53ev8idqwxbo")
 func _ready():
 	Global.shard_value_changed.connect(add_shard)
 	
-	
 
 func set_up_shards():
 	#If is for debugging/test levels
@@ -25,9 +24,13 @@ func set_up_shards():
 	else:
 		self_modulate = Color(1.0, 1.0, 1.0, 1.0)
 
+
 func _physics_process(delta: float) -> void:
+	#start_shard is used to help spawn new shards equadistant
 	start_shard_rotation +=36*delta
 	if start_shard_rotation>=360: start_shard_rotation -=360
+	
+	#Move each shard round in a circle, but keep its sprite upright
 	for shard in get_children():
 		#Rotate shard around center
 		shard.rotation_degrees += 36*delta
@@ -35,6 +38,7 @@ func _physics_process(delta: float) -> void:
 		
 		#Counter rotate sprite to keep it uprite
 		shard.get_node("shard").rotation_degrees = -1*shard.rotation_degrees
+
 
 func add_shard():
 	collected_shards +=1
@@ -44,11 +48,12 @@ func add_shard():
 	new_shard.position = Vector2.ZERO
 	new_shard.rotation_degrees = start_shard_rotation+angle
 	
-	#If needed for debug/test levels
+	#"If" needed for debug/test levels
 	if Global.current_level_shard<6:
 		new_shard.get_node("shard").frame = Global.current_level_shard
 	add_child(new_shard)
 	
+	#if all shards are collected, play a little animation
 	if collected_shards==total_shards:
 		var tw = create_tween().set_parallel()
 		

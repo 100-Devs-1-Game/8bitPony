@@ -2,19 +2,20 @@ extends Area2D
 
 var player_in_area = false
 var jail_opened = false
-var current_gem
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Interact") and player_in_area:
 		if not jail_opened:
 			$AnimationPlayer.play("open")
 			jail_opened = true
-			Global.pony_saved[current_gem] = true
+			Global.pony_saved[Global.current_level_shard] = true
 		else:
-			#Im guess some sort of dialog??
+			#Im guess some sort of dialog should go here???
 			get_tree().change_scene_to_file("res://Scenes/Rooms/level_select.tscn")
 	
-		
+func set_pony(level_shard):
+	$Pony.frame = level_shard
 
 func _on_body_entered(_body: Node2D) -> void:
 	player_in_area = true

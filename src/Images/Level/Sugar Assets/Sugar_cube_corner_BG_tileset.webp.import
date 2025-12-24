@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blqgjaq63wvya"
-path="res://.godot/imported/Forest 1.png-69d4baa583251f5891a65a2d7ac278bd.ctex"
+uid="uid://dif2gqaesekv4"
+path="res://.godot/imported/Sugar_cube_corner_BG_tileset.webp-e256531910f6eec412719312732ce95d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Level/Forest 1.png"
-dest_files=["res://.godot/imported/Forest 1.png-69d4baa583251f5891a65a2d7ac278bd.ctex"]
+source_file="res://Images/Level/Sugar Assets/Sugar_cube_corner_BG_tileset.webp"
+dest_files=["res://.godot/imported/Sugar_cube_corner_BG_tileset.webp-e256531910f6eec412719312732ce95d.ctex"]
 
 [params]
 

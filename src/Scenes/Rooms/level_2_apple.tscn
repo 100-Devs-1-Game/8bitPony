@@ -9,11 +9,23 @@ level_shard_type = 1
 [node name="ColorRect" parent="." index="0"]
 color = Color(0.43490797, 0.28990504, 0.22221035, 1)
 
-[node name="ShardFragment" parent="Shards" index="0"]
-position = Vector2(-11, 198)
+[node name="FrontLayer" parent="TileMaps" index="2"]
+tile_map_data = PackedByteArray()
 
-[node name="ShardFragment2" parent="Shards" index="1" instance=ExtResource("2_cun7n")]
-position = Vector2(4, 197)
+[node name="ShardFragment" parent="Pickups" index="0" instance=ExtResource("2_cun7n")]
+position = Vector2(-23, 199)
 
-[node name="ShardFragment3" parent="Shards" index="2" instance=ExtResource("2_cun7n")]
-position = Vector2(28, 197)
+[node name="ShardFragment2" parent="Pickups" index="1" instance=ExtResource("2_cun7n")]
+position = Vector2(-10, 199)
+
+[node name="ShardFragment3" parent="Pickups" index="2" instance=ExtResource("2_cun7n")]
+position = Vector2(4, 199)
+
+[node name="ShardFragment4" parent="Pickups" index="3" instance=ExtResource("2_cun7n")]
+position = Vector2(21, 199)
+
+[node name="ShardFragment5" parent="Pickups" index="4" instance=ExtResource("2_cun7n")]
+position = Vector2(37, 199)
+
+[node name="ShardFragment6" parent="Pickups" index="5" instance=ExtResource("2_cun7n")]
+position = Vector2(55, 200)

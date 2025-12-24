@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dfarkkprsuyhv" path="res://Images/Assets/Level Select/Floor_1.png" id="3_8abrt"]
 [ext_resource type="Texture2D" uid="uid://d2li42go47woj" path="res://Images/Assets/Level Select/Elements of harmony_base_empty.png" id="3_8ebfm"]
 [ext_resource type="PackedScene" uid="uid://dkcxtqxuy8wpj" path="res://Scenes/Objects/Door/door.tscn" id="3_88led"]
-[ext_resource type="Texture2D" uid="uid://3krh0b0qhbad" path="res://Images/Assets/Level Select/Elements of harmony_full gems.png" id="4_88led"]
+[ext_resource type="Texture2D" uid="uid://bl4k6ei82ifqs" path="res://Images/Assets/Level Select/Elements of harmony_full gems.png" id="4_88led"]
 [ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="4_hfsg3"]
 [ext_resource type="PackedScene" uid="uid://b4j3uvi3nugac" path="res://Scenes/Characters/Player/player.tscn" id="8_1o6y5"]
 [ext_resource type="Texture2D" uid="uid://cmt4sdrd0fo64" path="res://Images/Assets/Level Select/collum 1.png" id="8_88led"]
@@ -25,7 +25,8 @@ visible = false
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Element_Harmony" type="Node2D" parent="CanvasLayer"]
-position = Vector2(149, 11)
+position = Vector2(297, 20)
+scale = Vector2(2, 2)
 
 [node name="Base" type="Sprite2D" parent="CanvasLayer/Element_Harmony"]
 texture = ExtResource("3_8ebfm")
@@ -218,6 +219,16 @@ position = Vector2(25, 11)
 is_locked = false
 target_scene = "uid://byxxr253kiei0"
 
+[node name="Lock" parent="TestDoors/IntroDoor/Sprite2D" index="0"]
+visible = false
+
+[node name="NameLabel" parent="TestDoors/IntroDoor" index="3"]
+offset_left = -16.0
+offset_right = 48.0
+offset_bottom = -8.0
+text = "Intro/
+Tutorial"
+
 [node name="Doors" type="Node2D" parent="."]
 position = Vector2(-277, -488)
 
@@ -254,7 +265,7 @@ frame = 1
 frame = 1
 
 [node name="cave" parent="Doors" instance=ExtResource("3_88led")]
-position = Vector2(457, 560)
+position = Vector2(459, 560)
 target_scene = "uid://4lw3bcqthym2"
 gem_to_collect = 2
 metadata/_edit_group_ = true
@@ -263,6 +274,9 @@ metadata/_edit_group_ = true
 frame = 2
 
 [node name="NameLabel" parent="Doors/cave" index="3"]
+offset_left = -14.0
+offset_right = 42.0
+offset_bottom = -8.0
 text = "Diamond
 Cave"
 
@@ -282,6 +296,8 @@ metadata/_edit_group_ = true
 frame = 3
 
 [node name="NameLabel" parent="Doors/library" index="3"]
+offset_left = -14.0
+offset_right = 42.0
 text = "Library"
 
 [node name="Shard" parent="Doors/library" index="4"]
@@ -427,7 +443,12 @@ flip_v = true
 [node name="Player" parent="." instance=ExtResource("8_1o6y5")]
 position = Vector2(67, 72)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2(0, -16)
+zoom = Vector2(2, 2)
+
 [editable path="TestDoors/TestLevel"]
+[editable path="TestDoors/IntroDoor"]
 [editable path="Doors/forest"]
 [editable path="Doors/apple"]
 [editable path="Doors/cave"]

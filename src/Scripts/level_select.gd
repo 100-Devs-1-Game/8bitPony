@@ -2,13 +2,16 @@ extends Node2D
 
 
 func _ready():	
-	#Move player to the mose recently cleared door
+	
 	if Global.gem_collected[Global.Gems.none]:
 		$Player.global_position = $TestDoors/IntroDoor.global_position
 	
+	#set door locked/unlocked
+	#Show/hide shard cound
 	for door in $Doors.get_children():
-		#Initialize shard cound visible and oor locked/unlocked
+		#Initialize shard cound visible and door locked/unlocked
 		if Global.collected_shards[door.gem_to_collect].size()>0:
+			#Move player to the mose recently opened door
 			$Player.global_position = door.global_position
 			door.set_locked(false)
 			if Global.gem_collected[door.gem_to_collect]:
@@ -16,7 +19,6 @@ func _ready():
 				door.show_gem()
 			else:
 				door.show_shard_count(Global.collected_shards[door.gem_to_collect].count(true), Global.collected_shards[door.gem_to_collect].size())
-				
 		else:
 			#If the previous doors gem has been collected, but no shards
 			if door.gem_to_collect==Global.Gems.laughter or Global.gem_collected[door.gem_to_collect-1]:
@@ -25,7 +27,7 @@ func _ready():
 				door.set_locked(true)
 
 	
-	#Set hud gems visible
+	#Set gems visible in "gem holde"
 	if Global.gem_collected[Global.Gems.laughter]: $CanvasLayer/Element_Harmony/green.show()
 	else: $CanvasLayer/Element_Harmony/green.hide()
 	

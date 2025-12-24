@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://domwhgmohvhfa"]
+
+[ext_resource type="Script" uid="uid://cnwm2ggr4ykvk" path="res://Scenes/Characters/Rolling/rolling_enemy.gd" id="1_q7sg6"]
+[ext_resource type="Texture2D" uid="uid://qffbtwtynlwr" path="res://Images/Enemies/Rolling_sheetr.png" id="2_q7sg6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7sg6"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4htgv"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ej6ek"]
+radius = 1.0
+
+[node name="RollingEnemy" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_q7sg6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q7sg6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_q7sg6")
+hframes = 2
+
+[node name="hurt_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_area"]
+shape = SubResource("CircleShape2D_4htgv")
+
+[node name="detect__wall" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect__wall"]
+position = Vector2(-8, 6.993822e-07)
+shape = SubResource("CircleShape2D_ej6ek")
+
+[connection signal="body_entered" from="hurt_area" to="." method="_on_hurt_area_body_entered"]
+[connection signal="body_entered" from="detect__wall" to="." method="_on_detect__wall_body_entered"]

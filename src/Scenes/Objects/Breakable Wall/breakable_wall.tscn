@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bnfxvgqfeavyb"]
 
 [ext_resource type="Script" uid="uid://cf4avc34pd3m3" path="res://Scenes/Objects/Breakable Wall/breakable_wall.gd" id="1_o03xt"]
-[ext_resource type="Texture2D" uid="uid://btdt4hrgyyjyq" path="res://Images/Level/Forest 2.png" id="1_wph8x"]
+[ext_resource type="Texture2D" uid="uid://btdt4hrgyyjyq" path="res://Images/Level/Forest/Forest 2.png" id="1_wph8x"]
 [ext_resource type="AudioStream" uid="uid://clno70x1nfwr" path="res://Sound/SFX/Explosion.wav" id="3_1nh7k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o03xt"]

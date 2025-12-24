@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://6wod606hl682"]
+
+[ext_resource type="Script" uid="uid://bnjfw6rao7r5" path="res://Scenes/Objects/Cave/stalagtite_spawner.gd" id="1_u7ouo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfpvq"]
+size = Vector2(8, 48)
+
+[node name="Stalagtite Spawner" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_u7ouo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 24)
+shape = SubResource("RectangleShape2D_qfpvq")
+
+[node name="spawn_timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="drop_timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="drop_timer" to="." method="_on_drop_timer_timeout"]

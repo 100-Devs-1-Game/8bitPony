@@ -18,11 +18,9 @@ func _process(_delta: float) -> void:
 		layer.modulate.a = lerp(layer.modulate.a, target_alpha, transition_time)
 
 
-func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
+func _on_body_entered(_body: Node2D) -> void:
 		target_alpha = end_alpha
 
 
-func _on_body_exited(body: Node2D) -> void:
-	if body is Player:
+func _on_body_exited(_body: Node2D) -> void:
 		target_alpha = start_alpha

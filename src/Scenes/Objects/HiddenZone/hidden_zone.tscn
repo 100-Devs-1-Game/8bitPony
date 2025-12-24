@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://b6ms5qwyb7f57" path="res://Scenes/Objects/HiddenZone/hidden_zone.gd" id="1_1qa0s"]
 
 [node name="HiddenZone" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_1qa0s")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
