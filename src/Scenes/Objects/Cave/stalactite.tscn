@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://mrt3k5iehyq2"]
 
 [ext_resource type="Texture2D" uid="uid://do40y4hlbji8y" path="res://Images/Level/Cave Assets/Staligmites.webp" id="1_cx8fn"]
-[ext_resource type="Script" uid="uid://dsx6y6kvaxsl7" path="res://Scenes/Objects/Cave/stalagtite.gd" id="1_nmmnf"]
+[ext_resource type="Script" uid="uid://dsx6y6kvaxsl7" path="res://Scenes/Objects/Cave/stalactite.gd" id="1_nmmnf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmmnf"]
 size = Vector2(7, 8)

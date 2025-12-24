@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://4lw3bcqthym2"]
 
 [ext_resource type="PackedScene" uid="uid://dkrxtxeflfcpx" path="res://Scenes/Rooms/TEMPLATE.tscn" id="1_bnbwi"]
-[ext_resource type="PackedScene" uid="uid://6wod606hl682" path="res://Scenes/Objects/Cave/stalagtite_spawner.tscn" id="2_bhdk0"]
+[ext_resource type="PackedScene" uid="uid://6wod606hl682" path="res://Scenes/Objects/Cave/stalactite_spawner.tscn" id="2_bhdk0"]
 [ext_resource type="PackedScene" uid="uid://dx8bxt70q06xt" path="res://Scenes/Objects/ShardFragment/shard_fragment.tscn" id="2_yut4v"]
 [ext_resource type="PackedScene" uid="uid://jbebhf2bo6ek" path="res://Scenes/Objects/Cave/staglagmite.tscn" id="3_xfo30"]
 [ext_resource type="PackedScene" uid="uid://cbkcqlff2hu2y" path="res://Scenes/Characters/Rolling/rolling_enemy_spawner.tscn" id="4_hhs4g"]

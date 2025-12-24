@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://6wod606hl682"]
 
-[ext_resource type="Script" uid="uid://bnjfw6rao7r5" path="res://Scenes/Objects/Cave/stalagtite_spawner.gd" id="1_u7ouo"]
+[ext_resource type="Script" uid="uid://bnjfw6rao7r5" path="res://Scenes/Objects/Cave/stalactite_spawner.gd" id="1_u7ouo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfpvq"]
 size = Vector2(8, 48)

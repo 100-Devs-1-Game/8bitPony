@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://jbebhf2bo6ek" path="res://Scenes/Objects/Cave/staglagmite.tscn" id="10_551a1"]
 [ext_resource type="PackedScene" uid="uid://dkcxtqxuy8wpj" path="res://Scenes/Objects/Door/door.tscn" id="10_dfj28"]
 [ext_resource type="PackedScene" uid="uid://b4j3uvi3nugac" path="res://Scenes/Characters/Player/player.tscn" id="11_0b05s"]
-[ext_resource type="PackedScene" uid="uid://6wod606hl682" path="res://Scenes/Objects/Cave/stalagtite_spawner.tscn" id="11_o3js2"]
+[ext_resource type="PackedScene" uid="uid://6wod606hl682" path="res://Scenes/Objects/Cave/stalactite_spawner.tscn" id="11_o3js2"]
 [ext_resource type="PackedScene" uid="uid://cbkcqlff2hu2y" path="res://Scenes/Characters/Rolling/rolling_enemy_spawner.tscn" id="12_o3js2"]
 [ext_resource type="PackedScene" uid="uid://4asog7tgnsdv" path="res://Scenes/Objects/killbox.tscn" id="13_75rli"]
 [ext_resource type="PackedScene" uid="uid://nc0c1xv83h5y" path="res://Scenes/Objects/Jail/jail.tscn" id="14_2fpyh"]
