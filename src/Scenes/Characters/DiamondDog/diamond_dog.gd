@@ -43,15 +43,13 @@ func _on_detect_wall_body_entered(_body: Node2D) -> void:
 
 
 func _on_detect_player_body_entered(_body: Node2D) -> void:
-	print("Shoot at player")
 	sprite2D.animation = "idle"
 	player_in_area = true
 	old_direction = direction
 	direction = 0
 
 
-func _on_detect_player_body_exited(body: Node2D) -> void:
-	print("Stop shooting")
+func _on_detect_player_body_exited(_body: Node2D) -> void:
 	sprite2D.animation = "walk"
 	player_in_area = false
 	direction = old_direction
