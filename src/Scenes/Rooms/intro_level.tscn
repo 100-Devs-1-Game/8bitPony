@@ -58,9 +58,10 @@ navigation_enabled = false
 position = Vector2(481, 96)
 
 [node name="Killbox" parent="enemies" instance=ExtResource("5_u0pta")]
+position = Vector2(176, 208)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Killbox"]
-position = Vector2(212, 280)
+position = Vector2(32, 48)
 shape = SubResource("RectangleShape2D_tlgni")
 
 [node name="Pickups" type="Node2D" parent="."]
