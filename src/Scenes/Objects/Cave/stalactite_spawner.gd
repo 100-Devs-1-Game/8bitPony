@@ -1,9 +1,13 @@
 extends Area2D
 
 
-const STALAGTITE = preload("uid://mrt3k5iehyq2")
+const STALACTITE = preload("uid://mrt3k5iehyq2")
 var current_stag
 @export var allow_falling = true
+
+func _ready() -> void:
+	spawn_stalactite()
+	
 
 func _on_body_entered(_body: Node2D) -> void:
 	$drop_timer.start()
@@ -17,7 +21,10 @@ func _on_drop_timer_timeout() -> void:
 
 
 func _on_spawn_timer_timeout() -> void:
-	var new_stag = STALAGTITE.instantiate()
+	spawn_stalactite()
+
+func spawn_stalactite():
+	var new_stag = STALACTITE.instantiate()
 	new_stag.position = Vector2.ZERO
 	current_stag = new_stag
 	add_child(new_stag)

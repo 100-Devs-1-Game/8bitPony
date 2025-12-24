@@ -126,6 +126,9 @@ func take_damage(damage: float = 0.5):
 			
 
 
+func make_jump():
+	velocity.y = jump_velocity
+
 func health_pickup(value: int = 1): #pick up extra life
 	if not has_state(PonyStateMachine.Die):
 		health[pony_type]+= value

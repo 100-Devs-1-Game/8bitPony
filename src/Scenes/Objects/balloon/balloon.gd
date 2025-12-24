@@ -8,3 +8,7 @@ extends AnimatableBody2D
 		color = value
 		print(color)
 		$Sprite2D.frame = color
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	body.make_jump()

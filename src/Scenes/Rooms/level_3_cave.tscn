@@ -20,23 +20,27 @@ tile_map_data = PackedByteArray("AAD0//n/AwABAAEAAAD0//r/AwABAAEAAAD0//v/AwABAAE
 tile_map_data = PackedByteArray()
 
 [node name="Stalagtite Spawner" parent="enemies" index="0" instance=ExtResource("2_bhdk0")]
-position = Vector2(-96, 176)
+position = Vector2(-104, 176)
 
-[node name="Staglagmite" parent="enemies" index="1" instance=ExtResource("3_xfo30")]
-position = Vector2(-64, 208)
+[node name="Stalagtite Spawner2" parent="enemies" index="1" instance=ExtResource("2_bhdk0")]
+position = Vector2(-88, 176)
+allow_falling = false
 
-[node name="RollingEnemySpawner" parent="enemies" index="2" instance=ExtResource("4_hhs4g")]
+[node name="Staglagmite" parent="enemies" index="2" instance=ExtResource("3_xfo30")]
+position = Vector2(-16, 208)
+
+[node name="RollingEnemySpawner" parent="enemies" index="3" instance=ExtResource("4_hhs4g")]
 position = Vector2(-96, 96)
 roll_direction = "right"
 
-[node name="DiamondDog" parent="enemies" index="3" instance=ExtResource("5_3xdgg")]
+[node name="DiamondDog" parent="enemies" index="4" instance=ExtResource("5_3xdgg")]
 position = Vector2(128, 176)
 
 [node name="ShardFragment" parent="Pickups" index="0" instance=ExtResource("2_yut4v")]
-position = Vector2(-24, 200)
+position = Vector2(104, 200)
 
 [node name="ShardFragment2" parent="Pickups" index="1" instance=ExtResource("2_yut4v")]
-position = Vector2(-8, 200)
+position = Vector2(48, 200)
 
 [node name="ShardFragment3" parent="Pickups" index="2" instance=ExtResource("2_yut4v")]
 position = Vector2(16, 200)
@@ -52,3 +56,6 @@ position = Vector2(88, 200)
 
 [node name="ShardFragment7" parent="Pickups" index="6" instance=ExtResource("2_yut4v")]
 position = Vector2(72, 200)
+
+[node name="Player" parent="." index="6"]
+position = Vector2(0, 208)
