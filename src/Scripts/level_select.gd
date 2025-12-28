@@ -25,6 +25,11 @@ func _ready():
 				door.set_locked(false)
 			else:
 				door.set_locked(true)
+	
+	
+	#unlock all doors for debug
+	for door in $Doors.get_children():
+		door.set_locked(false)
 
 	
 	#Set gems visible in "gem holde"
