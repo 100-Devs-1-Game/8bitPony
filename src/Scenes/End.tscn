@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://jxfj1wdcmngy"]
+
+[ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="1_pw64i"]
+
+[node name="ColorRect" type="ColorRect"]
+anchors_preset = -1
+anchor_left = -0.209
+anchor_top = -0.178
+offset_left = 40.880005
+offset_top = 16.04
+offset_right = 350.0
+offset_bottom = 196.0
+color = Color(0.6764574, 0.45565796, 0.73828125, 1)
+
+[node name="WinLabel" type="RichTextLabel" parent="."]
+clip_contents = false
+layout_mode = 0
+offset_left = 31.000002
+offset_top = 39.0
+offset_right = 96.0
+offset_bottom = 61.0
+scale = Vector2(5, 5)
+theme = ExtResource("1_pw64i")
+bbcode_enabled = true
+text = "[wave freq=3]You Win!"
+
+[node name="ThankYou" type="RichTextLabel" parent="."]
+clip_contents = false
+layout_mode = 0
+offset_left = 32.0
+offset_top = 127.0
+offset_right = 206.5
+offset_bottom = 144.5
+scale = Vector2(1.8, 1.8)
+theme = ExtResource("1_pw64i")
+bbcode_enabled = true
+text = "Thank you for playing"
