@@ -345,7 +345,7 @@ frame = 5
 
 [node name="end" parent="Doors" instance=ExtResource("3_88led")]
 position = Vector2(631, 560)
-target_scene = "uid://cu2kiv5h2qper"
+target_scene = "uid://dfdl36lga462m"
 metadata/_edit_group_ = true
 
 [node name="NameLabel" parent="Doors/end" index="3"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://jbebhf2bo6ek"]
 
-[ext_resource type="Texture2D" uid="uid://do40y4hlbji8y" path="res://Images/Level/Cave Assets/Staligmites.webp" id="1_clyqh"]
+[ext_resource type="Texture2D" uid="uid://do40y4hlbji8y" path="res://Images/Level/3-Cave/Staligmites.webp" id="1_clyqh"]
 [ext_resource type="Script" uid="uid://dew7p1rbkbr35" path="res://Scenes/Objects/Cave/staglagmite.gd" id="1_j7ejn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7ejn"]

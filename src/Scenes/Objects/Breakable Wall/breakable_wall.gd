@@ -13,8 +13,8 @@ func _physics_process(_delta: float) -> void:
 			$Sprite2D.hide()
 			$CollisionShape2D.set_deferred("disabled", true)
 			
-			await $AudioStreamPlayer.finished
-			queue_free()
+			$Sprite2D.frame = 1
+			$PlayerDetector/CollisionShape2D.set_deferred("disabled", true)
 
 
 func _on_player_detector_body_entered(_player: Node2D) -> void:

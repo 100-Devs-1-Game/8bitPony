@@ -1,18 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxpye76oxtrl3"]
+[gd_scene load_steps=2 format=4 uid="uid://cxpye76oxtrl3"]
 
 [ext_resource type="TileSet" uid="uid://5bmby5hd55rc" path="res://Images/Level/tile_map.tres" id="1_j1m4c"]
-[ext_resource type="Script" uid="uid://b4qlva3qyr3fl" path="res://Scripts/moving_platform.gd" id="2_uji0a"]
 
-[node name="MovingPlatform" type="Node2D"]
-script = ExtResource("2_uji0a")
-
-[node name="A" type="Marker2D" parent="."]
-top_level = true
-
-[node name="B" type="Marker2D" parent="."]
-top_level = true
-
-[node name="MovingPlatform" type="TileMapLayer" parent="."]
+[node name="MovingPlatform" type="TileMapLayer"]
 scale = Vector2(0.25, 0.25)
+tile_map_data = PackedByteArray("AAD8//7/AAAAAAAAAAD8////AAAAAAIAAAD9//7/AAABAAAAAAD9////AAABAAIAAAD+//7/AAABAAAAAAD+////AAABAAIAAAD///7/AAABAAAAAAD/////AAABAAIAAAAAAP7/AAABAAAAAAAAAP//AAABAAIAAAABAP7/AAABAAAAAAABAP//AAABAAIAAAACAP7/AAABAAAAAAACAP//AAABAAIAAAADAP7/AAABAAAAAAADAP//AAABAAIAAAAEAP7/AAACAAAAAAAEAP//AAACAAIAAAA=")
 tile_set = ExtResource("1_j1m4c")
 use_kinematic_bodies = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
