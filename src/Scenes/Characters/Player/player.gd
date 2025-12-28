@@ -31,6 +31,9 @@ enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 var health = [3, 3, 3]
 var pony_states: int = PonyStateMachine.Idle
 
+var shoot_timer = 0.6
+var shoot_time = 0.6
+
 signal health_changed
 
 var flying: bool = false
@@ -54,6 +57,7 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta):
 	_default_movement(delta) #handles the movement
+	shoot_timer -= delta
 	if $CollisionShape2D.disabled:
 		await get_tree().physics_frame
 		$CollisionShape2D.disabled = false
@@ -88,12 +92,15 @@ func _unhandled_input(event: InputEvent) -> void:
 				PonyType.Pegasus:
 					flying = true
 				PonyType.Unicorn:
+					if shoot_timer >0:return
+					
 					var bullet =  magic_bullet.instantiate()
 					if bullet is MagicBullet:
 						bullet.global_position = bullet_anchor.global_position
 						if sprite.flip_h:
 							bullet.velocity = -bullet.velocity
 					get_parent().add_child(bullet)
+					shoot_timer = shoot_time
 					shoot_sound.play()
 					attack_timer.start()
 				PonyType.Earth:
@@ -112,6 +119,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func take_damage(damage: float = 0.5):
 	if not has_state(PonyStateMachine.Die) and recovery_timer.is_stopped():
 		health[pony_type] = max(0, health[pony_type] - damage)
+		
 		
 		hit_sound.play()
 		_flash_red()
