@@ -10,6 +10,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			$AnimationPlayer.play("open")
 			jail_opened = true
 			Global.pony_saved[Global.current_level_shard] = true
+			await $AnimationPlayer.animation_finished
+			get_tree().change_scene_to_file("res://Scenes/Rooms/level_select.tscn")
 		else:
 			#Im guess some sort of dialog should go here???
 			get_tree().change_scene_to_file("res://Scenes/Rooms/level_select.tscn")
