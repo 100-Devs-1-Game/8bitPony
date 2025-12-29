@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cu2kiv5h2qper"]
+[gd_scene load_steps=24 format=4 uid="uid://cu2kiv5h2qper"]
 
 [ext_resource type="Script" uid="uid://ch7tf33ux5aoe" path="res://Scripts/level.gd" id="1_8sc13"]
 [ext_resource type="PackedScene" uid="uid://bgd5ojsk1hil6" path="res://Scenes/HUD/hud.tscn" id="2_pardi"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://4asog7tgnsdv" path="res://Scenes/Objects/killbox.tscn" id="13_75rli"]
 [ext_resource type="PackedScene" uid="uid://nc0c1xv83h5y" path="res://Scenes/Objects/Jail/jail.tscn" id="14_2fpyh"]
 [ext_resource type="PackedScene" uid="uid://d2i0mfljscuj2" path="res://Scenes/Objects/balloon/balloon.tscn" id="21_out3j"]
+[ext_resource type="PackedScene" uid="uid://dhu4ol2af2cn2" path="res://Scenes/Objects/Jump_Mushroom/jump_mushroom.tscn" id="22_0wgjf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_out3j"]
 size = Vector2(42, 20)
@@ -207,27 +208,9 @@ shape = SubResource("RectangleShape2D_out3j")
 position = Vector2(-240, 96)
 scale = Vector2(0.5, 0.5)
 
-[node name="A" parent="MovingPlatform" index="0"]
-position = Vector2(-336, 112)
-
-[node name="B" parent="MovingPlatform" index="1"]
-position = Vector2(-128, 112)
-
-[node name="MovingPlatform" parent="MovingPlatform" index="2"]
-tile_map_data = PackedByteArray("AAD6//3/AAAAAAAAAAD6//7/AAAAAAEAAAD6////AAAAAAIAAAD7//3/AAABAAAAAAD7//7/AAABAAEAAAD7////AAABAAIAAAD8//3/AAABAAAAAAD8//7/AAABAAEAAAD8////AAABAAIAAAD9//3/AAABAAAAAAD9//7/AAABAAEAAAD9////AAABAAIAAAD+//3/AAABAAAAAAD+//7/AAABAAEAAAD+////AAABAAIAAAD///3/AAABAAAAAAD///7/AAABAAEAAAD/////AAABAAIAAAAAAP3/AAABAAAAAAAAAP7/AAABAAEAAAAAAP//AAABAAIAAAABAP3/AAABAAAAAAABAP7/AAABAAEAAAABAP//AAABAAIAAAACAP3/AAABAAAAAAACAP7/AAABAAEAAAACAP//AAABAAIAAAADAP3/AAABAAAAAAADAP7/AAABAAEAAAADAP//AAABAAIAAAAEAP3/AAABAAAAAAAEAP7/AAABAAEAAAAEAP//AAABAAIAAAAFAP3/AAACAAAAAAAFAP7/AAACAAEAAAAFAP//AAACAAIAAAA=")
-
 [node name="MovingPlatform2" parent="." instance=ExtResource("5_t7sl4")]
 position = Vector2(-240, 200)
 scale = Vector2(0.5, 0.5)
-
-[node name="A" parent="MovingPlatform2" index="0"]
-position = Vector2(-240, 112)
-
-[node name="B" parent="MovingPlatform2" index="1"]
-position = Vector2(-240, 208)
-
-[node name="MovingPlatform" parent="MovingPlatform2" index="2"]
-tile_map_data = PackedByteArray("AAD6//3/AAAAAAAAAAD6//7/AAAAAAEAAAD6////AAAAAAIAAAD7//3/AAABAAAAAAD7//7/AAABAAEAAAD7////AAABAAIAAAD8//3/AAABAAAAAAD8//7/AAABAAEAAAD8////AAABAAIAAAD9//3/AAABAAAAAAD9//7/AAABAAEAAAD9////AAABAAIAAAD+//3/AAABAAAAAAD+//7/AAABAAEAAAD+////AAABAAIAAAD///3/AAABAAAAAAD///7/AAABAAEAAAD/////AAABAAIAAAAAAP3/AAABAAAAAAAAAP7/AAABAAEAAAAAAP//AAABAAIAAAABAP3/AAABAAAAAAABAP7/AAABAAEAAAABAP//AAABAAIAAAACAP3/AAABAAAAAAACAP7/AAABAAEAAAACAP//AAABAAIAAAADAP3/AAABAAAAAAADAP7/AAABAAEAAAADAP//AAABAAIAAAAEAP3/AAABAAAAAAAEAP7/AAABAAEAAAAEAP//AAABAAIAAAAFAP3/AAACAAAAAAAFAP7/AAACAAEAAAAFAP//AAACAAIAAAA=")
 
 [node name="Pickups" type="Node2D" parent="."]
 
@@ -265,6 +248,9 @@ color = 1
 [node name="Balloon3" parent="." instance=ExtResource("21_out3j")]
 position = Vector2(472, 152)
 color = 2
+
+[node name="jump_mushroom" parent="." instance=ExtResource("22_0wgjf")]
+position = Vector2(160, 208)
 
 [editable path="enemies/flyingEnemy"]
 [editable path="MovingPlatform"]
