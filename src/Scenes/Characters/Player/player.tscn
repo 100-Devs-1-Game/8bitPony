@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4j3uvi3nugac"]
+[gd_scene load_steps=18 format=3 uid="uid://b4j3uvi3nugac"]
 
 [ext_resource type="Script" uid="uid://t84d8o7n7s4n" path="res://Scenes/Characters/Player/player.gd" id="1_01b8d"]
 [ext_resource type="PackedScene" uid="uid://bfqrxfi45idh8" path="res://Scenes/Objects/MagicBullet/magic_bullet.tscn" id="2_xccyk"]
@@ -6,6 +6,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cekr32m6i7lj5" path="res://Images/Characters/unicorm.tres" id="3_gdgf0"]
 [ext_resource type="SpriteFrames" uid="uid://comkomt2jtubb" path="res://Images/Characters/pegasus.tres" id="4_25bbb"]
 [ext_resource type="PackedScene" uid="uid://bbu116apenly0" path="res://Scenes/Objects/Smoke/smoke.tscn" id="6_8gg06"]
+[ext_resource type="Texture2D" uid="uid://dklm0wbvx0jhl" path="res://Images/Assets/Player/Earth Pony/Wind_sheet.png" id="7_plevq"]
 [ext_resource type="AudioStream" uid="uid://d0ynyrg41me62" path="res://Sound/SFX/Arrow.wav" id="10_cscr0"]
 [ext_resource type="AudioStream" uid="uid://cp2e2n37ko0kd" path="res://Sound/SFX/Magic2.wav" id="10_fepmq"]
 [ext_resource type="AudioStream" uid="uid://msmqw6t4fe8m" path="res://Sound/SFX/Jump_landing.wav" id="11_ddhxa"]
@@ -14,6 +15,38 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kng6u"]
 radius = 5.0
 height = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plevq"]
+atlas = ExtResource("7_plevq")
+region = Rect2(0, 0, 12, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdxbo"]
+atlas = ExtResource("7_plevq")
+region = Rect2(12, 0, 12, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p06rw"]
+atlas = ExtResource("7_plevq")
+region = Rect2(24, 0, 12, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rtkie"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plevq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdxbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p06rw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plevq"]
+size = Vector2(10, 6)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
@@ -32,11 +65,26 @@ smoke = ExtResource("6_8gg06")
 position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_kng6u")
 
+[node name="Wind" type="AnimatedSprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.5568628)
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_rtkie")
+autoplay = "default"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -8)
 sprite_frames = ExtResource("3_gdgf0")
 animation = &"Run"
-frame_progress = 0.35815227
+
+[node name="StompArea" type="Area2D" parent="."]
+position = Vector2(0, -8)
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompArea"]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_plevq")
 
 [node name="BulletAnchor" type="Node2D" parent="."]
 position = Vector2(9.230769, -7.4615383)
@@ -74,5 +122,7 @@ one_shot = true
 [node name="BlinkTimer" type="Timer" parent="."]
 wait_time = 0.1
 
+[connection signal="area_entered" from="StompArea" to="." method="_on_stomp_area_area_entered"]
+[connection signal="body_entered" from="StompArea" to="." method="_on_stomp_area_body_entered"]
 [connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]
 [connection signal="timeout" from="BlinkTimer" to="." method="_on_blink_timer_timeout"]

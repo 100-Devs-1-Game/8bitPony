@@ -20,7 +20,7 @@ enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 @export var magic_bullet: PackedScene
 @export var speed: float = 60
 @export var flying_strength: float = 8
-@export var max_vertical_velocity: float = 200
+@export var max_vertical_velocity: float = 300
 @export var jump_velocity: float = -200
 @export var gravity: float = 10
 @export var hurt_color: Color = Color.RED
@@ -37,6 +37,7 @@ var shoot_time = 0.6
 signal health_changed
 
 var flying: bool = false
+var is_stomping:bool = false
 
 var enabled: bool:
 	set(value):
@@ -70,8 +71,15 @@ func _default_movement(_delta: float): #player moment from the character2d scrip
 	if not is_on_floor():
 		if flying and velocity.y>0:
 			velocity.y += gravity/20
+		elif is_stomping:
+			velocity.y = max_vertical_velocity
 		else:
 			velocity.y += gravity
+	else:
+		flying = false
+		is_stomping = false
+		$Wind.hide()
+	
 	velocity.y = clampf(velocity.y, -max_vertical_velocity, max_vertical_velocity)
 	
 
@@ -104,7 +112,13 @@ func _unhandled_input(event: InputEvent) -> void:
 					shoot_sound.play()
 					attack_timer.start()
 				PonyType.Earth:
-					attack_timer.start()
+					#Do "stmop" attack
+					if not is_on_floor():
+						remove_state(PonyStateMachine.Action)
+						$Wind.show()
+						is_stomping = true
+					else:
+						attack_timer.start()
 		elif event.is_action_released("Action"):
 			match pony_type:
 				PonyType.Pegasus:
@@ -271,3 +285,22 @@ func _on_blink_timer_timeout() -> void:
 		blink_timer.stop()
 	else:
 		visible = not visible
+
+
+func _on_stomp_area_body_entered(body: Node2D) -> void:
+	#Break breakable walls
+	if is_stomping and velocity.y==max_vertical_velocity:
+		is_stomping = false
+		body.break_wall()
+
+func _on_stomp_area_area_entered(area: Area2D) -> void:
+	#Jump on mushrooms
+	
+	if is_stomping and velocity.y==max_vertical_velocity:
+		print("here")
+		is_stomping = false
+		velocity.y=-300
+		area.bounce()
+		$Wind.hide()
+	
+	
