@@ -11,6 +11,7 @@ size = Vector2(16, 16)
 size = Vector2(18, 16)
 
 [node name="BreakableWall" type="StaticBody2D"]
+collision_layer = 65
 script = ExtResource("1_o03xt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

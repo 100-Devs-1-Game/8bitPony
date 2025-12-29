@@ -9,12 +9,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if has_player:
 		if Global.player.get_pony_type_as_string()=="Earth" and Global.player.has_state_action():
-			$AudioStreamPlayer.play()
-			$Sprite2D.hide()
-			$CollisionShape2D.set_deferred("disabled", true)
-			
-			$Sprite2D.frame = 1
-			$PlayerDetector/CollisionShape2D.set_deferred("disabled", true)
+			break_wall()
 
 
 func _on_player_detector_body_entered(_player: Node2D) -> void:
@@ -22,3 +17,11 @@ func _on_player_detector_body_entered(_player: Node2D) -> void:
 
 func _on_player_detector_body_exited(_body: Node2D) -> void:
 	has_player = false
+
+func break_wall():
+	$AudioStreamPlayer.play()
+	$Sprite2D.hide()
+	$CollisionShape2D.set_deferred("disabled", true)
+	
+	$Sprite2D.frame = 1
+	$PlayerDetector/CollisionShape2D.set_deferred("disabled", true)
