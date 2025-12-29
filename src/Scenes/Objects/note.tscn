@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c04qprja1v1dv"]
+
+[ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="1_yjfqu"]
+[ext_resource type="Script" uid="uid://brbo76hlnpvyd" path="res://Scenes/Rooms/note.gd" id="2_s26px"]
+
+[node name="Note" type="RichTextLabel"]
+offset_left = 70.0
+offset_top = 159.0
+offset_right = 245.0
+offset_bottom = 199.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+theme = ExtResource("1_yjfqu")
+bbcode_enabled = true
+text = "As Pegasus(purple), press LMB to shoot a bullet to kill enemies."
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_s26px")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
