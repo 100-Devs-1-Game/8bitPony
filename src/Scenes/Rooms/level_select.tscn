@@ -118,7 +118,7 @@ position = Vector2(196, 18)
 shape = SubResource("RectangleShape2D_8abrt")
 
 [node name="player_start" type="Node2D" parent="."]
-position = Vector2(28, 62)
+position = Vector2(28, 72)
 
 [node name="TextLabels" type="Node2D" parent="."]
 visible = false
@@ -215,7 +215,7 @@ visible = false
 text = "Test"
 
 [node name="IntroDoor" parent="TestDoors" instance=ExtResource("3_88led")]
-position = Vector2(25, 11)
+position = Vector2(25, 93)
 is_locked = false
 target_scene = "uid://byxxr253kiei0"
 
