@@ -4,7 +4,7 @@ extends Node2D
 func _ready():	
 	
 	if Global.gem_collected[Global.Gems.none]:
-		$Player.global_position = $TestDoors/IntroDoor.global_position
+		$Player.global_position = $player_start.global_position
 	
 	#set door locked/unlocked
 	#Show/hide shard cound
