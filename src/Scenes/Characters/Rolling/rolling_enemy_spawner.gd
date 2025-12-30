@@ -3,7 +3,7 @@ extends Node2D
 const ROLLING_ENEMY = preload("uid://domwhgmohvhfa")
 @export var time_bewteen_spawns:float = 5
 @export_enum("left", "right") var roll_direction = "left"
-@export_enum("boulder", "cookie") var sprite_type = "boulder"
+@export_enum("log", "boulder", "cookie") var sprite_type = "log"
 
 @onready var current_timer = time_bewteen_spawns
 

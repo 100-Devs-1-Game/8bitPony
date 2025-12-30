@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 #Set by boulder spawner
 var roll_direction = "left"
-var sprite_type = "boulder"
+var sprite_type = "log"
 
 var gravity: float = 50
 var direction = -1
@@ -15,9 +15,11 @@ func _ready():
 	if roll_direction=="right":
 		direction = 1
 		$detect__wall.rotation_degrees = 180
-		
-	if sprite_type=="cookie":
+	
+	if sprite_type=="boulder":
 		sprite.frame = 1
+	elif sprite_type=="cookie":
+		sprite.frame = 2
 
 
 func _physics_process(delta: float) -> void:
@@ -51,4 +53,7 @@ func _on_hurt_area_body_entered(body: Node2D) -> void:
 
 
 func _on_detect__wall_body_entered(_body: Node2D) -> void:
+	queue_free()
+
+func take_damage():
 	queue_free()

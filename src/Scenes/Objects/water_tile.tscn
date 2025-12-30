@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdiieke4ogdvu"]
+
+[ext_resource type="Texture2D" uid="uid://5xn60l2xw4ph" path="res://Images/Level/2-Apple/water.png" id="1_i7l6g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa3r1"]
+atlas = ExtResource("1_i7l6g")
+region = Rect2(0, 0, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0m71"]
+atlas = ExtResource("1_i7l6g")
+region = Rect2(16, 0, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3poo"]
+atlas = ExtResource("1_i7l6g")
+region = Rect2(32, 0, 16, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h3und"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa3r1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0m71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3poo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WaterTile" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_h3und")
+autoplay = "default"

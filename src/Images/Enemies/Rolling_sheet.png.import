@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qffbtwtynlwr"
-path="res://.godot/imported/Rolling_sheetr.png-daa1f374bf8017955a846a919ffe25b1.ctex"
+uid="uid://cgjbhh4aspmpt"
+path="res://.godot/imported/Rolling_sheet.png-e1e4918e45fb8d152b1933b366b15954.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Enemies/Rolling_sheetr.png"
-dest_files=["res://.godot/imported/Rolling_sheetr.png-daa1f374bf8017955a846a919ffe25b1.ctex"]
+source_file="res://Images/Enemies/Rolling_sheet.png"
+dest_files=["res://.godot/imported/Rolling_sheet.png-e1e4918e45fb8d152b1933b366b15954.ctex"]
 
 [params]
 

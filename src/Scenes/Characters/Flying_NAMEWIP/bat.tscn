@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvkl266xaxm4h"]
+
+[ext_resource type="Script" uid="uid://bdgt4m5dp56jg" path="res://Scenes/Characters/Flying_NAMEWIP/flying_enemy.gd" id="1_ymc1m"]
+[ext_resource type="Texture2D" uid="uid://c14vl1utexd2m" path="res://Images/Assets/Enemies/Bat_1.png" id="2_2eaia"]
+[ext_resource type="Texture2D" uid="uid://7e471etd1ddw" path="res://Images/Assets/Enemies/Bat_2.png" id="3_u78ey"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jt0hm"]
+radius = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_51k15"]
+radius = 34.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q5iyv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2eaia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u78ey")
+}],
+"loop": true,
+"name": &"blue_fly",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8agco"]
+radius = 3.0
+
+[node name="flyingEnemy" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_ymc1m")
+metadata/_custom_type_script = "uid://by6lmexuqa20c"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_jt0hm")
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("CircleShape2D_51k15")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -1)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_q5iyv")
+animation = &"blue_fly"
+autoplay = "blue_fly"
+frame_progress = 0.67703086
+offset = Vector2(-4, -1)
+
+[node name="start_position" type="Node2D" parent="."]
+top_level = true
+
+[node name="hurt_Area" type="Area2D" parent="."]
+position = Vector2(0, 4)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_Area"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_8agco")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="hurt_Area" to="." method="_on_hurt_area_body_entered"]
