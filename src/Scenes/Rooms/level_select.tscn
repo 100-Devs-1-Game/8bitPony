@@ -82,7 +82,7 @@ z_index = -10
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -4.0
+offset_left = 57.0
 offset_top = 18.0
 offset_right = 388.0
 offset_bottom = 99.0
@@ -102,7 +102,7 @@ stretch_mode = 1
 [node name="StaticBody2D" type="StaticBody2D" parent="Background"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D"]
-position = Vector2(-7, 44.5)
+position = Vector2(54, 47)
 shape = SubResource("RectangleShape2D_88led")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/StaticBody2D"]
@@ -118,7 +118,7 @@ position = Vector2(196, 18)
 shape = SubResource("RectangleShape2D_8abrt")
 
 [node name="player_start" type="Node2D" parent="."]
-position = Vector2(28, 72)
+position = Vector2(70, 71)
 
 [node name="TextLabels" type="Node2D" parent="."]
 visible = false
@@ -204,7 +204,7 @@ text = "End?"
 position = Vector2(14, 61)
 
 [node name="TestLevel" parent="TestDoors" instance=ExtResource("3_88led")]
-position = Vector2(-6, 11)
+position = Vector2(-9, 95)
 is_locked = false
 target_scene = "uid://cu2kiv5h2qper"
 
@@ -247,6 +247,7 @@ text = "Forest"
 
 [node name="apple" parent="Doors" instance=ExtResource("3_88led")]
 position = Vector2(412, 560)
+is_locked = false
 target_scene = "uid://ufb6hjfu0sh6"
 gem_to_collect = 1
 metadata/_edit_group_ = true
@@ -266,6 +267,7 @@ frame = 1
 
 [node name="cave" parent="Doors" instance=ExtResource("3_88led")]
 position = Vector2(459, 560)
+is_locked = false
 target_scene = "uid://4lw3bcqthym2"
 gem_to_collect = 2
 metadata/_edit_group_ = true
@@ -288,6 +290,7 @@ frame = 2
 
 [node name="library" parent="Doors" instance=ExtResource("3_88led")]
 position = Vector2(500, 560)
+is_locked = false
 target_scene = "uid://bxifeg3yxvcqt"
 gem_to_collect = 3
 metadata/_edit_group_ = true
@@ -308,6 +311,7 @@ frame = 3
 
 [node name="sugar" parent="Doors" instance=ExtResource("3_88led")]
 position = Vector2(541, 560)
+is_locked = false
 target_scene = "uid://bf0x5aglsgasw"
 gem_to_collect = 4
 metadata/_edit_group_ = true
@@ -327,6 +331,7 @@ frame = 4
 
 [node name="cloud" parent="Doors" instance=ExtResource("3_88led")]
 position = Vector2(586, 560)
+is_locked = false
 target_scene = "uid://in11fhrwqigv"
 gem_to_collect = 5
 metadata/_edit_group_ = true
@@ -349,7 +354,7 @@ target_scene = "uid://dfdl36lga462m"
 metadata/_edit_group_ = true
 
 [node name="NameLabel" parent="Doors/end" index="3"]
-text = "Boss?"
+text = "Boss"
 
 [node name="Columns" type="Node2D" parent="."]
 position = Vector2(-277, -488)

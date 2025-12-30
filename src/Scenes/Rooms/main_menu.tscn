@@ -14,7 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ljxe7")
-level_select_scene = "uid://bk0h6axpmena0"
+level_select_scene = "uid://cld5hp2hoekbc"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

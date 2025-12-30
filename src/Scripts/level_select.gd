@@ -11,26 +11,29 @@ func _ready():
 	for door in $Doors.get_children():
 		#Initialize shard cound visible and door locked/unlocked
 		if Global.collected_shards[door.gem_to_collect].size()>0:
-			#Move player to the mose recently opened door
+			#Move player to the most recently opened door
 			$Player.global_position = door.global_position
-			door.set_locked(false)
+			#door.set_locked(false)
+			
 			if Global.gem_collected[door.gem_to_collect]:
 				door.hide_shard_count()
 				door.show_gem()
 			else:
 				door.show_shard_count(Global.collected_shards[door.gem_to_collect].count(true), Global.collected_shards[door.gem_to_collect].size())
 		else:
-			#If the previous doors gem has been collected, but no shards
-			if door.gem_to_collect==Global.Gems.laughter or Global.gem_collected[door.gem_to_collect-1]:
-				door.set_locked(false)
-			else:
-				door.set_locked(true)
-	
-	
-	#unlock all doors for debug
-	for door in $Doors.get_children():
-		door.set_locked(false)
+			#Unlocks the boss door when all other gems are collected
+			if door.gem_to_collect == Global.Gems.none:
+				if (Global.gem_collected[Global.Gems.laughter] and 
+					Global.gem_collected[Global.Gems.loyalty] and
+					Global.gem_collected[Global.Gems.honesty] and 
+					Global.gem_collected[Global.Gems.generous] and
+					Global.gem_collected[Global.Gems.kindness] and
+					Global.gem_collected[Global.Gems.magic]):
+					
+					door.set_locked(false)
 
+	
+	
 	
 	#Set gems visible in "gem holde"
 	if Global.gem_collected[Global.Gems.laughter]: $CanvasLayer/Element_Harmony/green.show()
