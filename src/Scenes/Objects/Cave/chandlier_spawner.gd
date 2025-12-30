@@ -15,7 +15,6 @@ func _on_body_entered(_body: Node2D) -> void:
 
 func _on_drop_timer_timeout() -> void:
 	if allow_falling:
-		print(name)
 		current_stag.fall()
 		$spawn_timer.start()
 	$CollisionShape2D.set_deferred("disabled", true)

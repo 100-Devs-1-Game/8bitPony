@@ -297,7 +297,6 @@ func _on_stomp_area_area_entered(area: Area2D) -> void:
 	#Jump on mushrooms
 	
 	if is_stomping and velocity.y==max_vertical_velocity:
-		print("here")
 		is_stomping = false
 		velocity.y=-300
 		area.bounce()

@@ -128,9 +128,7 @@ func _on_stomp_area_body_exited(body: Node2D) -> void:
 	
 
 func _on_attack_timer_timeout() -> void:
-	print("Attack")
 	if in_stomp_area and (parts[Body.leg_l].visible or parts[Body.leg_r].visible):
-		print("Stomp")
 		direction.x = Global.player.global_position.x - global_position.x
 		direction.y = 0
 		anim.play("stomp")

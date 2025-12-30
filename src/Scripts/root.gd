@@ -14,7 +14,6 @@ func _ready() -> void:
 
 
 func load_scene(next_scene: String):
-	print(next_scene)
 	var new_scene = load(next_scene)
 	if next_scene:
 		var loaded_scene: Node = new_scene.instantiate()
