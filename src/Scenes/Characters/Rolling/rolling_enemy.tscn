@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cgjbhh4aspmpt" path="res://Images/Enemies/Rolling_sheet.png" id="2_q7sg6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q7sg6"]
-radius = 8.0
+radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4htgv"]
 radius = 8.0

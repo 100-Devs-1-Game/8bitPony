@@ -9,6 +9,8 @@ extends CharacterBody2D
 @onready var head: Area2D = $Head
 @onready var parts = [head, torso, tail, leg_l, leg_r, arm_l, arm_r]
 @onready var anim: AnimationPlayer = $AnimationPlayer
+@onready var head_anim: AnimationPlayer = $HeadAnim
+
 
 enum Body{head, torso, tail, leg_l, leg_r, arm_l, arm_r}
 var part_life = [5, 5, 5, 5, 5, 5, 5]
@@ -84,7 +86,7 @@ func set_part_disabled(value, part):
 	if value:
 		parts[part].hide()
 		parts[part].get_node("CollisionShape2D").set_deferred("disabled", true)
-		anim.play("spawn_enemies")
+		head_anim.play("spawn_enemies")
 		
 
 		if parts[part].has_node("hurt_player_area"):
@@ -135,6 +137,6 @@ func _on_attack_timer_timeout() -> void:
 	elif parts[Body.arm_l].visible or parts[Body.arm_r].visible:
 		anim.play("shoot_hand")
 	else:
-		anim.play("spawn_enemies")
+		head_anim.play("spawn_enemies")
 	
 	

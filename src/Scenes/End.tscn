@@ -22,15 +22,29 @@ offset_bottom = 61.0
 scale = Vector2(5, 5)
 theme = ExtResource("1_pw64i")
 bbcode_enabled = true
-text = "[wave freq=3]You Win!"
+text = "[rainbow freq=0.1]You Win!"
 
 [node name="ThankYou" type="RichTextLabel" parent="."]
 clip_contents = false
 layout_mode = 0
 offset_left = 32.0
-offset_top = 127.0
+offset_top = 90.0
 offset_right = 206.5
-offset_bottom = 144.5
+offset_bottom = 128.33334
+scale = Vector2(1.8, 1.8)
+theme = ExtResource("1_pw64i")
+bbcode_enabled = true
+text = "You have defeated [wave freq=2][color=red]DISCORD[/color][/wave] and brought [wave freq=2][color=blue]harmony[/color][/wave] to the land!"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="ThankYou2" type="RichTextLabel" parent="."]
+clip_contents = false
+layout_mode = 0
+offset_left = 32.0
+offset_top = 174.0
+offset_right = 206.5
+offset_bottom = 191.5
 scale = Vector2(1.8, 1.8)
 theme = ExtResource("1_pw64i")
 bbcode_enabled = true

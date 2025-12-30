@@ -682,6 +682,12 @@ libraries = {
 }
 autoplay = "idle"
 
+[node name="HeadAnim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8eyxj")
+}
+autoplay = "idle"
+
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true

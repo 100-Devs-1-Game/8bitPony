@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://dykxecn6lk5yr"]
+
+[ext_resource type="Script" uid="uid://bu7y47aniynw0" path="res://Scenes/Characters/Wolf/wolf.gd" id="1_0njrn"]
+[ext_resource type="Texture2D" uid="uid://thg1wt181vjp" path="res://Images/Level/5-Sugar/Sugar_assets.webp" id="2_c3f4m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wutio"]
+size = Vector2(10, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0njrn"]
+atlas = ExtResource("2_c3f4m")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gqpvw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0njrn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pv5sc"]
+size = Vector2(16, 7)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pv5sc"]
+radius = 1.0
+
+[node name="SugarLizard" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_0njrn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_wutio")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_gqpvw")
+autoplay = "default"
+frame_progress = 0.676075
+offset = Vector2(0, -7)
+
+[node name="RayCast_Right" type="RayCast2D" parent="."]
+position = Vector2(0, -3)
+target_position = Vector2(11, 0)
+
+[node name="RayCast_Left" type="RayCast2D" parent="."]
+position = Vector2(0, -3)
+target_position = Vector2(-11, 0)
+
+[node name="hurt_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_area"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_pv5sc")
+
+[node name="detect_floor" type="Area2D" parent="."]
+position = Vector2(-9, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect_floor"]
+shape = SubResource("CircleShape2D_pv5sc")
+
+[node name="detect_floor2" type="Area2D" parent="."]
+position = Vector2(17, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect_floor2"]
+position = Vector2(-8, 0)
+shape = SubResource("CircleShape2D_pv5sc")
+
+[connection signal="body_entered" from="hurt_area" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="detect_floor" to="." method="_on_detect_floor_body_exited"]
+[connection signal="body_exited" from="detect_floor2" to="." method="_on_detect_floor_body_exited"]

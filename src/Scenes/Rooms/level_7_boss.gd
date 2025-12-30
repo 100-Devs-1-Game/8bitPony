@@ -2,9 +2,21 @@ extends "res://Scripts/level.gd"
 
 
 const DIAMOND_DOG = preload("uid://rbryiolfbe15")
-const FLYING_ENEMY = preload("uid://c7mnvl4ns7f5u")
-const ROLLING_ENEMY_SPAWNER = preload("uid://cbkcqlff2hu2y")
 const WOLF = preload("uid://c4xpqd83w51cq")
+const LIZARD = preload("uid://qp8eqjo46ts5")
+const SUGAR_LIZARD = preload("uid://dykxecn6lk5yr")
+const WIZARD = preload("uid://xdo38ijici1p")
+
+
+
+const FLYING_ENEMY = preload("uid://c7mnvl4ns7f5u")
+const OWL = preload("uid://cgip5o63lpxrk")
+const BAT = preload("uid://dvkl266xaxm4h")
+
+
+
+var ground_enemy = [DIAMOND_DOG, WIZARD, WOLF, LIZARD, SUGAR_LIZARD]
+var flying_enemy = [FLYING_ENEMY, OWL, BAT]
 
 @onready var spawns = $EnemySpawns.get_children()
 	
@@ -23,18 +35,13 @@ func spawn_enemies():
 		var sp = spawns.pop_back()
 		
 		if sp.is_in_group("AirSpawn"):
-			var enemy = FLYING_ENEMY.instantiate()
+			var enemy = flying_enemy[randi_range(0,2)].instantiate()
 			enemy.global_position = sp.global_position
 			get_tree().current_scene.add_child(enemy)
 		
 		if sp.is_in_group("GroundSpawn"):
-			var rand_enemy = randi_range(1, 2)
-			if rand_enemy==1:
-				var enemy = DIAMOND_DOG.instantiate()
-				enemy.global_position = sp.global_position
-				get_tree().current_scene.add_child(enemy)
-			elif rand_enemy==2:
-				var enemy = WOLF.instantiate()
-				enemy.global_position = sp.global_position
-				get_tree().current_scene.add_child(enemy)
+			var enemy =ground_enemy[randi_range(0,4)].instantiate()
+			enemy.global_position = sp.global_position
+			get_tree().current_scene.add_child(enemy)
+
 			
