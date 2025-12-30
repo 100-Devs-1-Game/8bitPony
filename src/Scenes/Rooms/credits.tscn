@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://w8dcep84ktae"]
+
+[ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="1_43m0o"]
+[ext_resource type="Script" uid="uid://b4cv7mcvntutd" path="res://Scenes/Rooms/Credits.gd" id="2_4flb0"]
+
+[node name="Credits" type="ColorRect"]
+offset_left = -54.0
+offset_top = -41.0
+offset_right = 336.0
+offset_bottom = 195.0
+theme = ExtResource("1_43m0o")
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_4flb0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 48.0
+offset_right = 277.0
+offset_bottom = 183.0
+theme_override_constants/paragraph_separation = 1
+text = "Credits:
+Lead Game Designer: 
+-Thomas Sayle
+
+2D Artist: 
+-Thomas Sayle
+
+Composer: 
+-Sadie Stone
+
+Programmer:
+-CheddaNinja
+-GalesyFailsy
+-Maniform"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 201.0
+offset_right = 369.0
+offset_bottom = 217.0
+theme_override_constants/h_separation = 4
+text = "Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

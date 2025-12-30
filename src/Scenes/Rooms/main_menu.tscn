@@ -59,4 +59,14 @@ theme = ExtResource("4_bum5j")
 theme_override_font_sizes/font_size = 8
 text = "Start Game"
 
+[node name="CreditsBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 158.0
+offset_right = 310.0
+offset_bottom = 174.0
+theme = ExtResource("4_bum5j")
+text = "Credits"
+
 [connection signal="pressed" from="ColorRect/Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CreditsBtn" to="." method="_on_credits_btn_pressed"]

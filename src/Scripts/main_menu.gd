@@ -12,3 +12,7 @@ func _on_start_button_pressed():
 func _on_test_level_pressed() -> void:
 	#Global.root.load_scene(testLevel)
 	get_tree().change_scene_to_file(testLevel)
+
+
+func _on_credits_btn_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Rooms/credits.tscn")
