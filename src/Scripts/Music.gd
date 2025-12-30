@@ -3,6 +3,8 @@ extends Node
 
 @onready var music_player: AudioStreamPlayer = $LevelMusic
 
+const LEVEL_2_APPLE = preload("uid://hwvi5b26em8r")
+
 const LEVEL_6_CLOUD = preload("uid://nh76qkjg5xlc")
 const LEVEL_3_CAVE = preload("uid://b3b3pml3cgxns")
 const LEVEL_7_BOSS = preload("uid://by3c1cppv38ih")
@@ -12,7 +14,7 @@ const LEVEL_5_SUGAR = preload("uid://spy86lhoemrr")
 const LEVEL_1_TIMBER = preload("uid://73dytvwxgpnt")
 
 
-var level_music = [MENU_CREDITS, LEVEL_1_TIMBER, LEVEL_1_TIMBER, LEVEL_3_CAVE, LEVEL_4_LIBRARY, LEVEL_5_SUGAR, LEVEL_6_CLOUD, LEVEL_7_BOSS]
+var level_music = [MENU_CREDITS, LEVEL_1_TIMBER, LEVEL_2_APPLE, LEVEL_3_CAVE, LEVEL_4_LIBRARY, LEVEL_5_SUGAR, LEVEL_6_CLOUD, LEVEL_7_BOSS]
 
 func _ready() -> void:
 	music_player.stream = level_music[0]
