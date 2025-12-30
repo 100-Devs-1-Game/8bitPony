@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://i50u85l4a7lh"]
+
+[ext_resource type="Script" uid="uid://iq27vmq781yb" path="res://Scenes/Objects/Cave/chandlier_spawner.gd" id="1_mbej7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfpvq"]
+size = Vector2(8, 62)
+
+[node name="ChandlierSpawner" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_mbej7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 31)
+shape = SubResource("RectangleShape2D_qfpvq")
+
+[node name="spawn_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="drop_timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="drop_timer" to="." method="_on_drop_timer_timeout"]
