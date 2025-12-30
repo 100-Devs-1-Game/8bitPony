@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://spy86lhoemrr"
+path="res://.godot/imported/Sugar rush 2.mp3-0fa06020497bc87abb6b3a51c34a6932.mp3str"
+
+[deps]
+
+source_file="res://Sound/Music/Sugar rush 2.mp3"
+dest_files=["res://.godot/imported/Sugar rush 2.mp3-0fa06020497bc87abb6b3a51c34a6932.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

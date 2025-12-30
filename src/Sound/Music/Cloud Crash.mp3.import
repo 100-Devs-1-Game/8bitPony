@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://nh76qkjg5xlc"
+path="res://.godot/imported/Cloud Crash.mp3-3dd5369c8f87e55970afc2f5bd9482eb.mp3str"
+
+[deps]
+
+source_file="res://Sound/Music/Cloud Crash.mp3"
+dest_files=["res://.godot/imported/Cloud Crash.mp3-3dd5369c8f87e55970afc2f5bd9482eb.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

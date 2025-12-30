@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://73dytvwxgpnt"
+path="res://.godot/imported/Timber Troubles.mp3-1b03bfeb04da345204d37ede53ebbb45.mp3str"
+
+[deps]
+
+source_file="res://Sound/Music/Timber Troubles.mp3"
+dest_files=["res://.godot/imported/Timber Troubles.mp3-1b03bfeb04da345204d37ede53ebbb45.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

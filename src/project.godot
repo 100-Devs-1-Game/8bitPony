@@ -22,7 +22,7 @@ buses/default_bus_layout="uid://b1p0b1wh413cy"
 [autoload]
 
 Global="*res://Scripts/Global.gd"
-Music="*res://Scripts/Music.gd"
+Music="*res://Sound/Music/music.tscn"
 
 [display]
 

@@ -27,6 +27,7 @@ func _ready() -> void:
 	super()
 	$Boss.spawn_enemies.connect(spawn_enemies)
 	spawns.shuffle()
+	Music.play_music(7)
 
 
 func spawn_enemies():

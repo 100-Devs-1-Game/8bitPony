@@ -20,7 +20,9 @@ func _ready():
 	
 	$Player.health_changed.connect(health_changed)
 	$Player.safe_ready()
+	
 
+	Music.play_music(level_shard_type+1)
 
 func setup_shards():
 	#Create shard array for level if it doesn't exist in Globals

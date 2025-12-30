@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://816fkgr1blu3"]
+[gd_scene load_steps=4 format=3 uid="uid://816fkgr1blu3"]
 
 [ext_resource type="Script" uid="uid://k3qgf0bik0xw" path="res://Scripts/main_menu.gd" id="1_ljxe7"]
-[ext_resource type="AudioStream" uid="uid://btfsahlpary8x" path="res://Sound/Music/Raw/Cloud Crash.wav" id="3_4yjuk"]
 [ext_resource type="FontFile" uid="uid://c3r2ugmucgyjt" path="res://assets/font-8.tres" id="3_65ujr"]
-[ext_resource type="Script" uid="uid://by8a62muhhw35" path="res://Scripts/music_player.gd" id="3_dkmyi"]
 [ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="4_bum5j"]
 
 [node name="Main Menu" type="Control"]
@@ -61,28 +59,4 @@ theme = ExtResource("4_bum5j")
 theme_override_font_sizes/font_size = 8
 text = "Start Game"
 
-[node name="testLevel" type="Button" parent="ColorRect"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -78.0
-offset_top = 24.0
-offset_right = -38.0
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_bum5j")
-theme_override_font_sizes/font_size = 8
-text = "test"
-
-[node name="MusicPlayer" type="Node" parent="."]
-script = ExtResource("3_dkmyi")
-music_stream = ExtResource("3_4yjuk")
-metadata/_custom_type_script = "uid://by8a62muhhw35"
-
 [connection signal="pressed" from="ColorRect/Start_Button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="ColorRect/testLevel" to="." method="_on_test_level_pressed"]

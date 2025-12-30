@@ -5,6 +5,8 @@ func _ready():
 	
 	if Global.gem_collected[Global.Gems.none]:
 		$Player.global_position = $player_start.global_position
+		
+	Music.play_music(0)
 	
 	#set door locked/unlocked
 	#Show/hide shard cound
