@@ -92,9 +92,9 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
-offset_left = -8.0
+offset_left = 57.0
 offset_top = 59.0
-offset_right = 424.0
+offset_right = 388.0
 offset_bottom = 75.0
 texture = ExtResource("3_8abrt")
 stretch_mode = 1
