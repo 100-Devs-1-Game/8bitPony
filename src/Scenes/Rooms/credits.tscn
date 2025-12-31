@@ -17,7 +17,7 @@ layout_mode = 0
 offset_left = 64.0
 offset_top = 48.0
 offset_right = 277.0
-offset_bottom = 183.0
+offset_bottom = 210.0
 theme_override_constants/paragraph_separation = 1
 text = "Credits:
 Lead Game Designer: 
@@ -32,7 +32,10 @@ Composer:
 Programmer:
 -CheddaNinja
 -GalesyFailsy
--Maniform"
+-Maniform
+
+QA:
+-duncaii"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
