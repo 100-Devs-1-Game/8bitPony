@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://c7mnvl4ns7f5u"]
+[gd_scene load_steps=20 format=3 uid="uid://c7mnvl4ns7f5u"]
 
 [ext_resource type="Script" uid="uid://bdgt4m5dp56jg" path="res://Scenes/Characters/Flying_NAMEWIP/flying_enemy.gd" id="1_5gs2p"]
 [ext_resource type="Texture2D" uid="uid://cybuouqkbf4c0" path="res://Images/Assets/Enemies/parasites_sheet.webp" id="2_51k15"]
+[ext_resource type="AudioStream" uid="uid://dv774qk1k20kh" path="res://Scenes/Characters/Flying_NAMEWIP/detect.wav" id="3_8agco"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jt0hm"]
 radius = 2.0
@@ -112,7 +113,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8agco"]
-radius = 3.0
+radius = 5.0990195
 
 [node name="flyingEnemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -150,6 +151,14 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_Area"]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_8agco")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="hurt_Area"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_8agco")
+
+[node name="detect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8agco")
+pitch_scale = 0.61
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

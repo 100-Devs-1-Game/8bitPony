@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://i50u85l4a7lh"]
+[gd_scene load_steps=4 format=3 uid="uid://i50u85l4a7lh"]
 
 [ext_resource type="Script" uid="uid://iq27vmq781yb" path="res://Scenes/Objects/Cave/chandlier_spawner.gd" id="1_mbej7"]
+[ext_resource type="AudioStream" uid="uid://ds2fjwcmicht" path="res://Scenes/Objects/Cave/crash.wav" id="2_qhqmg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfpvq"]
 size = Vector2(8, 62)
@@ -20,6 +21,11 @@ one_shot = true
 [node name="drop_timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="crash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_qhqmg")
+pitch_scale = 1.97
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]

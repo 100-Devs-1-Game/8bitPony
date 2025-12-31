@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://6wod606hl682"]
+[gd_scene load_steps=4 format=3 uid="uid://6wod606hl682"]
 
 [ext_resource type="Script" uid="uid://bnjfw6rao7r5" path="res://Scenes/Objects/Cave/stalactite_spawner.gd" id="1_u7ouo"]
+[ext_resource type="AudioStream" uid="uid://ds2fjwcmicht" path="res://Scenes/Objects/Cave/crash.wav" id="2_4t7vj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfpvq"]
 size = Vector2(8, 48)
@@ -20,6 +21,9 @@ one_shot = true
 [node name="drop_timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="crash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_4t7vj")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]

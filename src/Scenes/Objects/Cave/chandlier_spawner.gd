@@ -19,6 +19,8 @@ func _on_drop_timer_timeout() -> void:
 		$spawn_timer.start()
 	$CollisionShape2D.set_deferred("disabled", true)
 
+func crash():
+	$crash.play()
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_stalactite()

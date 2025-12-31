@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://rbryiolfbe15"]
+[gd_scene load_steps=12 format=3 uid="uid://rbryiolfbe15"]
 
 [ext_resource type="Script" uid="uid://caih3euppii34" path="res://Scenes/Characters/DiamondDog/diamond_dog.gd" id="1_2i27v"]
 [ext_resource type="Texture2D" uid="uid://cloo035388etv" path="res://Images/Assets/Enemies/Diamond_dog_Idle.png" id="2_2i27v"]
 [ext_resource type="Texture2D" uid="uid://dhswusqr5pyhd" path="res://Images/Assets/Enemies/Diamond_dog_Walk_1.png" id="3_n0qra"]
 [ext_resource type="Texture2D" uid="uid://608t5m0t8v0d" path="res://Images/Assets/Enemies/Diamond_dog_Walk_2.png" id="4_qt5mx"]
+[ext_resource type="AudioStream" uid="uid://djtd6xi7wc6bj" path="res://Scenes/Characters/DiamondDog/laserShoot.wav" id="5_n0qra"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jt0hm"]
 radius = 2.0
@@ -30,9 +31,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n0qra"]
-radius = 4.462593
-height = 14.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0qra"]
+size = Vector2(9, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qt5mx"]
 radius = 1.0
@@ -63,8 +63,8 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_Area"]
-position = Vector2(-0.46259308, -6.9644156)
-shape = SubResource("CapsuleShape2D_n0qra")
+position = Vector2(-0.5, -8)
+shape = SubResource("RectangleShape2D_n0qra")
 
 [node name="detect_floor" type="Area2D" parent="."]
 position = Vector2(-6, 0)
@@ -100,6 +100,9 @@ shape = SubResource("RectangleShape2D_2i27v")
 
 [node name="bulletSpawn" type="Node2D" parent="detectPlayer"]
 position = Vector2(-10, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_n0qra")
 
 [connection signal="body_entered" from="hurt_Area" to="." method="_on_hurt_area_body_entered"]
 [connection signal="body_exited" from="detect_floor" to="." method="_on_detect_floor_body_exited"]

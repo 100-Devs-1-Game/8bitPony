@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvkl266xaxm4h"]
+[gd_scene load_steps=9 format=3 uid="uid://dvkl266xaxm4h"]
 
 [ext_resource type="Script" uid="uid://bdgt4m5dp56jg" path="res://Scenes/Characters/Flying_NAMEWIP/flying_enemy.gd" id="1_ymc1m"]
 [ext_resource type="Texture2D" uid="uid://c14vl1utexd2m" path="res://Images/Assets/Enemies/Bat_1.png" id="2_2eaia"]
 [ext_resource type="Texture2D" uid="uid://7e471etd1ddw" path="res://Images/Assets/Enemies/Bat_2.png" id="3_u78ey"]
+[ext_resource type="AudioStream" uid="uid://dv774qk1k20kh" path="res://Scenes/Characters/Flying_NAMEWIP/detect.wav" id="4_u78ey"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jt0hm"]
-radius = 2.0
+radius = 6.0827627
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_51k15"]
 radius = 34.0
@@ -63,6 +64,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_Area"]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_8agco")
+
+[node name="detect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_u78ey")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

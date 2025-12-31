@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgip5o63lpxrk"]
+[gd_scene load_steps=10 format=3 uid="uid://cgip5o63lpxrk"]
 
 [ext_resource type="Script" uid="uid://bdgt4m5dp56jg" path="res://Scenes/Characters/Flying_NAMEWIP/flying_enemy.gd" id="1_e82wq"]
 [ext_resource type="Texture2D" uid="uid://ds6c6pokn7qk3" path="res://Images/Level/4-Library/Owlicious_1.png" id="2_dvb7q"]
+[ext_resource type="AudioStream" uid="uid://dv774qk1k20kh" path="res://Scenes/Characters/Flying_NAMEWIP/detect.wav" id="3_e82wq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jt0hm"]
-radius = 2.0
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_51k15"]
 radius = 34.0
@@ -71,6 +72,10 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_Area"]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_8agco")
+
+[node name="detect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_e82wq")
+pitch_scale = 0.3
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

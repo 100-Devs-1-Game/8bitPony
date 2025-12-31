@@ -98,7 +98,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			add_state(PonyStateMachine.Action)
 			match pony_type:
 				PonyType.Pegasus:
-					flying = true
+					if not is_on_floor(): 
+						flying = true
+					else:
+						remove_state(PonyStateMachine.Action)
 				PonyType.Unicorn:
 					if shoot_timer >0:return
 					

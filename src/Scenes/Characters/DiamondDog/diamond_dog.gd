@@ -11,6 +11,7 @@ var player_in_area = false
 @onready var detect_player: Area2D = $detectPlayer
 @onready var bullet_spawn: Node2D = $detectPlayer/bulletSpawn
 @onready var sprite2D: AnimatedSprite2D = $AnimatedSprite2D
+@onready var shootSound: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 
@@ -29,6 +30,7 @@ func _physics_process(_delta: float) -> void:
 		new_bullet.global_position = bullet_spawn.global_position
 		new_bullet.velocity = old_direction
 		get_tree().current_scene.add_child(new_bullet)
+		shootSound.play()
 
 	move_and_slide()
 	

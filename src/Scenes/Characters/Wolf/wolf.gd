@@ -9,8 +9,18 @@ extends Enemy
 
 var direction: int = -1
 
+var sound_timer = 1
+var sound_time = 0
+
 
 func _physics_process(_delta: float) -> void:
+	#sound_timer-= _delta
+	#if sound_timer<=0:
+		#print("here")
+		#$AudioStreamPlayer2D.pitch_scale = randf_range(0.8, 1.2)
+		#$AudioStreamPlayer2D.play()
+		#sound_timer = sound_time
+	
 	if ray_cast_right.is_colliding() or ray_cast_left.is_colliding():
 		flip_direction()
 		

@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://xdo38ijici1p"]
+[gd_scene load_steps=13 format=3 uid="uid://xdo38ijici1p"]
 
 [ext_resource type="Script" uid="uid://caih3euppii34" path="res://Scenes/Characters/DiamondDog/diamond_dog.gd" id="1_s3xip"]
 [ext_resource type="Texture2D" uid="uid://b5gbrl3n7jau5" path="res://Images/Level/4-Library/Wizard-sheet.png" id="2_osrhy"]
+[ext_resource type="AudioStream" uid="uid://djtd6xi7wc6bj" path="res://Scenes/Characters/DiamondDog/laserShoot.wav" id="3_cna48"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jt0hm"]
-radius = 2.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cna48"]
+size = Vector2(10, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cna48"]
 atlas = ExtResource("2_osrhy")
@@ -59,8 +60,8 @@ script = ExtResource("1_s3xip")
 metadata/_custom_type_script = "uid://by6lmexuqa20c"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_jt0hm")
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_cna48")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
@@ -112,6 +113,9 @@ shape = SubResource("RectangleShape2D_2i27v")
 
 [node name="bulletSpawn" type="Node2D" parent="detectPlayer"]
 position = Vector2(-10, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cna48")
 
 [connection signal="body_entered" from="hurt_Area" to="." method="_on_hurt_area_body_entered"]
 [connection signal="body_exited" from="detect_floor" to="." method="_on_detect_floor_body_exited"]

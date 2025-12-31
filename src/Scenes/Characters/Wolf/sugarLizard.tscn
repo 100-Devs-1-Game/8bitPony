@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dykxecn6lk5yr"]
+[gd_scene load_steps=9 format=3 uid="uid://dykxecn6lk5yr"]
 
 [ext_resource type="Script" uid="uid://bu7y47aniynw0" path="res://Scenes/Characters/Wolf/wolf.gd" id="1_0njrn"]
 [ext_resource type="Texture2D" uid="uid://thg1wt181vjp" path="res://Images/Level/5-Sugar/Sugar_assets.webp" id="2_c3f4m"]
+[ext_resource type="AudioStream" uid="uid://bpfm6vylc53wv" path="res://Scenes/Characters/Wolf/click.wav" id="3_0njrn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wutio"]
 size = Vector2(10, 7)
@@ -70,6 +71,10 @@ position = Vector2(17, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detect_floor2"]
 position = Vector2(-8, 0)
 shape = SubResource("CircleShape2D_pv5sc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0njrn")
+max_distance = 68.0
 
 [connection signal="body_entered" from="hurt_area" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="detect_floor" to="." method="_on_detect_floor_body_exited"]

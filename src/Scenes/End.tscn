@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://jxfj1wdcmngy"]
+[gd_scene load_steps=3 format=3 uid="uid://jxfj1wdcmngy"]
 
+[ext_resource type="Script" uid="uid://bjs63vrc71u1v" path="res://Scenes/end.gd" id="1_67ibq"]
 [ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="1_pw64i"]
 
 [node name="ColorRect" type="ColorRect"]
@@ -11,14 +12,15 @@ offset_top = 16.04
 offset_right = 350.0
 offset_bottom = 196.0
 color = Color(0.6764574, 0.45565796, 0.73828125, 1)
+script = ExtResource("1_67ibq")
 
 [node name="WinLabel" type="RichTextLabel" parent="."]
 clip_contents = false
 layout_mode = 0
-offset_left = 31.000002
-offset_top = 39.0
-offset_right = 96.0
-offset_bottom = 61.0
+offset_left = 30.0
+offset_top = 23.000004
+offset_right = 95.0
+offset_bottom = 45.000004
 scale = Vector2(5, 5)
 theme = ExtResource("1_pw64i")
 bbcode_enabled = true
@@ -27,10 +29,10 @@ text = "[rainbow freq=0.1]You Win!"
 [node name="ThankYou" type="RichTextLabel" parent="."]
 clip_contents = false
 layout_mode = 0
-offset_left = 32.0
-offset_top = 90.0
-offset_right = 206.5
-offset_bottom = 128.33334
+offset_left = 31.0
+offset_top = 71.00001
+offset_right = 205.5
+offset_bottom = 109.33335
 scale = Vector2(1.8, 1.8)
 theme = ExtResource("1_pw64i")
 bbcode_enabled = true
@@ -42,10 +44,21 @@ horizontal_alignment = 1
 clip_contents = false
 layout_mode = 0
 offset_left = 32.0
-offset_top = 174.0
+offset_top = 129.0
 offset_right = 206.5
-offset_bottom = 191.5
+offset_bottom = 146.5
 scale = Vector2(1.8, 1.8)
 theme = ExtResource("1_pw64i")
 bbcode_enabled = true
 text = "Thank you for playing"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 167.0
+offset_right = 224.0
+offset_bottom = 183.0
+theme = ExtResource("1_pw64i")
+text = "Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
