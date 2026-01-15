@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl7jubvjaogyd"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6448r"]
+size = Vector2(20, 20)
+
+[node name="HudMobile" type="Control"]
+modulate = Color(1, 1, 1, 0.29411766)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftRight" type="Node2D" parent="."]
+position = Vector2(8, 120)
+
+[node name="Left" type="TouchScreenButton" parent="LeftRight"]
+position = Vector2(0, -1.5258789e-05)
+scale = Vector2(1.6, 1.6000003)
+texture_normal = SubResource("PlaceholderTexture2D_6448r")
+passby_press = true
+action = "Left"
+visibility_mode = 1
+
+[node name="Right" type="TouchScreenButton" parent="LeftRight"]
+position = Vector2(56, -1.5258789e-05)
+scale = Vector2(1.6, 1.6000003)
+texture_normal = SubResource("PlaceholderTexture2D_6448r")
+passby_press = true
+action = "Right"
+visibility_mode = 1
+
+[node name="Actions" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -84.0
+offset_right = -8.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Jump" type="TouchScreenButton" parent="Actions"]
+position = Vector2(48, 48)
+scale = Vector2(1.6, 1.6000003)
+texture_normal = SubResource("PlaceholderTexture2D_6448r")
+action = "Jump"
+visibility_mode = 1
+
+[node name="Action" type="TouchScreenButton" parent="Actions"]
+position = Vector2(0, 48)
+scale = Vector2(1.6, 1.6000003)
+texture_normal = SubResource("PlaceholderTexture2D_6448r")
+action = "Action"
+visibility_mode = 1
+
+[node name="Swap" type="TouchScreenButton" parent="Actions"]
+position = Vector2(48, -7.6293945e-06)
+scale = Vector2(1.6, 1.6000003)
+texture_normal = SubResource("PlaceholderTexture2D_6448r")
+action = "ChangePony"
+visibility_mode = 1
