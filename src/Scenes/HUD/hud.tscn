@@ -70,6 +70,7 @@ prefix = "Score: "
 value = 0
 
 [node name="HealthValue" parent="Gui" instance=ExtResource("3_a56j6")]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -84,17 +85,14 @@ mouse_filter = 2
 prefix = "Health: "
 value = 0
 
-[node name="Hearts" type="TextureRect" parent="."]
+[node name="Hearts" type="TextureRect" parent="Gui"]
 modulate = Color(0, 1, 0.0625, 1)
 clip_contents = true
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
+layout_mode = 1
 offset_left = 8.0
-offset_top = -31.0
+offset_top = 24.0
 offset_right = 40.0
-offset_bottom = -15.0
-grow_vertical = 0
+offset_bottom = 40.0
 texture = ExtResource("6_8wqxc")
 expand_mode = 1
 stretch_mode = 1

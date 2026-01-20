@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var score: ValueLabel = $Gui/Stats/ScoreValue
 @onready var level_shards: ValueLabel = $Gui/Stats/Shards/ShardValue
-@onready var hearts: TextureRect = $Hearts
+@onready var hearts: TextureRect = $Gui/Hearts
 @onready var shards_sprite: Sprite2D = $ShardsControl/Shards
 
 #Hear colors for UI hearts in bottom left of screen...Earth, Pegasus, Unicorn, Max
