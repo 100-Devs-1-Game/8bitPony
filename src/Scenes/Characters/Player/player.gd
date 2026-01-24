@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-enum PonyType { Earth, Pegasus, Unicorn, Max }
+const PonyType = Global.PonyType
 enum PonyStateMachine { Idle, Run, Jump, Fall, Action, Die }
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -38,6 +38,8 @@ signal health_changed
 
 var flying: bool = false
 var is_stomping:bool = false
+
+signal on_pony_type_changed(new_pony_type: PonyType)
 
 var enabled: bool:
 	set(value):
@@ -227,6 +229,7 @@ func set_pony_type(in_pony_type: PonyType):
 		set_collision_mask_value(6, true)
 	else:
 		set_collision_mask_value(6, false)
+	on_pony_type_changed.emit(pony_type)
 
 func get_pony_type_as_string():
 	return str(PonyType.keys()[pony_type])

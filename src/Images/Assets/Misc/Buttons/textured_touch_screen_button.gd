@@ -37,7 +37,5 @@ func _get_texture_rect(index: int) -> ImageTexture:
 	return null
 
 func _update():
-	var normal_image_texture: ImageTexture = _get_texture_rect(normal_texture_index)
-	var pressed_image_texture: ImageTexture = _get_texture_rect(pressed_texture_index)
-	texture_normal = normal_image_texture
-	texture_pressed = pressed_image_texture
+	texture_normal = _get_texture_rect(normal_texture_index)
+	texture_pressed = _get_texture_rect(pressed_texture_index)
