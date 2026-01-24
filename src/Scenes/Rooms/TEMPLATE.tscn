@@ -27,7 +27,7 @@ color = Color(0.3256391, 0.47792292, 0.12772188, 1)
 [node name="Parallax2D" type="Parallax2D" parent="TileMaps"]
 scroll_scale = Vector2(0.5, 1)
 repeat_size = Vector2(320, 180)
-repeat_times = 3
+repeat_times = 6
 
 [node name="BackLayer" type="TileMapLayer" parent="TileMaps/Parallax2D"]
 z_index = -1
