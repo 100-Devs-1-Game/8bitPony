@@ -7,6 +7,10 @@ Usign Unicorn, Pegasus and Earth Pony secial abilities, complete every level, co
 
 <img width="1388" height="779" alt="BossFight" src="https://github.com/user-attachments/assets/6fe890ac-ecc0-4271-baa0-2b2f2a35c089" />
 
+## Game page
+
+[Itch.io page](https://100devs.itch.io/8bit-pony)
+
 # 100 Devs - 1 Game
 ## Credits:
 ### Lead Game Designer
