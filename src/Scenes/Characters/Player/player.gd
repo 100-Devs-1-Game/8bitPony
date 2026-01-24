@@ -40,6 +40,7 @@ var flying: bool = false
 var is_stomping:bool = false
 
 signal on_pony_type_changed(new_pony_type: PonyType)
+signal on_earth_pony_on_floor(is_on_floor: bool)
 
 var enabled: bool:
 	set(value):
@@ -64,7 +65,6 @@ func _physics_process(delta):
 	if $CollisionShape2D.disabled:
 		await get_tree().physics_frame
 		$CollisionShape2D.disabled = false
-
 
 func _default_movement(_delta: float): #player moment from the character2d script
 	if has_state(PonyStateMachine.Die):
@@ -92,7 +92,6 @@ func _default_movement(_delta: float): #player moment from the character2d scrip
 		velocity.x = move_toward(velocity.x, 0, speed)
 		
 	move_and_slide()
-
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not has_state(PonyStateMachine.Die):
@@ -182,6 +181,11 @@ func _update_pony_state() -> void:
 	else:
 		remove_state(PonyStateMachine.Jump)
 		remove_state(PonyStateMachine.Fall)
+	
+	# --- Update HUD Action touch button
+	match pony_type:
+		PonyType.Earth:
+			on_earth_pony_on_floor.emit(is_on_floor())
 	
 	# --- Action ---
 	match pony_type:

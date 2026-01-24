@@ -207,6 +207,7 @@ pony_type_pressed_texture = Dictionary[int, int]({
 1: 18,
 2: 15
 })
+earth_pony_on_floor_offset = true
 texture = ExtResource("2_grhg1")
 normal_texture_index = 3
 pressed_texture_index = 8
