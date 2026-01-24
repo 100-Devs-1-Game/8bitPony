@@ -1,12 +1,16 @@
 extends Node
 
 enum Level {Forest, Apple, Cave, Library, Sugar, Cloud}
+enum PonyType { Earth, Pegasus, Unicorn, Max }
 
 var root: Root:
 	set(new_root):
 		root = new_root
 		
-var player: Player
+var player: Player:
+	set(value):
+		player = value
+		on_player_ready.emit(player)
 var current_form:int = 2 #Unicorn
 
 var scene: Node
@@ -31,6 +35,7 @@ var current_level_shard = Gems.laughter
 #individual level shards
 var collected_shards = [[],[],[],[],[],[],[],[],[],[]]
 
+signal on_player_ready(new_player: Player)
 signal shard_value_changed()
 signal score_changed(score:int)
 signal health_changed(health:float)

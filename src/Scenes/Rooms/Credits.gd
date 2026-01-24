@@ -12,3 +12,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			match event.button_index:
 				JOY_BUTTON_A, JOY_BUTTON_B, JOY_BUTTON_START:
 					main_menu_button.pressed.emit()
+
+func _on_touch_main_menu_button_pressed() -> void:
+	main_menu_button.pressed.emit()

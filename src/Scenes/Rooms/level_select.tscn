@@ -20,7 +20,6 @@ size = Vector2(403.5, 10)
 script = ExtResource("1_18ftj")
 
 [node name="HUD" parent="." instance=ExtResource("2_1o6y5")]
-visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -255,6 +254,9 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" parent="Doors/apple" index="1"]
 frame = 1
 
+[node name="Lock" parent="Doors/apple/Sprite2D" index="0"]
+visible = false
+
 [node name="NameLabel" parent="Doors/apple" index="3"]
 text = "Apple
 Farm"
@@ -274,6 +276,9 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" parent="Doors/cave" index="1"]
 frame = 2
+
+[node name="Lock" parent="Doors/cave/Sprite2D" index="0"]
+visible = false
 
 [node name="NameLabel" parent="Doors/cave" index="3"]
 offset_left = -14.0
@@ -298,6 +303,9 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" parent="Doors/library" index="1"]
 frame = 3
 
+[node name="Lock" parent="Doors/library/Sprite2D" index="0"]
+visible = false
+
 [node name="NameLabel" parent="Doors/library" index="3"]
 offset_left = -14.0
 offset_right = 42.0
@@ -319,6 +327,9 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" parent="Doors/sugar" index="1"]
 frame = 4
 
+[node name="Lock" parent="Doors/sugar/Sprite2D" index="0"]
+visible = false
+
 [node name="NameLabel" parent="Doors/sugar" index="3"]
 text = "Sugar
 Rush"
@@ -338,6 +349,9 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" parent="Doors/cloud" index="1"]
 frame = 5
+
+[node name="Lock" parent="Doors/cloud/Sprite2D" index="0"]
+visible = false
 
 [node name="NameLabel" parent="Doors/cloud" index="3"]
 text = "Cloud"

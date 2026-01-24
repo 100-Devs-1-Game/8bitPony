@@ -29,3 +29,11 @@ func _unhandled_input(event: InputEvent) -> void:
 					start_button.pressed.emit()
 				JOY_BUTTON_B, JOY_BUTTON_BACK:
 					credits_button.pressed.emit()
+
+
+func _on_touch_start_button_pressed() -> void:
+	start_button.pressed.emit()
+
+
+func _on_touch_credit_button_pressed() -> void:
+	credits_button.pressed.emit()

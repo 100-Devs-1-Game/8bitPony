@@ -1,38 +1,47 @@
-[gd_scene load_steps=3 format=3 uid="uid://jxfj1wdcmngy"]
+[gd_scene load_steps=4 format=3 uid="uid://jxfj1wdcmngy"]
 
 [ext_resource type="Script" uid="uid://bjs63vrc71u1v" path="res://Scenes/end.gd" id="1_67ibq"]
 [ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="1_pw64i"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_67ibq"]
+
 [node name="ColorRect" type="ColorRect"]
-anchors_preset = -1
-anchor_left = -0.209
-anchor_top = -0.178
-offset_left = 40.880005
-offset_top = 16.04
-offset_right = 350.0
-offset_bottom = 196.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.6764574, 0.45565796, 0.73828125, 1)
 script = ExtResource("1_67ibq")
 
 [node name="WinLabel" type="RichTextLabel" parent="."]
 clip_contents = false
-layout_mode = 0
-offset_left = 30.0
-offset_top = 23.000004
-offset_right = 95.0
-offset_bottom = 45.000004
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_top = 16.0
+offset_right = -87.99999
+offset_bottom = 38.0
+grow_horizontal = 2
 scale = Vector2(5, 5)
 theme = ExtResource("1_pw64i")
 bbcode_enabled = true
 text = "[rainbow freq=0.1]You Win!"
+fit_content = true
 
 [node name="ThankYou" type="RichTextLabel" parent="."]
 clip_contents = false
-layout_mode = 0
-offset_left = 31.0
-offset_top = 71.00001
-offset_right = 205.5
-offset_bottom = 109.33335
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_top = 69.0
+offset_right = 22.5
+offset_bottom = 107.33334
+grow_horizontal = 2
 scale = Vector2(1.8, 1.8)
 theme = ExtResource("1_pw64i")
 bbcode_enabled = true
@@ -42,23 +51,40 @@ horizontal_alignment = 1
 
 [node name="ThankYou2" type="RichTextLabel" parent="."]
 clip_contents = false
-layout_mode = 0
-offset_left = 32.0
-offset_top = 129.0
-offset_right = 206.5
-offset_bottom = 146.5
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_top = 136.0
+offset_right = 22.5
+offset_bottom = 153.5
+grow_horizontal = 2
 scale = Vector2(1.8, 1.8)
 theme = ExtResource("1_pw64i")
 bbcode_enabled = true
 text = "Thank you for playing"
 
 [node name="MainMenuButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 144.0
-offset_top = 167.0
-offset_right = 224.0
-offset_bottom = 183.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -136.0
+offset_top = -20.0
+offset_right = -56.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
 theme = ExtResource("1_pw64i")
 text = "Main Menu"
 
+[node name="TouchMainMenuButton" type="TouchScreenButton" parent="MainMenuButton"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(80, 16)
+texture_normal = SubResource("PlaceholderTexture2D_67ibq")
+
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MainMenuButton/TouchMainMenuButton" to="." method="_on_touch_main_menu_button_pressed"]

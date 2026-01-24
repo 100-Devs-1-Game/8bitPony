@@ -45,7 +45,7 @@ func setup_shards():
 	#Update shard count in HUD
 	Global.current_level_shard = level_shard_type
 	#Global.shard_counter = collected
-	hud.get_node("Shards").set_up_shards()
+	hud.shards_sprite.set_up_shards()
 	hud.level_shards.value = collected
 	hud.level_shards.suffix = str("/", i)
 

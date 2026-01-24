@@ -1,23 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://w8dcep84ktae"]
+[gd_scene load_steps=4 format=3 uid="uid://w8dcep84ktae"]
 
 [ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="1_43m0o"]
 [ext_resource type="Script" uid="uid://b4cv7mcvntutd" path="res://Scenes/Rooms/Credits.gd" id="2_4flb0"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_43m0o"]
+
 [node name="Credits" type="ColorRect"]
-offset_left = -54.0
-offset_top = -41.0
-offset_right = 336.0
-offset_bottom = 195.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_43m0o")
 color = Color(0, 0, 0, 1)
 script = ExtResource("2_4flb0")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 48.0
-offset_right = 277.0
-offset_bottom = 210.0
+layout_mode = 1
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 229.0
+offset_bottom = 170.0
 theme_override_constants/paragraph_separation = 1
 text = "Credits:
 Lead Game Designer: 
@@ -38,12 +41,25 @@ QA:
 -duncaii"
 
 [node name="MainMenuButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 289.0
-offset_top = 201.0
-offset_right = 369.0
-offset_bottom = 217.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -28.0
+offset_right = -16.0
+offset_bottom = -12.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_constants/h_separation = 4
 text = "Main Menu"
 
+[node name="TouchMainMenuButton" type="TouchScreenButton" parent="MainMenuButton"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(80, 16)
+texture_normal = SubResource("PlaceholderTexture2D_43m0o")
+
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MainMenuButton/TouchMainMenuButton" to="." method="_on_touch_main_menu_button_pressed"]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=17 format=4 uid="uid://dkcxtqxuy8wpj"]
+[gd_scene load_steps=18 format=4 uid="uid://dkcxtqxuy8wpj"]
 
 [ext_resource type="Texture2D" uid="uid://b2jag1k3bos6o" path="res://Images/Assets/Level Select/Doors_sheet.webp" id="2_4e2o1"]
-[ext_resource type="Texture2D" uid="uid://c8hlyf3tgxj4e" path="res://Images/Assets/Level Select/Lock_1.png" id="2_bw412"]
+[ext_resource type="Texture2D" uid="uid://bn68o0nd5g4ft" path="res://Images/Assets/Level Select/Lock_1.png" id="2_bw412"]
 [ext_resource type="Script" uid="uid://cal1x0sa0stef" path="res://Scenes/Objects/Door/door.gd" id="2_l0b71"]
 [ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="4_4e2o1"]
 [ext_resource type="Texture2D" uid="uid://cqtscoaqxugq8" path="res://Images/Assets/Misc/Shards/shard_sheet.png" id="5_dvgly"]
@@ -896,6 +896,8 @@ cache/0/4/0/glyphs/123/size = Vector2(6, 4)
 cache/0/4/0/glyphs/123/uv_rect = Rect2(64, 1, 6, 4)
 cache/0/4/0/glyphs/123/texture_idx = 0
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_umirr"]
+
 [node name="Door" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
@@ -978,6 +980,14 @@ position = Vector2(0, 9)
 texture = ExtResource("6_umirr")
 hframes = 3
 vframes = 2
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-8, -16)
+scale = Vector2(16, 16)
+texture_normal = SubResource("PlaceholderTexture2D_umirr")
+action = "Interact"
+visibility_mode = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
