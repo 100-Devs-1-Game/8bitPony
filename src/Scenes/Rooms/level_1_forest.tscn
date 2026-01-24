@@ -66,6 +66,7 @@ metadata/_edit_lock_ = true
 scale = Vector2(0.5, 0.5)
 scroll_offset = Vector2(-6, 2)
 repeat_size = Vector2(320, 800)
+repeat_times = 6
 
 [node name="BackLayer" parent="TileMaps/Parallax2D" index="0"]
 visible = false
