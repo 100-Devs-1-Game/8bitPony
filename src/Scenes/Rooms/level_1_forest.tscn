@@ -146,13 +146,14 @@ offset_left = 81.0
 offset_top = 156.0
 offset_right = 215.0
 offset_bottom = 216.0
+text = "As Unicorn (purple), press LMB to shoot a bullet to kill enemies."
 
 [node name="Note9" parent="Labels" index="1" instance=ExtResource("5_kt8kq")]
 offset_left = -65.0
 offset_top = 167.0
 offset_right = 69.0
 offset_bottom = 227.0
-text = "Quick, you must save your friends.  They were kidnapped by  [color=red][wave amp=8]DISCORD"
+text = "Quick, you must save your friends. They were kidnapped by [color=red][wave amp=8]DISCORD[color=white][wave amp=-8]."
 
 [node name="Note8" parent="Labels" index="2" instance=ExtResource("5_kt8kq")]
 offset_left = 317.0
@@ -166,42 +167,42 @@ offset_left = 223.0
 offset_top = 175.0
 offset_right = 356.0
 offset_bottom = 215.0
-text = "You must collect all the shards to defeat [color=red][wave amp=8]DISCORD"
+text = "You must collect all the shards to defeat [color=red][wave amp=8]DISCORD[color=white][wave amp=-8]."
 
 [node name="Note3" parent="Labels" index="4" instance=ExtResource("5_kt8kq")]
 offset_left = 547.0
 offset_top = 168.0
 offset_right = 680.0
 offset_bottom = 208.0
-text = "As Earth(green), jump then use LMB to stomp on this mushroom"
+text = "As Earth Pony (green), jump then use LMB to stomp on this mushroom."
 
 [node name="Note4" parent="Labels" index="5" instance=ExtResource("5_kt8kq")]
 offset_left = 417.0
 offset_top = 170.0
 offset_right = 550.0
 offset_bottom = 210.0
-text = "As Earth(green),  use LMB to break this wall"
+text = "As Earth Pony (green), use LMB to break this wall."
 
 [node name="Note5" parent="Labels" index="6" instance=ExtResource("5_kt8kq")]
 offset_left = 924.0
 offset_top = 176.0
 offset_right = 1057.0
 offset_bottom = 216.0
-text = "Only Pegasus(blue), can ride cloud platforms."
+text = "Only Pegasus (blue), can ride cloud platforms."
 
 [node name="Note6" parent="Labels" index="7" instance=ExtResource("5_kt8kq")]
 offset_left = 1040.0
 offset_top = 49.0
 offset_right = 1173.0
 offset_bottom = 89.0
-text = "Pegasus(blue), can also glide. Jump and HOLD LMB to glide far."
+text = "Pegasus (blue), can also glide. Jump and HOLD LMB to glide far."
 
 [node name="Note7" parent="Labels" index="8" instance=ExtResource("5_kt8kq")]
 offset_left = 1276.0
 offset_top = 166.0
 offset_right = 1419.0
 offset_bottom = 206.0
-text = "You have learned all skills. Now go save your friends and defeat [color=red][wave amp=8]DISCORD"
+text = "You have learned all skills. Now go save your friends and defeat [color=red][wave amp=8]DISCORD[color=white][wave amp=-8]."
 
 [node name="Note10" parent="Labels" index="9" instance=ExtResource("5_kt8kq")]
 offset_left = 2177.0
