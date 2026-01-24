@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name HUD
 
 @onready var score: ValueLabel = $Gui/Stats/ScoreValue
 @onready var level_shards: ValueLabel = $Gui/Stats/Shards/ShardValue

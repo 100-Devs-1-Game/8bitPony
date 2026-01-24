@@ -3,7 +3,7 @@ extends Node2D
 @export var level_shard_type:Global.Gems
 
 @onready var jail: Area2D = $Jail
-@onready var hud: CanvasLayer = $HUD
+@onready var hud: HUD = $HUD
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,7 +11,7 @@ func _ready():
 	if get_tree().get_node_count_in_group('shards')>0:
 		setup_shards()
 	else:
-		hud.get_node("Shards").hide()
+		hud.shards_sprite.hide()
 	
 	jail.set_pony(level_shard_type)
 	if Global.pony_saved[level_shard_type]:
