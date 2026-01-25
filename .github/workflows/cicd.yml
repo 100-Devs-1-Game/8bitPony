@@ -20,9 +20,16 @@ jobs:
       # restore Android keystore and inject credentials (add BEFORE Build game)
       - name: Restore Android keystore
         run: |
+          if [ -z "${{ secrets.ANDROID_KEYSTORE_B64 }}" ]; then
+            echo "ERROR: ANDROID_KEYSTORE_B64 secret is empty" >&2
+            exit 1
+          fi
           mkdir -p src/android
-          # decode base64 keystore secret into the file expected by the export preset
           printf '%s' "${{ secrets.ANDROID_KEYSTORE_B64 }}" | base64 --decode > src/android/keystore.jks
+          echo "Keystore file created:"
+          ls -l src/android/keystore.jks
+          echo "Keystore size (bytes):"
+          wc -c < src/android/keystore.jks
 
       - name: Inject Android signing credentials into export_presets.cfg
         run: |
