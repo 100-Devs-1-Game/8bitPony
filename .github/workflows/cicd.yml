@@ -39,6 +39,7 @@ jobs:
           sed -i 's|__KEYSTORE_PASSWORD_PLACEHOLDER__|'"${{ secrets.ANDROID_KEYSTORE_PASSWORD }}"'|g' src/export_presets.cfg
           sed -i 's|__KEY_PASSWORD_PLACEHOLDER__|'"${{ secrets.ANDROID_KEY_PASSWORD }}"'|g' src/export_presets.cfg
           sed -i 's|__KEY_ALIAS_PLACEHOLDER__|'"${{ secrets.ANDROID_KEY_ALIAS }}"'|g' src/export_presets.cfg
+          cat src/export_presets.cfg
 
       - name: Build game
         id: build
