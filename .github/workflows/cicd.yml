@@ -17,6 +17,22 @@ jobs:
         with:
           lfs: true
 
+            # restore Android keystore and inject credentials (add BEFORE Build game)
+      - name: Restore Android keystore
+        run: |
+          mkdir -p src/android
+          # decode base64 keystore secret into the file expected by the export preset
+          printf '%s' "${{ secrets.ANDROID_KEYSTORE_B64 }}" | base64 --decode > src/android/keystore.jks
+
+      - name: Inject Android signing credentials into export_presets.cfg
+        run: |
+          # This assumes you have placeholders in src/export_presets.cfg such as:
+          # __KEYSTORE_PASSWORD_PLACEHOLDER__, __KEY_PASSWORD_PLACEHOLDER__, __KEY_ALIAS_PLACEHOLDER__
+          # Replace those placeholders with secrets at runtime
+          sed -i 's|__KEYSTORE_PASSWORD_PLACEHOLDER__|'"${{ secrets.ANDROID_KEYSTORE_PASSWORD }}"'|g' src/export_presets.cfg
+          sed -i 's|__KEY_PASSWORD_PLACEHOLDER__|'"${{ secrets.ANDROID_KEY_PASSWORD }}"'|g' src/export_presets.cfg
+          sed -i 's|__KEY_ALIAS_PLACEHOLDER__|'"${{ secrets.ANDROID_KEY_ALIAS }}"'|g' src/export_presets.cfg
+
       - name: Build game
         id: build
         uses: firebelley/godot-export@v5.2.1
