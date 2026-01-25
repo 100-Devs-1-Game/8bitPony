@@ -17,7 +17,7 @@ jobs:
         with:
           lfs: true
 
-            # restore Android keystore and inject credentials (add BEFORE Build game)
+      # restore Android keystore and inject credentials (add BEFORE Build game)
       - name: Restore Android keystore
         run: |
           mkdir -p src/android
