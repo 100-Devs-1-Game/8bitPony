@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://w8dcep84ktae"]
+[gd_scene format=3 uid="uid://w8dcep84ktae"]
 
 [ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="1_43m0o"]
 [ext_resource type="Script" uid="uid://b4cv7mcvntutd" path="res://Scenes/Rooms/Credits.gd" id="2_4flb0"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_43m0o"]
 
-[node name="Credits" type="ColorRect"]
+[node name="Credits" type="ColorRect" unique_id=884935711]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,7 +15,7 @@ theme = ExtResource("1_43m0o")
 color = Color(0, 0, 0, 1)
 script = ExtResource("2_4flb0")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1250016684]
 layout_mode = 1
 offset_left = 16.0
 offset_top = 8.0
@@ -40,7 +40,7 @@ Programmer:
 QA:
 -duncaii"
 
-[node name="MainMenuButton" type="Button" parent="."]
+[node name="MainMenuButton" type="Button" parent="." unique_id=879625699]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -48,15 +48,15 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -96.0
-offset_top = -28.0
+offset_top = -20.0
 offset_right = -16.0
-offset_bottom = -12.0
+offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/h_separation = 4
 text = "Main Menu"
 
-[node name="TouchMainMenuButton" type="TouchScreenButton" parent="MainMenuButton"]
+[node name="TouchMainMenuButton" type="TouchScreenButton" parent="MainMenuButton" unique_id=2025898045]
 modulate = Color(1, 1, 1, 0)
 scale = Vector2(80, 16)
 texture_normal = SubResource("PlaceholderTexture2D_43m0o")

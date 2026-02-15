@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://comkomt2jtubb"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://comkomt2jtubb"]
 
 [ext_resource type="Texture2D" uid="uid://dojvxonio64us" path="res://Images/Characters/Pegasus/PegasusSpriteSheet.png" id="1_ug5as"]
 

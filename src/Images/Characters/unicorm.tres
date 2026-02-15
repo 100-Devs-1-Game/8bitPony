@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://cekr32m6i7lj5"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://cekr32m6i7lj5"]
 
 [ext_resource type="Texture2D" uid="uid://bteulwnun7m8" path="res://Images/Characters/Unicorn/UnicornSpriteSheet.png" id="4_i3ib1"]
 

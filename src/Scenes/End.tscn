@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://jxfj1wdcmngy"]
+[gd_scene format=3 uid="uid://jxfj1wdcmngy"]
 
 [ext_resource type="Script" uid="uid://bjs63vrc71u1v" path="res://Scenes/end.gd" id="1_67ibq"]
 [ext_resource type="Theme" uid="uid://dfsa1pi80a63t" path="res://Scenes/HUD/default_theme.tres" id="1_pw64i"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_67ibq"]
 
-[node name="ColorRect" type="ColorRect"]
+[node name="ColorRect" type="ColorRect" unique_id=1819691794]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,7 +14,7 @@ grow_vertical = 2
 color = Color(0.6764574, 0.45565796, 0.73828125, 1)
 script = ExtResource("1_67ibq")
 
-[node name="WinLabel" type="RichTextLabel" parent="."]
+[node name="WinLabel" type="RichTextLabel" parent="." unique_id=1682752609]
 clip_contents = false
 layout_mode = 1
 anchors_preset = 5
@@ -31,7 +31,7 @@ bbcode_enabled = true
 text = "[rainbow freq=0.1]You Win!"
 fit_content = true
 
-[node name="ThankYou" type="RichTextLabel" parent="."]
+[node name="ThankYou" type="RichTextLabel" parent="." unique_id=1685922541]
 clip_contents = false
 layout_mode = 1
 anchors_preset = 5
@@ -49,7 +49,7 @@ text = "You have defeated [wave freq=2][color=red]DISCORD[/color][/wave] and bro
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="ThankYou2" type="RichTextLabel" parent="."]
+[node name="ThankYou2" type="RichTextLabel" parent="." unique_id=313957303]
 clip_contents = false
 layout_mode = 1
 anchors_preset = 5
@@ -65,23 +65,23 @@ theme = ExtResource("1_pw64i")
 bbcode_enabled = true
 text = "Thank you for playing"
 
-[node name="MainMenuButton" type="Button" parent="."]
+[node name="MainMenuButton" type="Button" parent="." unique_id=363823815]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -136.0
+offset_left = -96.0
 offset_top = -20.0
-offset_right = -56.0
+offset_right = -16.0
 offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("1_pw64i")
 text = "Main Menu"
 
-[node name="TouchMainMenuButton" type="TouchScreenButton" parent="MainMenuButton"]
+[node name="TouchMainMenuButton" type="TouchScreenButton" parent="MainMenuButton" unique_id=1978204202]
 modulate = Color(1, 1, 1, 0)
 scale = Vector2(80, 16)
 texture_normal = SubResource("PlaceholderTexture2D_67ibq")

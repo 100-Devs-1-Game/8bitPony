@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://c5xejof3qc3ma"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://c5xejof3qc3ma"]
 
 [ext_resource type="Texture2D" uid="uid://dpsibsmeqsdn4" path="res://Images/Characters/Earth Pony/EarthPony_SpriteSheet.png" id="1_xmjss"]
 

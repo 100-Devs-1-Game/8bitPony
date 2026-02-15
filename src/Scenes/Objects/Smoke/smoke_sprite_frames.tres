@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=26 format=3 uid="uid://nsh5sis45wl2"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://nsh5sis45wl2"]
 
 [ext_resource type="Texture2D" uid="uid://crdi1vv8kenx0" path="res://Images/Assets/smoke-frames.png" id="1_4qdo2"]
 

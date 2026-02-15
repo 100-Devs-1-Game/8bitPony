@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://816fkgr1blu3"]
+[gd_scene format=3 uid="uid://816fkgr1blu3"]
 
 [ext_resource type="Script" uid="uid://k3qgf0bik0xw" path="res://Scripts/main_menu.gd" id="1_ljxe7"]
 [ext_resource type="FontFile" uid="uid://c3r2ugmucgyjt" path="res://assets/font-8.tres" id="3_65ujr"]
@@ -8,7 +8,7 @@
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dkmyi"]
 
-[node name="Main Menu" type="Control"]
+[node name="Main Menu" type="Control" unique_id=1662927289]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,7 +18,7 @@ grow_vertical = 2
 script = ExtResource("1_ljxe7")
 level_select_scene = "uid://cld5hp2hoekbc"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1670968576]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.309804, 0, 0.533333, 1)
 
-[node name="Title" type="Label" parent="ColorRect"]
+[node name="Title" type="Label" parent="ColorRect" unique_id=387124753]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -46,7 +46,7 @@ text = "8-BIT PONY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Start_Button" type="Button" parent="ColorRect"]
+[node name="Start_Button" type="Button" parent="ColorRect" unique_id=791912471]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -63,21 +63,28 @@ theme = ExtResource("4_bum5j")
 theme_override_font_sizes/font_size = 8
 text = "Start Game"
 
-[node name="TouchStartButton" type="TouchScreenButton" parent="ColorRect/Start_Button"]
+[node name="TouchStartButton" type="TouchScreenButton" parent="ColorRect/Start_Button" unique_id=549506156]
 modulate = Color(1, 1, 1, 0)
 scale = Vector2(96, 30.5)
 texture_normal = SubResource("PlaceholderTexture2D_4yjuk")
 
-[node name="CreditsBtn" type="Button" parent="."]
-layout_mode = 0
-offset_left = 246.0
-offset_top = 158.0
-offset_right = 310.0
-offset_bottom = 174.0
+[node name="CreditsBtn" type="Button" parent="." unique_id=352181440]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -20.0
+offset_right = -16.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
 theme = ExtResource("4_bum5j")
 text = "Credits"
 
-[node name="TouchCreditButton" type="TouchScreenButton" parent="CreditsBtn"]
+[node name="TouchCreditButton" type="TouchScreenButton" parent="CreditsBtn" unique_id=1856112108]
 modulate = Color(1, 1, 1, 0)
 scale = Vector2(64, 16)
 texture_normal = SubResource("PlaceholderTexture2D_dkmyi")
